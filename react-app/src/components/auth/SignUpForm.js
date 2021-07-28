@@ -5,6 +5,8 @@ import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,27 +17,22 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const newUser = {
+        first_name,
+        last_name,
+        username,
+        email,
+        password,
+        email_updates: true,
+        super_user: false,
+        tier_id: 1,
+      }
+      console.log('---->', newUser)
+      const data = await dispatch(signUp(newUser));
       if (data) {
         setErrors(data)
       }
     }
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
   };
 
   if (user) {
@@ -50,38 +47,62 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label htmlFor='first_name'>First Name</label>
         <input
+          id='first_name'
           type='text'
           name='username'
-          onChange={updateUsername}
+          onChange={(e) => setFirstName(e.target.value)}
+          value={first_name}
+        ></input>
+      </div>
+      <div>
+        <label htmlFor='last_name'>Last Name</label>
+        <input
+          id='last_name'
+          type='text'
+          name='username'
+          onChange={(e) => setLastName(e.target.value)}
+          value={last_name}
+        ></input>
+      </div>
+      <div>
+        <label htmlFor='username'>Username</label>
+        <input
+          id='username'
+          type='text'
+          name='username'
+          onChange={(e) => setUsername(e.target.value)}
           value={username}
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label htmlFor='email'>Email</label>
         <input
+          id='email'
           type='text'
           name='email'
-          onChange={updateEmail}
+          onChange={(e) => setEmail(e.target.value)}
           value={email}
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label htmlFor='password'>Password</label>
         <input
+          id='password'
           type='password'
           name='password'
-          onChange={updatePassword}
+          onChange={(e) => setPassword(e.target.value)}
           value={password}
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label htmlFor='repeatPassword'>Repeat Password</label>
         <input
+          id='repeatPassword'
           type='password'
           name='repeat_password'
-          onChange={updateRepeatPassword}
+          onChange={(e) => setRepeatPassword(e.target.value)}
           value={repeatPassword}
           required={true}
         ></input>
