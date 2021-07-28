@@ -10,8 +10,22 @@ def seed_tutorials():
                      video_link='https://www.youtube.com/watch?v=qRisU5BzKD0',
                      date=date(2020, 8, 7), style_id=1,
                      level_id=1, tier_id=1)
+    vid_2 = Tutorial(title='Video 2', description=
+                     '''
+                     Video 2...
+                     ''',
+                     video_link='https://www.youtube.com/watch?v=qRisU5BzKD0',
+                     date=date(2020, 7, 7), style_id=1,
+                     level_id=1, tier_id=1)
+    vid_3 = Tutorial(title='Video 3', description=
+                     '''
+                     Video 3...
+                     ''',
+                     video_link='https://www.youtube.com/watch?v=qRisU5BzKD0',
+                     date=date(2020, 6, 7), style_id=1,
+                     level_id=1, tier_id=1)
 
-    all_tutorials = [vid_1]
+    all_tutorials = [vid_1, vid_2, vid_3]
 
     db.session.add_all(all_tutorials)
     db.session.commit()
