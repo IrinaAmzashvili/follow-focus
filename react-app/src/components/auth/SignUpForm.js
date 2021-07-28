@@ -24,14 +24,14 @@ const SignUpForm = () => {
         email,
         password,
         email_updates: true,
-        // super_user: false,
         tier_id: 1,
       }
-      console.log('---->', newUser)
       const data = await dispatch(signUp(newUser));
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['Passwords must match.'])
     }
   };
 
@@ -104,7 +104,6 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={(e) => setRepeatPassword(e.target.value)}
           value={repeatPassword}
-          required={true}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>

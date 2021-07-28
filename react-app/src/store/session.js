@@ -76,14 +76,7 @@ export const signUp = (newUser) => async (dispatch) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(
-      newUser
-      // {
-      // username,
-      // email,
-      // password,
-    // }
-    ),
+    body: JSON.stringify(newUser),
   });
 
   if (response.ok) {
