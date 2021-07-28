@@ -7,11 +7,9 @@ class Style(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     dance_style = db.Column(db.String(30), nullable=False)
 
-    tutorials = db.relationship('Tutorial', back_populates='style')
-
     def to_dict(self):
         return {
             'id': self.id,
             'danceStyle': self.dance_style,
-            'tutorials': [tutorial.id for tutorial in self.tutorials],
+            'tutorials': [tutorial.to_dict() for tutorial in self.tutorials],
         }

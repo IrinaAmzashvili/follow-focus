@@ -7,15 +7,17 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    tutorial_id = db.Column(db.Integer, db.ForeignKey('tutorials.id'), nullable=False)
+    tutorial_id = db.Column(db.Integer, db.ForeignKey('tutorials.id'),
+                            nullable=False)
 
-    user = db.relationship('User', back_populates='comments')
-    tutorial = db.relationship('Tutorial', back_populates='comments')
+    # one to many relationships - many side
+    user = db.relationship('User', backref='comments')
+    tutorial = db.relationship('Tutorial', backref='comments')
 
     def to_dict(self):
         return {
             'id': self.id,
             'body': self.body,
-            'user': self.user,
-            'tutorial': self.tutorial,
+            'userId': self.user_id,
+            'tutorialId': self.tutorial_id,
         }

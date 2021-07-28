@@ -1,12 +1,15 @@
 from app.models import db, Tutorial
+from datetime import date
 
 
 def seed_tutorials():
-    vid_1 = Tutorial(title='The Count\'s Idea', description='''
+    vid_1 = Tutorial(title='The Count\'s Idea', description=
+                     '''
                      Music: The Count’s Idea by Charlie Barnet & His Orchestra
                      ''',
                      video_link='https://www.youtube.com/watch?v=qRisU5BzKD0',
-                     date='', style_id=1, level_id=1, tier_id=1)
+                     date=date(2020, 8, 7), style_id=1,
+                     level_id=1, tier_id=1)
 
     all_tutorials = [vid_1]
 

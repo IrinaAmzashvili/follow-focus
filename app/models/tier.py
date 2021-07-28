@@ -10,9 +10,6 @@ class Tier(db.Model):
     img_url = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
-    users = db.relationship('User', back_populates='tier')
-    tutorials = db.relationship('Tutorial', back_populates='tier')
-
     def to_dict(self):
         return {
             'id': self.id,

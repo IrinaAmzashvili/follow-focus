@@ -4,7 +4,7 @@ from .tags import seed_tags, undo_tags
 from .styles import seed_styles, undo_styles
 from .levels import seed_levels, undo_levels
 from .users import seed_users, undo_users
-# from .tutorials import seed_tutorials, undo_tutorials
+from .tutorials import seed_tutorials, undo_tutorials
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -19,7 +19,7 @@ def seed():
     seed_styles()
     seed_levels()
     seed_users()
-    # seed_tutorials()
+    seed_tutorials()
     # Add other seed functions here
 
 
@@ -31,5 +31,5 @@ def undo():
     undo_styles()
     undo_levels()
     undo_users()
-    # undo_tutorials()
+    undo_tutorials()
     # Add other undo functions here

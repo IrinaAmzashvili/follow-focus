@@ -17,8 +17,10 @@ class User(db.Model, UserMixin):
     super_user = db.Column(db.Boolean, nullable=False)
     tier_id = db.Column(db.Integer, db.ForeignKey('tiers.id'), nullable=False)
 
-    tier = db.relationship('Tier', back_populates='users')
-    comments = db.relationship('Comment', back_populates='user')
+    # one to many relationship - many side
+    tier = db.relationship('Tier', backref='users')
+
+    # many to many relationship
     tutorials = db.relationship('Tutorial', secondary=likes,
                                 back_populates='users')
 
@@ -42,7 +44,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'emailUpdates': self.email_updates,
             'superUser': self.super_user,
-            'tier': self.tier,
+            'tierId': self.tier_id,
             'comments': [comment.id for comment in self.comments],
-            'likes': [tutorial.id for tutorial in self.tutorials],
+            'likedVideos': [tutorial.to_dict() for tutorial in self.tutorials],
         }

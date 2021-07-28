@@ -16,11 +16,12 @@ class Tutorial(db.Model):
                          nullable=False)
     tier_id = db.Column(db.Integer, db.ForeignKey('tiers.id'), nullable=False)
 
-    style = db.relationship('Style', back_populates='tutorials')
-    level = db.relationship('Level', back_populates='tutorials')
-    tier = db.relationship('Tier', back_populates='tutorials')
-    comments = db.relationship('Comment', back_populates='tutorial')
+    # one to many relationships - many side
+    style = db.relationship('Style', backref='tutorials')
+    level = db.relationship('Level', backref='tutorials')
+    tier = db.relationship('Tier', backref='tutorials')
 
+    # many to many relationships
     users = db.relationship('User', secondary=likes,
                             back_populates='tutorials')
     tags = db.relationship('Tag', secondary=tutorial_tags,
@@ -32,10 +33,11 @@ class Tutorial(db.Model):
             'title': self.title,
             'description': self.description,
             'videoLink': self.video_link,
-            'style': self.style,
-            'level': self.level,
-            'tier': self.tier,
-            'comments': [comment.id for comment in self.comments],
-            'likes': [like.id for like in self.users],
+            'date': self.date,
+            'styleId': self.style_id,
+            'levelId': self.level_id,
+            'tierId': self.tier_id,
+            'comments': [comment.to_dict() for comment in self.comments],
+            'userLikes': [like.id for like in self.users],
             'tags': [tag.id for tag in self.tags],
         }
