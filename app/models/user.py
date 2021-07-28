@@ -40,7 +40,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'firstName': self.first_name,
             'lastName': self.last_name,
-            'username': self.user_name,
+            'username': self.username,
             'email': self.email,
             'emailUpdates': self.email_updates,
             'superUser': self.super_user,
