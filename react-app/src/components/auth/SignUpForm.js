@@ -24,7 +24,7 @@ const SignUpForm = () => {
         email,
         password,
         email_updates: true,
-        super_user: false,
+        // super_user: false,
         tier_id: 1,
       }
       console.log('---->', newUser)
