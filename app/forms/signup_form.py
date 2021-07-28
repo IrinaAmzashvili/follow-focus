@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired, Email, ValidationError, InputRequired
 from app.models import User
 
@@ -20,6 +20,11 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
+def check_boolean(form, field):
+    if field.data is None:
+        raise ValidationError('Super_user field is required.')
+
+
 class SignUpForm(FlaskForm):
     first_name = StringField('first_name', validators=[DataRequired()])
     last_name = StringField('last_name', validators=[DataRequired()])
@@ -27,6 +32,6 @@ class SignUpForm(FlaskForm):
         'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[DataRequired()])
-    email_updates = StringField('email_updates', validators=[DataRequired()])
-    super_user = StringField('super_user', validators=[InputRequired()])
+    email_updates = BooleanField('email_updates')
+    super_user = BooleanField('super_user')
     tier_id = StringField('tier_id', validators=[DataRequired()])

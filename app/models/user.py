@@ -13,8 +13,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    email_updates = db.Column(db.Boolean, nullable=False)
-    super_user = db.Column(db.Boolean, nullable=False)
+    email_updates = db.Column(db.Boolean, default=True)
+    super_user = db.Column(db.Boolean, default=False)
     tier_id = db.Column(db.Integer, db.ForeignKey('tiers.id'), nullable=False)
 
     # one to many relationship - many side
