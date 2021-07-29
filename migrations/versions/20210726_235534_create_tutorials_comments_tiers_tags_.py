@@ -70,8 +70,8 @@ def upgrade():
     )
     op.add_column('users', sa.Column('first_name', sa.String(length=30), nullable=False))
     op.add_column('users', sa.Column('last_name', sa.String(length=30), nullable=False))
-    op.add_column('users', sa.Column('email_updates', sa.Boolean(), nullable=False))
-    op.add_column('users', sa.Column('super_user', sa.Boolean(), nullable=False))
+    op.add_column('users', sa.Column('email_updates', sa.Boolean(), default=True))
+    op.add_column('users', sa.Column('super_user', sa.Boolean(), default=False))
     # ### end Alembic commands ###
 
 
