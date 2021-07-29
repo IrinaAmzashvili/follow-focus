@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/User/UsersList';
 import User from './components/User';
 import TutorialsPage from './components/TutorialsPage';
+import Footer from './components/Footer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           </ProtectedRoute>
         </Switch>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -58,7 +58,7 @@ const NavBar = () => {
   return (
     <nav>
       <div>
-        <img src={BannerPic()} alt=''/>
+        <img src={BannerPic()} alt='' className={styles.banner}/>
       </div>
       <ul className={styles.navbarLinks}>
         {sessionLinks}
