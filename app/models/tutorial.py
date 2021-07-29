@@ -7,8 +7,9 @@ class Tutorial(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
-    description = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text)
     video_link = db.Column(db.Text, nullable=False)
+    thumbnail_url = db.Column(db.Text)
     date = db.Column(db.DateTime, nullable=False)
     style_id = db.Column(db.Integer, db.ForeignKey('styles.id'),
                          nullable=False)
@@ -33,6 +34,7 @@ class Tutorial(db.Model):
             'title': self.title,
             'description': self.description,
             'videoLink': self.video_link,
+            'thumbnailUrl': self.thumbnail_url,
             'date': self.date,
             'styleId': self.style_id,
             'levelId': self.level_id,
