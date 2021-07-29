@@ -68,3 +68,7 @@ ul {
     transition: all 0.3s ease 0s;
     /* background-color: var(--tealHover); */
 }
+
+.activeNavLink {
+    border-bottom: 1px solid grey;
+}

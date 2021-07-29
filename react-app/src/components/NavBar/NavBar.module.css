@@ -1,0 +1,22 @@
+@import '../../index.css';
+
+
+.navbarLinks {
+    display: flex;
+    justify-content: flex-end;
+    margin: 25px 40px;
+
+}
+
+.navbarLinks > li {
+    padding: 0 60px;
+    font-weight: 900;
+}
+
+.navbarLinks > li:not(:last-child) {
+    border-right: 1px solid grey;
+}
+
+.navLink {
+    padding-bottom: 5px;
+}

@@ -42,9 +42,9 @@ function App() {
           <ProtectedRoute path='/users/:userId' exact={true} >
             <User />
           </ProtectedRoute>
-          <Route path='/tutorials' exact={true}>
+          <ProtectedRoute path='/tutorials' exact={true}>
             <TutorialsPage />
-          </Route>
+          </ProtectedRoute>
           <ProtectedRoute path='/' exact={true} >
             <h1>My Home Page</h1>
           </ProtectedRoute>
