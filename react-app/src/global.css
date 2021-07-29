@@ -17,13 +17,19 @@ body {
     min-height: 100vh;
 }
 
-/* main{
-    width: 100%;
-    min-height: 800px;
-    z-index: -1000000;
-    padding-bottom: 166px;
+main {
+    /* width: 100%; */
+    /* min-height: 800px; */
+    /* z-index: -1000000; */
+    padding-bottom: 2.5rem;
 }
-*/
+
+/* #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+} */
 
 a {
     text-decoration: none;

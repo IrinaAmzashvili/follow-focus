@@ -19,9 +19,10 @@ export const getTutorials = () => async (dispatch) => {
 const initialState = {};
 
 const tutorialsReducer = (state = initialState, action) => {
-  let newObj;
+  let newObj = {};
   switch (action.type) {
     case SET_TUTORIALS:
+      console.log('-----> in reducer', action.tutorials)
       action.tutorials.forEach(tutorial => {
         newObj[tutorial.id] = tutorial
       });

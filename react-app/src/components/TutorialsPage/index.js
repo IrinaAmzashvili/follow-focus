@@ -6,7 +6,7 @@ import { getTutorials } from '../../store/tutorials';
 
 const TutorialsPage = () => {
   const dispatch = useDispatch();
-  const allTutorials = useSelector(state => state)
+  const allTutorials = useSelector(state => Object.values(state.tutorials))
   console.log(allTutorials)
 
   useEffect(() => {
@@ -16,7 +16,13 @@ const TutorialsPage = () => {
   return (
     <div>
       <div>
-        Hi! from tutorials
+        {allTutorials && allTutorials.map((tutorial) => (
+          <div key={tutorial.id}>
+            <div>{tutorial.title}</div>
+            <div>{tutorial.description}</div>
+            <div>{tutorial.videoLink}</div>
+          </div>
+        ))}
       </div>
     </div>
   )
