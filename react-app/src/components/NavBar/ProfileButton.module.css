@@ -23,6 +23,15 @@
 }
 
 .profileDropdown > li {
-    padding: 20px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.profileDropdown > li:last-child {
+    margin-bottom: 20px;
+}
+
+.dropdownLinks > * {
+    padding: 0 20px;
     text-align: right;
 }

@@ -1,0 +1,44 @@
+@import '../../index.css';
+
+
+.tutorialsPage {
+    display: flex;
+    margin: 70px 100px;
+}
+
+.filterContainer {
+    background-color: grey;
+    width: 300px;
+}
+
+.tutorialsDiv {
+    background-color: #e6e6fa;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tutorialsSearch {
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.videoSearch {
+    border-radius: 8px;
+    border: 1px solid grey;
+    height: 25px;
+    padding: 0 5px;
+}
+
+.tutorialsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.videoCard {
+    margin: 15px;
+    background-color: white;
+    width: 235px;
+    height: 180px;
+}

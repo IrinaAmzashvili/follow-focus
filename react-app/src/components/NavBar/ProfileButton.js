@@ -30,10 +30,10 @@ const ProfileButton = ({ sessionUser }) => {
       {sessionUser.username}
       {showMenu && (
         <ul className={styles.profileDropdown}>
-          <li>
+          <li className={styles.dropdownLinks}>
             <NavLink exact to={`/users/${sessionUser.id}`}>Profile</NavLink>
           </li>
-          <li>
+          <li className={styles.dropdownLinks}>
             <LogoutButton />
           </li>
         </ul>
