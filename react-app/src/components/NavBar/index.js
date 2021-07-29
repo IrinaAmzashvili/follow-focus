@@ -2,10 +2,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import { BannerPic } from '../../image/image';
 
 const NavBar = () => {
   return (
     <nav>
+      <div>
+        <img src={BannerPic()} alt=''/>
+      </div>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
