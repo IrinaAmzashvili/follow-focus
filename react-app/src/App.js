@@ -9,6 +9,7 @@ import UsersList from './components/User/UsersList';
 import User from './components/User';
 import TutorialsPage from './components/TutorialsPage';
 import Footer from './components/Footer';
+import IndividualTutorialPage from './components/IndividualTutorialPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -38,13 +39,16 @@ function App() {
             <SignUpForm />
           </Route>
           <ProtectedRoute path='/users' exact={true} >
-            <UsersList/>
+            <UsersList />
           </ProtectedRoute>
           <ProtectedRoute path='/users/:userId' exact={true} >
             <User />
           </ProtectedRoute>
           <ProtectedRoute path='/tutorials' exact={true}>
             <TutorialsPage />
+          </ProtectedRoute>
+          <ProtectedRoute path='/tutorials/:id' exact={true}>
+            <IndividualTutorialPage />
           </ProtectedRoute>
           <ProtectedRoute path='/' exact={true} >
             <h1>My Home Page</h1>

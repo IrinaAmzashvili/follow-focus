@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { TiHeartOutline } from 'react-icons/ti';
 import { getTutorials } from "../../store/tutorials";
 import styles from "./TutorialsPage.module.css";
 
@@ -14,7 +15,7 @@ const TutorialsPage = () => {
 
   return (
     <div className={styles.tutorialsPage}>
-      <div className={styles.filterContainer}>Hello from filter</div>
+      <div className={styles.filterContainer}>Filter Div</div>
       <div className={styles.tutorialsDiv}>
         <div className={styles.tutorialsSearch}>
           <label htmlFor='searchVideos'>
@@ -30,11 +31,19 @@ const TutorialsPage = () => {
         </div>
         <div className={styles.tutorialsContainer}>
           {allTutorials && allTutorials.map((tutorial) => (
-            <div className={styles.videoCard} key={tutorial.id}>
-              <div className={styles.videoThumbnail}></div>
-              <div className={styles.videoTitle}></div>
-              <div className={styles.likeButton}>{tutorial.title}</div>
-            </div>
+            <a href={`/tutorials/${tutorial.id}`} key={tutorial.id}>
+              <div className={styles.videoCard}>
+                <div className={styles.cardTop}>
+                    <img className={styles.thumbnailImg} src={tutorial.thumbnailUrl} alt='video thumbnail' />
+                </div>
+                <div className={styles.cardBottom}>
+                  <div className={styles.videoTitle}>{tutorial.title}</div>
+                  <div className={styles.likeButton}>
+                    <TiHeartOutline />
+                  </div>
+                </div>
+              </div>
+            </a>
           ))}
         </div>
       </div>

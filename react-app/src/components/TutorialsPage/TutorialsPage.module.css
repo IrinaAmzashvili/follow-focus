@@ -40,5 +40,33 @@
     margin: 15px;
     background-color: white;
     width: 235px;
-    height: 180px;
+    height: 190px;
+}
+
+.cardTop {
+    height: 132.19px;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.thumbnailImg {
+    width: 100%;
+}
+
+/* .thumbnailImg[height=132.19px] {
+    margin-top: 0;
+} */
+
+.cardBottom {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.videoTitle {
+    font-weight: 400;
+}
+
+.likeButton {
+    padding: 10px;
 }

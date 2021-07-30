@@ -25,7 +25,7 @@ const ProfileButton = ({ sessionUser }) => {
   }, [showMenu]);
 
   return (
-    <button className={`${styles.profileButton} link-button`} activeClassName='activeNavLink' onClick={openMenu}>
+    <button className={`${styles.profileButton} link-button`} onClick={openMenu}>
       <i className={`${styles.profileIcon} fas fa-user-circle`}></i>
       {sessionUser.username}
       {showMenu && (
