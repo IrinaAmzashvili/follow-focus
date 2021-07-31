@@ -148,7 +148,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <button className={styles.submitButton} type="submit">
+          <button className={`cta-button ${styles.submitButton}`} type="submit">
             Sign Up
           </button>
         </div>

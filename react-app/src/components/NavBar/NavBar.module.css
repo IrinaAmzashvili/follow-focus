@@ -17,7 +17,7 @@
 }
 
 .navbarLinks > li:not(:last-child) {
-    border-right: 1px solid grey;
+    border-right: 1px solid var(--greyTheme);
 }
 
 .navLink {

@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTutorial } from '../../store/tutorials';
-// import styles from './DeleteTutorial.module.css';
+import styles from './DeleteTutorial.module.css';
 
 const DeleteTutorial = ({ setShowModal }) => {
   const history = useHistory();
@@ -18,10 +18,13 @@ const DeleteTutorial = ({ setShowModal }) => {
   }
 
   return (
-    <div>
-      <h1>Are you sure you want to delete this tutorial?</h1>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={() => setShowModal(false)}>Cancel</button>
+    <div className={styles.confirmDeleteDiv}>
+      <h1 className={styles.header}>Are you sure?</h1>
+      <p className={styles.text}>Are you sure you want to delete this tutorial?</p>
+      <div className={styles.buttonsDiv}>
+        <button className={`cta-button button-danger ${styles.deleteButton}`} onClick={handleDelete}>Delete</button>
+        <button className={`cta-button button-green ${styles.cancelButton}`} onClick={() => setShowModal(false)}>Cancel</button>
+      </div>
     </div>
   )
 }

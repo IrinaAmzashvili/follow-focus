@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:light,regular,bold,black');
-
+@import './vars.css';
 
 * {
     box-sizing: border-box;
@@ -46,23 +46,45 @@ ul {
     cursor: pointer;
 }
 
-.cta_button{
-    /* width: 150px;
-    height: 45px;
-    border-radius: 35px;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    color: white; */
-    /* background-color: var(--tealTheme); */
+.activeNavLink {
+    border-bottom: 1px solid var(--greyTheme);
 }
 
-.cta_button:hover{
+.cta-button{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--yellowTheme);
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cta-button:hover{
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    /* background-color: var(--tealHover); */
+    background-color: var(--yellowHover);
 }
 
-.activeNavLink {
-    border-bottom: 1px solid grey;
+.button-danger {
+    color: #d40f0f;
+    border: 2px solid #d40f0f;
+    background-color: transparent;
+}
+
+.button-danger:hover {
+    transition: all 0.3s ease 0s;
+    color: white;
+    background-color: #d40f0f;
+}
+
+.button-green {
+    background-color: #27ae60;
+}
+
+.button-green:hover {
+    transition: all 0.3s ease 0s;
+    background-color: #2cc66d;
 }

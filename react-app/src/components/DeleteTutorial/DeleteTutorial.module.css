@@ -1,1 +1,28 @@
 @import '../../index.css';
+
+
+.confirmDeleteDiv {
+    padding: 50px;
+    width: 500px;
+}
+
+.header {
+    margin: 0;
+    border-bottom: 1px solid var(--greyTheme);
+}
+
+.text {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 18px;
+}
+
+.buttonsDiv {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+.cancelButton {
+    margin-left: 5px;
+}

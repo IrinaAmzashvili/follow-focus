@@ -73,7 +73,7 @@ const LoginForm = () => {
         </div>
 
         <div>
-          <button className={styles.submitButton} type="submit">
+          <button className={`cta-button ${styles.submitButton}`} type="submit">
             Log In
           </button>
         </div>
