@@ -31,3 +31,11 @@ def update_tutorial(id):
         db.session.commit()
         return tutorial.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@tutorial_routes.route('/<int:id>', methods=['DELETE'])
+def delete_tutorial(id):
+    tutorial = Tutorial.query.get_or_404(id)
+    db.session.delete(tutorial)
+    db.session.commit()
+    return {'success': True}

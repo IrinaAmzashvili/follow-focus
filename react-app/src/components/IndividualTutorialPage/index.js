@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOneTutorial, unloadCurrentTutorial } from "../../store/tutorials";
 import EditTutorial from '../EditTutorial';
+import DeleteTutorialModal from '../DeleteTutorial';
 import styles from "./IndividualTutorialPage.module.css";
 
 const IndividualTutorialPage = () => {
@@ -18,16 +19,6 @@ const IndividualTutorialPage = () => {
 
   useEffect(() => {
   }, [isLoaded])
-
-  // if (!tutorial) {
-  //   return (
-  //   )
-  // }
-
-  // if (!isLoaded) {
-  //   return (
-  //   )
-  // }
 
 
   return (isLoaded ? (tutorial ?
@@ -50,6 +41,7 @@ const IndividualTutorialPage = () => {
           <p className={styles.description}>{tutorial?.description}</p>
         </div>
         <EditTutorial tutorial={tutorial}/>
+        <DeleteTutorialModal linkText={'Delete'} />
       </div>
     </div>) :
       <h1>This tutorial doesn't exist.</h1>)

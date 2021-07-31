@@ -138,8 +138,8 @@ const EditTutorial = ({ tutorial }) => {
             ></input>
           </div>
         </div>
-
-        <div>
+*/}
+        {/* <div>
           <div>
             <label htmlFor="styleId"></label>
           </div>
@@ -147,15 +147,15 @@ const EditTutorial = ({ tutorial }) => {
             <select
               id="styleId"
               name="styleId"
-              value={video_link}
+              value={}
               onChange={(e) => setVideoLink(e.target.value)}
             >
               <option value=''></option>
             </select>
           </div>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <div>
             <label htmlFor="videoLink"></label>
           </div>
@@ -168,9 +168,9 @@ const EditTutorial = ({ tutorial }) => {
               onChange={(e) => setVideoLink(e.target.value)}
             ></input>
           </div>
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <div>
             <label htmlFor="videoLink"></label>
           </div>
