@@ -27,7 +27,7 @@ export const SuperDemoLogin = () => {
 
   return (
     <button onClick={superDemoLogin} className={`${styles.demoLogin} link-button`}>
-        Log in as a <span className={styles.switchLinks}>Content Creator</span>
+        Log in as a <span className={styles.switchLinks}>Content Creator</span> 
     </button>
   )
 }

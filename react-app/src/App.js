@@ -8,7 +8,7 @@ import User from "./components/User";
 import TutorialsPage from "./components/TutorialsPage";
 import Footer from "./components/Footer";
 import IndividualTutorialPage from "./components/IndividualTutorialPage";
-import SplashPage from './components/SplashPage';
+import SplashPage from "./components/SplashPage";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
             <IndividualTutorialPage />
           </ProtectedRoute>
           <Route path="/" exact>
-            <SplashPage sessionUser={sessionUser}/>
+            <SplashPage sessionUser={sessionUser} />
           </Route>
         </Switch>
       </main>
