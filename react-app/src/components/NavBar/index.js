@@ -5,6 +5,10 @@ import { NavLink } from 'react-router-dom';
 import { BannerPic } from '../../image/image';
 import ProfileButton from './ProfileButton';
 import styles from './NavBar.module.css';
+import LogoutButton from '../auth/LogoutButton';
+import LoginFormModal from '../auth/LoginForm';
+import SignUpFormModal from '../auth/SignUpForm';
+
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -40,16 +44,10 @@ const NavBar = () => {
           <NavLink to='/about-us' exact={true} className={styles.navLink} activeClassName='activeNavLink'>
             About Us
           </NavLink>
+          <LoginFormModal linkText={'Log In'}/>
         </li>
         <li>
-          <NavLink to='/login' exact={true} className={styles.navLink} activeClassName='activeNavLink'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} className={styles.navLink} activeClassName='activeNavLink'>
-            Sign Up
-          </NavLink>
+          <SignUpFormModal linkText={'Sign Up'} />
         </li>
       </>
     )
