@@ -47,7 +47,7 @@ export const getOneTutorial = (id) => async (dispatch) => {
 }
 
 export const editTutorial = (tutorial) => async (dispatch) => {
-  const res = await fetch(`api/tutorials/${tutorial.id}`, {
+  const res = await fetch(`/api/tutorials/${tutorial.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(tutorial)
@@ -55,6 +55,7 @@ export const editTutorial = (tutorial) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(updateTutorial(data));
+    console.log(data)
     return data;
   }
 }

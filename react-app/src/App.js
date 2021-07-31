@@ -30,7 +30,9 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* {sessionUser ? ( */}
       <NavBar />
+    {/* ) : null} */}
       <main>
         <Switch>
           <ProtectedRoute path="/users" exact>

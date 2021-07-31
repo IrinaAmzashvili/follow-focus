@@ -1,6 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import db, Tutorial
 from .auth_routes import validation_errors_to_error_messages
+from app.forms import TutorialForm
 
 tutorial_routes = Blueprint('tutorial', __name__)
 

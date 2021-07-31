@@ -10,7 +10,7 @@ const EditTutorial = ({ tutorial }) => {
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState(tutorial?.title);
   const [description, setDescription] = useState(tutorial?.description);
-  const [video_link, setVideoLink] = useState(tutorial?.videoLink);
+  const [videoLink, setVideoLink] = useState(tutorial?.videoLink);
   const [thumbnail_url, setThumbnailUrl] = useState(tutorial?.thumbnailUrl);
   // const [date, setDate] = useState(tutorial.date);
   // const [style_id, setStyleId] = useState(tutorial.styleId);
@@ -24,6 +24,8 @@ const EditTutorial = ({ tutorial }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const video_link = videoLink.replace('watch?v=', 'embed/')
 
     const editedTutorial = {
       id: tutorial.id,
@@ -101,7 +103,7 @@ const EditTutorial = ({ tutorial }) => {
               id="videoLink"
               name="videoLink"
               placeholder="Video link"
-              value={video_link}
+              value={videoLink}
               onChange={(e) => setVideoLink(e.target.value)}
             ></input>
           </div>
