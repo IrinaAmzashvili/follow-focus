@@ -32,25 +32,25 @@ function App() {
       <NavBar />
       <main>
         <Switch>
-          <Route path='/login' exact={true}>
+          <Route path='/login' exact>
             <LoginForm />
           </Route>
-          <Route path='/sign-up' exact={true}>
+          <Route path='/sign-up' exact>
             <SignUpForm />
           </Route>
-          <ProtectedRoute path='/users' exact={true} >
+          <ProtectedRoute path='/users' exact>
             <UsersList />
           </ProtectedRoute>
-          <ProtectedRoute path='/users/:userId' exact={true} >
+          <ProtectedRoute path='/users/:userId' exact>
             <User />
           </ProtectedRoute>
-          <ProtectedRoute path='/tutorials' exact={true}>
+          <ProtectedRoute path='/tutorials' exact>
             <TutorialsPage />
           </ProtectedRoute>
-          <ProtectedRoute path='/tutorials/:id' exact={true}>
+          <ProtectedRoute path='/tutorials/:id' exact>
             <IndividualTutorialPage />
           </ProtectedRoute>
-          <ProtectedRoute path='/' exact={true} >
+          <ProtectedRoute path='/' exact>
             <h1>My Home Page</h1>
           </ProtectedRoute>
         </Switch>

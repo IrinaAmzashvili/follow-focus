@@ -1,30 +1,37 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getOneTutorial } from "../../store/tutorials";
+import { getOneTutorial, unloadCurrentTutorial } from "../../store/tutorials";
 import EditTutorial from '../EditTutorial';
 import styles from "./IndividualTutorialPage.module.css";
 
 const IndividualTutorialPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const tutorial = useSelector((state) => state.tutorials[id]);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    if (tutorial) setIsLoaded(true)
-  }, [tutorial])
+  const tutorial = useSelector((state) => state.tutorials.current);
+  const isLoaded = useSelector((state) => state.tutorials.loaded);
 
   useEffect(() => {
     dispatch(getOneTutorial(id));
+    return () => dispatch(unloadCurrentTutorial())
   }, [dispatch, id]);
 
-  if (!isLoaded) {
-    return null
-  }
+  useEffect(() => {
+  }, [isLoaded])
 
-  return (
-    <div className={styles.tutorialPageDiv}>
+  // if (!tutorial) {
+  //   return (
+  //   )
+  // }
+
+  // if (!isLoaded) {
+  //   return (
+  //   )
+  // }
+
+
+  return (isLoaded ? (tutorial ?
+    (<div className={styles.tutorialPageDiv}>
       <div className={styles.tutorialDiv}>
         <div className={styles.videoDiv}>
           <iframe
@@ -44,7 +51,12 @@ const IndividualTutorialPage = () => {
         </div>
         <EditTutorial tutorial={tutorial}/>
       </div>
-    </div>
+    </div>) :
+      <h1>This tutorial doesn't exist.</h1>)
+      : (
+        <h4>Loading...</h4>
+
+      )
   );
 };
 

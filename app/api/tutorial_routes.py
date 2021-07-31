@@ -8,7 +8,7 @@ tutorial_routes = Blueprint('tutorial', __name__)
 @tutorial_routes.route('/')
 def get_tutorials():
     all_tutorials = Tutorial.query.all()
-    return {'tutorials': [tutorial.to_dict() for tutorial in all_tutorials]}
+    return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
 
 
 @tutorial_routes.route('/<int:id>')
