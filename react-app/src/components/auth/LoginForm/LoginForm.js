@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
-import SignUpFormModal from '../SignUpForm';
+// import SignUpFormModal from '../SignUpForm';
 import styles from "../LoginSignUpForm.module.css";
 
 const LoginForm = () => {
@@ -11,6 +11,10 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+
+  const displayError = (string) => {
+    return errors.find(error => error.includes(string));
+  }
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -36,14 +40,11 @@ const LoginForm = () => {
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={onLogin}>
         <h1 className={styles.header}>Log in</h1>
-        <div className={styles.errorDiv}>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
 
         <div>
-          <label htmlFor="email"></label>
+          <div className={styles.labelDivs}>
+            <label htmlFor="email">{displayError('Email')}</label>
+          </div>
           <input
             className={styles.input}
             id="email"
@@ -56,7 +57,9 @@ const LoginForm = () => {
         </div>
 
         <div>
-          <label htmlFor="password"></label>
+          <div className={styles.labelDivs}>
+            <label htmlFor="password">{displayError('Password')}</label>
+          </div>
           <input
             className={styles.input}
             id="password"
@@ -72,9 +75,9 @@ const LoginForm = () => {
           <button className={styles.submitButton} type="submit">Log In</button>
         </div>
       </form>
-      <div>
+      {/* <div>
         Not a member? <span className={styles.switchLink}><SignUpFormModal linkText={'Sign up here!'}/></span>
-      </div>
+      </div> */}
     </div>
   );
 };

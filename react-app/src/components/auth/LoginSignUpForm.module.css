@@ -21,14 +21,15 @@
     text-align: center;
 }
 
-.errorDiv {
+.labelDivs {
     color: #FA6666;
+    height: 15px;
+    margin: 7px 0;
 }
 
 .input {
     width: 100%;
-    height: 30px;
-    margin: 7px 0;
+    height: 40px;
     border-radius: 5px;
     border: 1px solid grey;
     padding: 8px;

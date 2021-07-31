@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
-import LoginFormModal from '../LoginForm';
+// import LoginFormModal from '../LoginForm';
 import styles from "../LoginSignUpForm.module.css";
 
 const SignUpForm = () => {
@@ -13,8 +13,13 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+
+  const displayError = (string) => {
+    return errors.find(error => error.includes(string));
+  }
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -45,14 +50,12 @@ const SignUpForm = () => {
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={onSignUp}>
         <h1 className={styles.header}>Sign Up</h1>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+
         <div className={styles.signupNameDivContainer}>
           <div className={styles.signupNameDiv}>
-            <label htmlFor="first_name"></label>
+            <div className={styles.labelDivs}>
+              <label htmlFor="first_name">{displayError('First')}</label>
+            </div>
             <input
               id="first_name"
               className={(styles.input)}
@@ -65,10 +68,12 @@ const SignUpForm = () => {
           </div>
 
           <div className={styles.signupNameDiv}>
-            <label htmlFor="last_name"></label>
+            <div className={styles.labelDivs}>
+              <label htmlFor="last_name">{displayError('Last')}</label>
+            </div>
             <input
               id="last_name"
-              className={(styles.input)}
+              className={styles.input}
               placeholder="Last Name"
               type="text"
               name="username"
@@ -79,7 +84,9 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <label htmlFor="username"></label>
+          <div className={styles.labelDivs}>
+            <label htmlFor="username">{displayError('Username')}</label>
+          </div>
           <input
             id="username"
             className={styles.input}
@@ -92,7 +99,9 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <label htmlFor="email"></label>
+          <div className={styles.labelDivs}>
+            <label htmlFor="email">{displayError('Email')}</label>
+          </div>
           <input
             id="email"
             className={styles.input}
@@ -105,7 +114,9 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <label htmlFor="password"></label>
+          <div className={styles.labelDivs}>
+            <label htmlFor="password">{displayError('Password')}</label>
+          </div>
           <input
             id="password"
             className={styles.input}
@@ -118,7 +129,9 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <label htmlFor="repeatPassword"></label>
+          <div  className={styles.labelDivs}>
+            <label htmlFor="repeatPassword">{displayError('Password') ? 'Confirm password is required.' : null}</label>
+          </div>
           <input
             id="repeatPassword"
             className={styles.input}
@@ -135,9 +148,9 @@ const SignUpForm = () => {
           </button>
         </div>
       </form>
-      <div>
+      {/* <div>
         Already a member? <span className={styles.switchLink}><LoginFormModal linkText={'Log in here!'}/></span>
-      </div>
+      </div> */}
     </div>
   );
 };
