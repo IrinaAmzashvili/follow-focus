@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/User/UsersList';
-import User from './components/User';
-import TutorialsPage from './components/TutorialsPage';
-import Footer from './components/Footer';
-import IndividualTutorialPage from './components/IndividualTutorialPage';
-import { authenticate } from './store/session';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import UsersList from "./components/User/UsersList";
+import User from "./components/User";
+import TutorialsPage from "./components/TutorialsPage";
+import Footer from "./components/Footer";
+import IndividualTutorialPage from "./components/IndividualTutorialPage";
+import SplashPage from './components/SplashPage';
+import { authenticate } from "./store/session";
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(false);
+
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -30,21 +33,20 @@ function App() {
       <NavBar />
       <main>
         <Switch>
-          <ProtectedRoute path='/users' exact>
-            <UsersList/>
+          <ProtectedRoute path="/users" exact>
+            <UsersList />
           </ProtectedRoute>
-          <ProtectedRoute path='/users/:userId' exact>
+          <ProtectedRoute path="/users/:userId" exact>
             <User />
           </ProtectedRoute>
-          <ProtectedRoute path='/tutorials' exact>
+          <ProtectedRoute path="/tutorials" exact>
             <TutorialsPage />
           </ProtectedRoute>
-          <ProtectedRoute path='/tutorials/:id' exact>
+          <ProtectedRoute path="/tutorials/:id" exact>
             <IndividualTutorialPage />
           </ProtectedRoute>
-          {/* <ProtectedRoute path='/' exact> */}
-          <Route path='/' exact>
-            <h1>My Home Page</h1>
+          <Route path="/" exact>
+            <SplashPage sessionUser={sessionUser}/>
           </Route>
         </Switch>
       </main>

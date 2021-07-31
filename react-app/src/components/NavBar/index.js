@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { BannerPic } from '../../image/image';
 import ProfileButton from './ProfileButton';
 import styles from './NavBar.module.css';
-import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from '../auth/LoginForm';
 import SignUpFormModal from '../auth/SignUpForm';
 
@@ -44,6 +43,8 @@ const NavBar = () => {
           <NavLink to='/about-us' exact={true} className={styles.navLink} activeClassName='activeNavLink'>
             About Us
           </NavLink>
+        </li>
+        <li>
           <LoginFormModal linkText={'Log In'}/>
         </li>
         <li>
