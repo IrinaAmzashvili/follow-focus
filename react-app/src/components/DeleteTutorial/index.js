@@ -1,24 +1,24 @@
 import { useState } from 'react';
-import DeleteTutorial from './DeleteTutorial';
+import DeleteTutorialModal from './DeleteTutorialModal';
 import { Modal } from '../../context/Modal';
 import styles from './DeleteTutorial.module.css';
 
 
-const DeleteTutorialModal = ({ linkText }) => {
+const DeleteTutorial = () => {
   const [showModal, setShowModal] = useState();
 
   return (
     <>
-      <button className={`${styles.loginButton} link-button`} onClick={() => setShowModal(true)}>
-        {linkText}
+      <button className={`${styles.deleteIconButton} link-button`} onClick={() => setShowModal(true)}>
+        {<i className='fas fa-trash'></i>}
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteTutorial setShowModal={setShowModal} />
+          <DeleteTutorialModal setShowModal={setShowModal} />
         </Modal>
       )}
     </>
   )
 }
 
-export default DeleteTutorialModal;
+export default DeleteTutorial;

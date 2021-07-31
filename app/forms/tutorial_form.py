@@ -6,7 +6,7 @@ from app.models import Tutorial
 
 class TutorialForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
-    description = StringField('description', validators=[DataRequired()])
+    description = StringField('description')
     video_link = StringField('video_link', validators=[DataRequired()])
     thumbnail_url = StringField('thumbnail_url', validators=[DataRequired()])
     # date = StringField('date', validators=[DataRequired()])

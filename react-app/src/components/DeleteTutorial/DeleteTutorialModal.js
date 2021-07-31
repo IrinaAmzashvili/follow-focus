@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteTutorial } from '../../store/tutorials';
 import styles from './DeleteTutorial.module.css';
 
-const DeleteTutorial = ({ setShowModal }) => {
+const DeleteTutorialModal = ({ setShowModal }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const tutorial = useSelector(state => state.tutorials.current);
@@ -29,4 +29,4 @@ const DeleteTutorial = ({ setShowModal }) => {
   )
 }
 
-export default DeleteTutorial;
+export default DeleteTutorialModal;

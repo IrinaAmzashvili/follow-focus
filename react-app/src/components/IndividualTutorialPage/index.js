@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOneTutorial, unloadCurrentTutorial } from "../../store/tutorials";
 import EditTutorial from '../EditTutorial';
-import DeleteTutorialModal from '../DeleteTutorial';
+import DeleteTutorial from '../DeleteTutorial';
 import styles from "./IndividualTutorialPage.module.css";
 
 const IndividualTutorialPage = () => {
@@ -36,12 +36,14 @@ const IndividualTutorialPage = () => {
             allowFullScreen
           ></iframe>
         </div>
+        <div className={styles.actionButtonsDiv}>
+          <EditTutorial />
+          <DeleteTutorial linkText={<i className={`${styles.deleteIcon} fas fa-trash`}></i>} />
+        </div>
         <div className={styles.tutorialInfo}>
           <h1 className={styles.title}>{tutorial?.title}</h1>
           <p className={styles.description}>{tutorial?.description}</p>
         </div>
-        <EditTutorial tutorial={tutorial}/>
-        <DeleteTutorialModal linkText={'Delete'} />
       </div>
     </div>) :
       <h1>This tutorial doesn't exist.</h1>)
