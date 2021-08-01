@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { TiHeartOutline } from 'react-icons/ti';
+import { FiHeart } from 'react-icons/fi';
 import { getTutorials, unloadTutorials } from "../../store/tutorials";
 import CreateTutorial from '../CreateTutorial';
 import styles from "./TutorialsPage.module.css";
@@ -43,7 +43,7 @@ const TutorialsPage = () => {
                 <div className={styles.cardBottom}>
                   <div className={styles.videoTitle}>{tutorial.title}</div>
                   <div className={styles.likeButton}>
-                    <TiHeartOutline />
+                    <FiHeart />
                   </div>
                 </div>
               </div>

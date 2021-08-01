@@ -1,5 +1,5 @@
 const SET_TUTORIALS = 'tutorials/SET_TUTORIALS';
-const SET_ONE_TUTORIAL = 'tutorials/SET_ONE_TUTORIAL';
+const SET_CURRENT_TUTORIAL = 'tutorials/SET_CURRENT_TUTORIAL';
 const UNLOAD_TUTORIALS = 'tutorials/UNLOAD_TUTORIALS';
 const UNLOAD_CURRENT_TUTORIAL = 'tutorials/UNLOAD_CURRENT_TUTORIAL';
 // const REMOVE_TUTORIAL = 'tutorials/REMOVE_TUTORIAL';
@@ -10,12 +10,7 @@ const setTutorials = (tutorials) => ({
 });
 
 export const setOneTutorial = (tutorial) => ({
-  type: SET_ONE_TUTORIAL,
-  tutorial
-});
-
-const updateTutorial = (tutorial) => ({
-  type: SET_ONE_TUTORIAL,
+  type: SET_CURRENT_TUTORIAL,
   tutorial
 });
 
@@ -24,7 +19,7 @@ export const unloadTutorials = () => ({
 });
 
 export const unloadCurrentTutorial = () => ({
-  type: UNLOAD_TUTORIALS
+  type: UNLOAD_CURRENT_TUTORIAL
 });
 
 // const removeTutorial = (id) => ({
@@ -59,10 +54,11 @@ export const createTutorial = (tutorial) => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(tutorial)
   });
-  console.log('in thunk after fetch')
+
   if (res.ok) {
     const data = await res.json();
-    dispatch(setOneTutorial(data));
+    // if there are no errors, set the tutorial
+    if (!data.errors) dispatch(setOneTutorial(data));
     return data;
   }
 }
@@ -73,9 +69,10 @@ export const editTutorial = (tutorial) => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(tutorial)
   });
+
   if (res.ok) {
     const data = await res.json();
-    dispatch(updateTutorial(data));
+    if (!data.errors) dispatch(setOneTutorial(data));
     return data;
   }
 }
@@ -114,7 +111,7 @@ const tutorialsReducer = (state = initialState, action) => {
           ...initialState.all
         }
       };
-    case SET_ONE_TUTORIAL:
+    case SET_CURRENT_TUTORIAL:
       return {
         ...state,
         current: action.tutorial,

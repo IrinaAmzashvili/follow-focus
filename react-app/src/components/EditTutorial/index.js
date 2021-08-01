@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FiEdit } from 'react-icons/fi';
 import EditTutorialModal from './EditTutorialModal';
 import { Modal } from '../../context/Modal';
 import styles from './EditTutorial.module.css';
@@ -10,7 +11,7 @@ const EditTutorial = () => {
   return (
     <>
       <button className={`${styles.editIconButton} link-button`} onClick={() => setShowModal(true)}>
-        {<i className="fas fa-edit"></i>}
+        <FiEdit />
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
