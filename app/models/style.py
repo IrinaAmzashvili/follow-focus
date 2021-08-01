@@ -11,5 +11,5 @@ class Style(db.Model):
         return {
             'id': self.id,
             'danceStyle': self.dance_style,
-            'tutorials': [tutorial.to_dict() for tutorial in self.tutorials],
+            'tutorials': [tutorial.id for tutorial in self.tutorials],
         }

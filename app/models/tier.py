@@ -17,7 +17,6 @@ class Tier(db.Model):
             'price': self.price,
             'imgUrl': self.img_url,
             'description': self.description,
-            'date': self.date,
             'subscribers': [user.id for user in self.users],
             'tutorials': [tutorial.id for tutorial in self.tutorials],
         }
