@@ -15,7 +15,7 @@ def get_tutorials():
 @tutorial_routes.route('/<int:id>')
 def get_one_tutorial(id):
     tutorial = Tutorial.query.get_or_404(id)
-    return tutorial.to_dict()
+    return tutorial.to_dict_with_comments()
 
 
 @tutorial_routes.route('/', methods=['POST'])
@@ -46,7 +46,7 @@ def update_tutorial(id):
         tutorial.level_id = form.level_id.data
         tutorial.tier_id = form.tier_id.data
         db.session.commit()
-        return tutorial.to_dict()
+        return tutorial.to_dict_with_comments()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
