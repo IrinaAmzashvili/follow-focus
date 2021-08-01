@@ -3,6 +3,7 @@
 
 .editIconButton {
     color: var(--greyTheme);
+    font-size: 25px;
 }
 
 .tutorialModal {

@@ -3,6 +3,7 @@
 
 .deleteIconButton {
     color: var(--greyTheme);
+    font-size: 25px;
 }
 
 .confirmDeleteDiv {

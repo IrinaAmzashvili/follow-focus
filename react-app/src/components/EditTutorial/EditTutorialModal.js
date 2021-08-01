@@ -30,7 +30,9 @@ const EditTutorial = ({ setShowModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const video_link = videoLink.replace('watch?v=', 'embed/')
+    const video_link = videoLink.replace('watch?v=', 'embed/');
+
+    const now = new Date();
 
     const editedTutorial = {
       id: tutorial.id,
@@ -38,12 +40,12 @@ const EditTutorial = ({ setShowModal }) => {
       description,
       video_link,
       thumbnail_url,
-      // date,
-      // style_id,
-      // level_id,
-      // tier_id,
-      // tags,
+      date: now,
+      style_id: 1,
+      level_id: 1,
+      tier_id: 1,
     };
+    
     const data = await dispatch(editTutorial(editedTutorial));
     if (data.errors) {
       setErrors(data.errors);

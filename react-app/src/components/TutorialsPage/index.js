@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { TiHeartOutline } from 'react-icons/ti';
 import { getTutorials, unloadTutorials } from "../../store/tutorials";
+import CreateTutorial from '../CreateTutorial';
 import styles from "./TutorialsPage.module.css";
 
 const TutorialsPage = () => {
@@ -19,6 +20,7 @@ const TutorialsPage = () => {
     <div className={styles.tutorialsPage}>
       <div className={styles.filterContainer}>Filter Div</div>
       <div className={styles.tutorialsDiv}>
+        <CreateTutorial />
         <div className={styles.tutorialsSearch}>
           <label htmlFor='searchVideos'>
             <input

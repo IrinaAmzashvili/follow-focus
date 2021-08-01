@@ -52,6 +52,21 @@ export const getOneTutorial = (id) => async (dispatch) => {
   }
 }
 
+export const createTutorial = (tutorial) => async (dispatch) => {
+  console.log('in thunk')
+  const res = await fetch('/api/tutorials/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(tutorial)
+  });
+  console.log('in thunk after fetch')
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(setOneTutorial(data));
+    return data;
+  }
+}
+
 export const editTutorial = (tutorial) => async (dispatch) => {
   const res = await fetch(`/api/tutorials/${tutorial.id}`, {
     method: 'PUT',

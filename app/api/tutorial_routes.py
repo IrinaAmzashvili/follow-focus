@@ -18,6 +18,19 @@ def get_one_tutorial(id):
     return tutorial.to_dict()
 
 
+@tutorial_routes.route('/', methods=['POST'])
+def create_tutorial():
+    form = TutorialForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        tutorial = Tutorial()
+        form.populate_obj(tutorial)
+        db.session.add(tutorial)
+        db.session.commit()
+        return tutorial.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
 @tutorial_routes.route('/<int:id>', methods=['PUT'])
 def update_tutorial(id):
     tutorial = Tutorial.query.get_or_404(id)
@@ -28,6 +41,10 @@ def update_tutorial(id):
         tutorial.description = form.description.data,
         tutorial.video_link = form.video_link.data,
         tutorial.thumbnail_url = form.thumbnail_url.data
+        tutorial.date = form.date.data
+        tutorial.style_id = form.style_id.data
+        tutorial.level_id = form.level_id.data
+        tutorial.tier_id = form.tier_id.data
         db.session.commit()
         return tutorial.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
