@@ -1,0 +1,74 @@
+@import '../../index.css';
+
+
+.tutorialsPage {
+    display: flex;
+    margin: 70px 100px;
+}
+
+.filterContainer {
+    background-color: grey;
+    width: 300px;
+}
+
+.tutorialsDiv {
+    background-color: #e6e6fa;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 60px;
+}
+
+.tutorialsSearch {
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.videoSearch {
+    border-radius: 8px;
+    border: 1px solid var(--greyTheme);
+    height: 25px;
+    padding: 0 5px;
+}
+
+.tutorialsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.videoCard {
+    margin-bottom: 30px;
+    background-color: white;
+    width: 235px;
+    height: 190px;
+}
+
+.cardTop {
+    height: 132.19px;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.thumbnailImg {
+    width: 100%;
+}
+
+/* .thumbnailImg[height=132.19px] {
+    margin-top: 0;
+} */
+
+.cardBottom {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.videoTitle {
+    font-weight: 400;
+}
+
+.likeButton {
+    padding: 10px;
+}

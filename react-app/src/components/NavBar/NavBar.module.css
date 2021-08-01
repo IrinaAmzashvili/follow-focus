@@ -1,0 +1,25 @@
+@import '../../index.css';
+
+
+.banner {
+    width: 100%;
+}
+.navbarLinks {
+    display: flex;
+    justify-content: flex-end;
+    margin: 25px 40px;
+
+}
+
+.navbarLinks > li {
+    padding: 0 60px;
+    font-weight: 900;
+}
+
+.navbarLinks > li:not(:last-child) {
+    border-right: 1px solid var(--greyTheme);
+}
+
+.navLink {
+    padding-bottom: 5px;
+}

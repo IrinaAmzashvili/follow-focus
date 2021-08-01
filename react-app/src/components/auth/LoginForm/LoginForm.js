@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
+import { DemoLogin, SuperDemoLogin } from '../DemoLogin';
 // import SignUpFormModal from '../SignUpForm';
 import styles from "../LoginSignUpForm.module.css";
 
@@ -13,8 +14,8 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
   const displayError = (string) => {
-    return errors.find(error => error.includes(string));
-  }
+    return errors.find((error) => error.includes(string));
+  };
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ const LoginForm = () => {
 
         <div>
           <div className={styles.labelDivs}>
-            <label htmlFor="email">{displayError('Email')}</label>
+            <label htmlFor="email">{displayError("Email")}</label>
           </div>
           <input
             className={styles.input}
@@ -58,7 +59,7 @@ const LoginForm = () => {
 
         <div>
           <div className={styles.labelDivs}>
-            <label htmlFor="password">{displayError('Password')}</label>
+            <label htmlFor="password">{displayError("Password")}</label>
           </div>
           <input
             className={styles.input}
@@ -72,12 +73,20 @@ const LoginForm = () => {
         </div>
 
         <div>
-          <button className={styles.submitButton} type="submit">Log In</button>
+          <button className={`cta-button ${styles.submitButton}`} type="submit">
+            Log In
+          </button>
         </div>
       </form>
       {/* <div>
-        Not a member? <span className={styles.switchLink}><SignUpFormModal linkText={'Sign up here!'}/></span>
+        Not a member? <span className={styles.switchLinks}><SignUpFormModal linkText={'Sign up here!'}/></span>
       </div> */}
+      <div>
+        <DemoLogin />
+      </div>
+      <div>
+        <SuperDemoLogin />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
+import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
 // import LoginFormModal from '../LoginForm';
 import styles from "../LoginSignUpForm.module.css";
 
@@ -18,8 +19,8 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const displayError = (string) => {
-    return errors.find(error => error.includes(string));
-  }
+    return errors.find((error) => error.includes(string));
+  };
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -54,11 +55,11 @@ const SignUpForm = () => {
         <div className={styles.signupNameDivContainer}>
           <div className={styles.signupNameDiv}>
             <div className={styles.labelDivs}>
-              <label htmlFor="first_name">{displayError('First')}</label>
+              <label htmlFor="first_name">{displayError("First")}</label>
             </div>
             <input
               id="first_name"
-              className={(styles.input)}
+              className={styles.input}
               placeholder="First Name"
               type="text"
               name="username"
@@ -69,7 +70,7 @@ const SignUpForm = () => {
 
           <div className={styles.signupNameDiv}>
             <div className={styles.labelDivs}>
-              <label htmlFor="last_name">{displayError('Last')}</label>
+              <label htmlFor="last_name">{displayError("Last")}</label>
             </div>
             <input
               id="last_name"
@@ -85,7 +86,7 @@ const SignUpForm = () => {
 
         <div>
           <div className={styles.labelDivs}>
-            <label htmlFor="username">{displayError('Username')}</label>
+            <label htmlFor="username">{displayError("Username")}</label>
           </div>
           <input
             id="username"
@@ -100,7 +101,7 @@ const SignUpForm = () => {
 
         <div>
           <div className={styles.labelDivs}>
-            <label htmlFor="email">{displayError('Email')}</label>
+            <label htmlFor="email">{displayError("Email")}</label>
           </div>
           <input
             id="email"
@@ -115,7 +116,7 @@ const SignUpForm = () => {
 
         <div>
           <div className={styles.labelDivs}>
-            <label htmlFor="password">{displayError('Password')}</label>
+            <label htmlFor="password">{displayError("Password")}</label>
           </div>
           <input
             id="password"
@@ -129,8 +130,12 @@ const SignUpForm = () => {
         </div>
 
         <div>
-          <div  className={styles.labelDivs}>
-            <label htmlFor="repeatPassword">{displayError('Password') ? 'Confirm password is required.' : null}</label>
+          <div className={styles.labelDivs}>
+            <label htmlFor="repeatPassword">
+              {displayError("Password")
+                ? "Confirm password is required."
+                : null}
+            </label>
           </div>
           <input
             id="repeatPassword"
@@ -143,14 +148,20 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <button className={styles.submitButton} type="submit">
+          <button className={`cta-button ${styles.submitButton}`} type="submit">
             Sign Up
           </button>
         </div>
       </form>
       {/* <div>
-        Already a member? <span className={styles.switchLink}><LoginFormModal linkText={'Log in here!'}/></span>
+        Already a member? <span className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
       </div> */}
+      <div>
+        <DemoLogin />
+      </div>
+      <div>
+        <SuperDemoLogin />
+      </div>
     </div>
   );
 };
