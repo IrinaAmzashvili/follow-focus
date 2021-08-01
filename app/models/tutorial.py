@@ -39,6 +39,22 @@ class Tutorial(db.Model):
             'styleId': self.style_id,
             'levelId': self.level_id,
             'tierId': self.tier_id,
+            'comments': [comment.id for comment in self.comments],
+            'userLikes': [like.id for like in self.users],
+            'tags': [tag.id for tag in self.tags],
+        }
+
+    def to_dict_with_comments(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'videoLink': self.video_link,
+            'thumbnailUrl': self.thumbnail_url,
+            'date': self.date,
+            'styleId': self.style_id,
+            'levelId': self.level_id,
+            'tierId': self.tier_id,
             'comments': [comment.to_dict() for comment in self.comments],
             'userLikes': [like.id for like in self.users],
             'tags': [tag.id for tag in self.tags],

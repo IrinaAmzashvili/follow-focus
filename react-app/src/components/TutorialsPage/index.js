@@ -9,12 +9,20 @@ const TutorialsPage = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
-  const allTutorials = useSelector(state => Object.values(state.tutorials.all))
+  let allTutorials = useSelector(state => Object.values(state.tutorials.all))
 
   useEffect(() => {
     dispatch(getTutorials());
     return () => dispatch(unloadTutorials());
   }, [dispatch]);
+
+  const searchFeature = () => {
+    return allTutorials.filter(tutorial => (
+      tutorial.title.toLowerCase().includes(search.toLocaleLowerCase())
+    ))
+  }
+
+  allTutorials = searchFeature();
 
   return (
     <div className={styles.tutorialsPage}>
