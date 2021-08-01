@@ -11,5 +11,5 @@ class Level(db.Model):
         return {
             'id': self.id,
             'levelType': self.level_type,
-            'tutorials': [tutorial.to_dict() for tutorial in self.tutorials],
+            'tutorials': [tutorial.id for tutorial in self.tutorials],
         }

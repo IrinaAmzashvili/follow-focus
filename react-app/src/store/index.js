@@ -1,11 +1,17 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import tiers from './tiers';
 import session from './session';
 import tutorials from './tutorials';
+import danceStyles from './danceStyles';
+import tutorialLevels from './tutorialLevels';
 
 const rootReducer = combineReducers({
+  tiers,
   session,
   tutorials,
+  danceStyles,
+  tutorialLevels,
 });
 
 

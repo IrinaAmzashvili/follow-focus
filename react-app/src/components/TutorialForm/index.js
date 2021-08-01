@@ -1,16 +1,34 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTiers } from '../../store/tiers';
+import { getDanceStyles } from '../../store/danceStyles';
+import { getTutorialLevels } from '../../store/tutorialLevels';
 import styles from './TutorialForm.module.css'
 
 
-const TutorialForm = ({ handleSubmit, values, setters }) => {
+const TutorialForm = ({ handleSubmit, values, setters, title }) => {
+  const dispatch = useDispatch();
+  const danceStyles = useSelector(state => Object.values(state.danceStyles));
+  const levels = useSelector(state => Object.values(state.tutorialLevels));
+  const tiers = useSelector(state => Object.values(state.tiers));
+
+  useEffect(() => {
+    dispatch(getTiers());
+    dispatch(getDanceStyles());
+    dispatch(getTutorialLevels());
+  }, [dispatch]);
+
+
   const displayError = (string) => {
     return values.errors.find((error) => error.includes(string));
   };
+
 
   return (
     <div className={styles.tutorialModal}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div>
-          <h1 className={styles.header}>Edit Tutorial</h1>
+          <h1 className={styles.header}>{title}</h1>
         </div>
 
         <div>
@@ -79,6 +97,63 @@ const TutorialForm = ({ handleSubmit, values, setters }) => {
               value={values.thumbnail_url}
               onChange={(e) => setters.setThumbnailUrl(e.target.value)}
             ></input>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <label htmlFor="styleId">Dance style</label>
+            <div className={styles.errorDiv}>{displayError('Style')}</div>
+          </div>
+          <div>
+            <select
+              id="styleId"
+              name="styleId"
+              className={styles.input}
+              onChange={(e) => setters.setStyleId(e.target.value)}
+            >
+              {danceStyles && danceStyles.map((style, i) => (
+                <option value={style.id} key={i}>{style.danceStyle}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <label htmlFor="levelId">Tutorial level</label>
+            <div className={styles.errorDiv}>{displayError('Level')}</div>
+          </div>
+          <div>
+            <select
+              id="levelId"
+              name="levelId"
+              className={styles.input}
+              onChange={(e) => setters.setLevelId(e.target.value)}
+            >
+              {levels && levels.map((level, i) => (
+                <option value={level.id} key={i}>{level.levelType}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <label htmlFor="tierId">Tier (will be available to all tiers higher than the chose one)</label>
+            <div className={styles.errorDiv}>{displayError('Tier')}</div>
+          </div>
+          <div>
+            <select
+              id="tierId"
+              name="tierId"
+              className={styles.input}
+              onChange={(e) => setters.setTierId(e.target.value)}
+            >
+              {tiers && tiers.map((tier, i) => (
+                <option value={tier.id} key={i}>{tier.title}</option>
+              ))}
+            </select>
           </div>
         </div>
 

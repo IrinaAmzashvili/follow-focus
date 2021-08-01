@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editTutorial } from '../../store/tutorials';
-import TutorialForm from '../TutorialForm';
+import { editTutorial } from "../../store/tutorials";
+import TutorialForm from "../TutorialForm";
 
 const EditTutorial = ({ setShowModal }) => {
   const dispatch = useDispatch();
-  const tutorial = useSelector(state => state.tutorials.current);
+  const tutorial = useSelector((state) => state.tutorials.current);
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -13,26 +13,40 @@ const EditTutorial = ({ setShowModal }) => {
   const [description, setDescription] = useState(tutorial?.description);
   const [videoLink, setVideoLink] = useState(tutorial?.videoLink);
   const [thumbnail_url, setThumbnailUrl] = useState(tutorial?.thumbnailUrl);
-  // const [date, setDate] = useState(tutorial.date);
-  // const [style_id, setStyleId] = useState(tutorial.styleId);
-  // const [level_id, setLevelId] = useState(tutorial.levelId);
-  // const [tier_id, setTierId] = useState(tutorial.tierId);
+  const [style_id, setStyleId] = useState(tutorial.styleId);
+  const [level_id, setLevelId] = useState(tutorial.levelId);
+  const [tier_id, setTierId] = useState(tutorial.tierId);
   // const [tags, setTags] = useState(tutorial.tags);
 
-  const values = { errors, title, description, videoLink, thumbnail_url };
-  const setters = { setErrors, setTitle, setDescription, setVideoLink, setThumbnailUrl };
+  const values = {
+    errors,
+    title,
+    description,
+    videoLink,
+    thumbnail_url,
+    style_id,
+    level_id,
+    tier_id,
+  };
+  const setters = {
+    setErrors,
+    setTitle,
+    setDescription,
+    setVideoLink,
+    setThumbnailUrl,
+    setStyleId,
+    setLevelId,
+    setTierId,
+  };
 
   useEffect(() => {
-    if (tutorial) setIsLoaded(true)
-  }, [tutorial])
+    if (tutorial) setIsLoaded(true);
+  }, [tutorial]);
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const video_link = videoLink.replace('watch?v=', 'embed/');
-
-    const now = new Date();
+    const video_link = videoLink.replace("watch?v=", "embed/");
 
     const editedTutorial = {
       id: tutorial.id,
@@ -40,10 +54,10 @@ const EditTutorial = ({ setShowModal }) => {
       description,
       video_link,
       thumbnail_url,
-      date: now,
-      style_id: 1,
-      level_id: 1,
-      tier_id: 1,
+      date: new Date(),
+      style_id,
+      level_id,
+      tier_id,
     };
 
     const data = await dispatch(editTutorial(editedTutorial));
@@ -56,79 +70,16 @@ const EditTutorial = ({ setShowModal }) => {
   };
 
   if (!isLoaded) {
-    return null
+    return null;
   }
 
   return (
-    <TutorialForm handleSubmit={handleSubmit} values={values} setters={setters} />
-// {/*
-//         <div>
-//           <div>
-//             <label htmlFor="date"></label>
-//           </div>
-//           <div>
-//             <input
-//               id="date"
-//               name="date"
-//               placeholder="mm/dd/yyyy"
-//               value={date}
-//               onChange={(e) => setDate(e.target.value)}
-//             ></input>
-//           </div>
-//         </div>
-// */}
-//         {/* <div>
-//           <div>
-//             <label htmlFor="styleId"></label>
-//           </div>
-//           <div>
-//             <select
-//               id="styleId"
-//               name="styleId"
-//               value={}
-//               onChange={(e) => setVideoLink(e.target.value)}
-//             >
-//               <option value=''></option>
-//             </select>
-//           </div>
-//         </div> */}
-
-//         {/* <div>
-//           <div>
-//             <label htmlFor="videoLink"></label>
-//           </div>
-//           <div>
-//             <input
-//               id="videoLink"
-//               name="videoLink"
-//               placeholder="Video Link"
-//               value={video_link}
-//               onChange={(e) => setVideoLink(e.target.value)}
-//             ></input>
-//           </div>
-//         </div> */}
-
-//         {/* <div>
-//           <div>
-//             <label htmlFor="videoLink"></label>
-//           </div>
-//           <div>
-//             <input
-//               id="videoLink"
-//               name="videoLink"
-//               placeholder="Video Link"
-//               value={video_link}
-//               onChange={(e) => setVideoLink(e.target.value)}
-//             ></input>
-//           </div>
-//         </div> */}
-
-    //     <div>
-    //       <button className={`cta-button ${styles.saveButton}`} type='submit'>Save</button>
-    //     </div>
-
-    //   </form>
-    // </div>
+    <TutorialForm
+      handleSubmit={handleSubmit}
+      values={values}
+      setters={setters}
+      title={'Edit Tutorial'}
+    />
   );
 };
 
