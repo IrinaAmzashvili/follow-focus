@@ -22,7 +22,7 @@ export const unloadCurrentTutorial = () => ({
 });
 
 export const getTutorials = () => async (dispatch) => {
-  const res = await fetch('/api/tutorials');
+  const res = await fetch('/api/tutorials/');
 
   if (res.ok) {
     const data = await res.json();
