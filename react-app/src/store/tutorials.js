@@ -91,7 +91,6 @@ export const deleteTutorial = (id) => async (dispatch) => {
 const initialState = {
   all: {},
   current: null,
-  loaded: false
 };
 
 const tutorialsReducer = (state = initialState, action) => {
@@ -101,8 +100,7 @@ const tutorialsReducer = (state = initialState, action) => {
         ...state,
         all: {
           ...action.tutorials
-        },
-        loaded: true
+        }
       }
     case UNLOAD_TUTORIALS:
       return {
@@ -115,7 +113,6 @@ const tutorialsReducer = (state = initialState, action) => {
       return {
         ...state,
         current: action.tutorial,
-        loaded: true
       }
     case UNLOAD_CURRENT_TUTORIAL:
       return {
