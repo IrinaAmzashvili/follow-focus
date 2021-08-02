@@ -34,7 +34,7 @@ function App() {
     {/* ) : null} */}
       <main>
         <Switch>
-          <ProtectedRoute path={`/users/${sessionUser.id}`} exact>
+          <ProtectedRoute path={`/users/${sessionUser?.id}`} exact>
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/tutorials" exact>
