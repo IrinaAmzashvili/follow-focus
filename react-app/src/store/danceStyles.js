@@ -6,7 +6,7 @@ const setStyles = (styles) => ({
 });
 
 export const getDanceStyles = () => async (dispatch) => {
-  const res = await fetch('/api/dance-styles');
+  const res = await fetch('/api/dance-styles/');
 
   if (res.ok) {
     const data = await res.json();

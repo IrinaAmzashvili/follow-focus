@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
 
     # one to many relationship - many side
     tier = db.relationship('Tier', backref='users')
+    comments = db.relationship('Comment', back_populates='user', cascade='all, delete-orphan')
 
     # many to many relationship
     tutorials = db.relationship('Tutorial', secondary=likes,
