@@ -11,7 +11,7 @@ class Comment(db.Model):
                             nullable=False)
 
     # one to many relationships - many side
-    user = db.relationship('User', backref='comments')
+    user = db.relationship('User', backref=backref('comments', cascade='all, delete-orphan'))
     tutorial = db.relationship('Tutorial', backref=backref('comments', cascade='all, delete-orphan'))
 
     def to_dict(self):
