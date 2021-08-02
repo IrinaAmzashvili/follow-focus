@@ -3,13 +3,19 @@
 
 .tutorialModal {
     padding: 50px;
-    width: 500px;
+    /* width: 500px; */
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    /* align-items: stretch; */
+}
+
+.inputsDiv {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .header {

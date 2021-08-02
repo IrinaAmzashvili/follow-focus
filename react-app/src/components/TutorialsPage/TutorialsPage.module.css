@@ -12,15 +12,15 @@
 }
 
 .tutorialsDiv {
-    background-color: #e6e6fa;
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-left: 60px;
 }
 
-.tutorialsSearch {
-    align-self: flex-end;
+.tutorialsTopDiv {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 

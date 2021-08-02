@@ -2,5 +2,7 @@
 
 
 .createNewTutorialButton {
-    width: 120px;
+    font-size: 20px;
+    align-self: flex-start;
+    color: var(--greyTheme);
 }
