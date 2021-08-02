@@ -52,7 +52,7 @@ const IndividualTutorialPage = () => {
         <Comments tutorial={tutorial} />
       </div>
     ) : (
-      <h1>This tutorial doesn't exist.</h1>
+      <h1>Sorry, this tutorial doesn't exist.</h1>
     )
   ) : (
     <h4>Loading...</h4>

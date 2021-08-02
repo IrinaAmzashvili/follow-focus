@@ -2,7 +2,6 @@ const SET_TUTORIALS = 'tutorials/SET_TUTORIALS';
 const SET_CURRENT_TUTORIAL = 'tutorials/SET_CURRENT_TUTORIAL';
 const UNLOAD_TUTORIALS = 'tutorials/UNLOAD_TUTORIALS';
 const UNLOAD_CURRENT_TUTORIAL = 'tutorials/UNLOAD_CURRENT_TUTORIAL';
-// const REMOVE_TUTORIAL = 'tutorials/REMOVE_TUTORIAL';
 
 const setTutorials = (tutorials) => ({
   type: SET_TUTORIALS,
@@ -21,11 +20,6 @@ export const unloadTutorials = () => ({
 export const unloadCurrentTutorial = () => ({
   type: UNLOAD_CURRENT_TUTORIAL
 });
-
-// const removeTutorial = (id) => ({
-//   type: REMOVE_TUTORIAL,
-//   id
-// });
 
 export const getTutorials = () => async (dispatch) => {
   const res = await fetch('/api/tutorials');
@@ -83,7 +77,6 @@ export const deleteTutorial = (id) => async (dispatch) => {
   });
   if (res.ok) {
     const data = await res.json();
-    // dispatch(removeTutorial(id))
     return data;
   }
 }
@@ -121,16 +114,6 @@ const tutorialsReducer = (state = initialState, action) => {
           ...initialState.current
         }
       }
-    // case REMOVE_TUTORIAL:
-    //   const newObj = {
-    //     ...state,
-    //     all: {
-    //       ...state.all
-    //     }
-    //   }
-    //   console.log('--->', newObj['all'])
-    //   // delete newObj[all][action.id]
-    //   return newObj;
     default:
       return state;
   }
