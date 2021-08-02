@@ -132,9 +132,7 @@ const SignUpForm = () => {
         <div>
           <div className={styles.labelDivs}>
             <label htmlFor="repeatPassword">
-              {displayError("Password")
-                ? "Confirm password is required."
-                : null}
+              {displayError("Password")}
             </label>
           </div>
           <input
@@ -157,10 +155,7 @@ const SignUpForm = () => {
         Already a member? <span className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
       </div> */}
       <div>
-        <DemoLogin />
-      </div>
-      <div>
-        <SuperDemoLogin />
+        Log in as a <DemoLogin /> or a <SuperDemoLogin />
       </div>
     </div>
   );

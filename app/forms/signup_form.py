@@ -20,11 +20,6 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
-def check_boolean(form, field):
-    if field.data is None:
-        raise ValidationError('Super_user field is required.')
-
-
 class SignUpForm(FlaskForm):
     first_name = StringField('first_name', validators=[DataRequired()])
     last_name = StringField('last_name', validators=[DataRequired()])
