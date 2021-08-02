@@ -14,9 +14,12 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            formattedErr = error[10:]
-            formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
-            errorMessages.append(f'{formattedField} {formattedErr}')
+            if 'required' in error:
+                formattedErr = error[10:]
+                formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
+                errorMessages.append(f'{formattedField} {formattedErr}')
+            else:
+                errorMessages.append(error)
     return errorMessages
 
 

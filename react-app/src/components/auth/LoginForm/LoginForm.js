@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
-import { DemoLogin, SuperDemoLogin } from '../DemoLogin';
+import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
 // import SignUpFormModal from '../SignUpForm';
 import styles from "../LoginSignUpForm.module.css";
 
@@ -19,22 +19,15 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     }
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/tutorials" />;
   }
 
   return (
@@ -53,7 +46,7 @@ const LoginForm = () => {
             type="text"
             placeholder="Email"
             value={email}
-            onChange={updateEmail}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -68,7 +61,7 @@ const LoginForm = () => {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={updatePassword}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
@@ -82,10 +75,7 @@ const LoginForm = () => {
         Not a member? <span className={styles.switchLinks}><SignUpFormModal linkText={'Sign up here!'}/></span>
       </div> */}
       <div>
-        <DemoLogin />
-      </div>
-      <div>
-        <SuperDemoLogin />
+        Log in as a <DemoLogin /> or a <SuperDemoLogin />
       </div>
     </div>
   );

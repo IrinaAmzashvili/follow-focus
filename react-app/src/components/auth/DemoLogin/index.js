@@ -12,7 +12,7 @@ export const DemoLogin = () => {
 
   return (
     <button onClick={demoLogin} className={`${styles.demoLogin} link-button`}>
-        Log in as a <span className={styles.switchLinks}>Demo Member</span>
+        <span className={styles.switchLinks}>Demo Member</span>
     </button>
   )
 }
@@ -27,7 +27,7 @@ export const SuperDemoLogin = () => {
 
   return (
     <button onClick={superDemoLogin} className={`${styles.demoLogin} link-button`}>
-        Log in as a <span className={styles.switchLinks}>Content Creator</span> 
+        <span className={styles.switchLinks}>Demo Content Creator</span>
     </button>
   )
 }

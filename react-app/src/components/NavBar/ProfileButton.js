@@ -25,7 +25,7 @@ const ProfileButton = ({ sessionUser }) => {
   }, [showMenu]);
 
   return (
-    <button className={`${styles.profileButton} link-button`} onClick={openMenu}>
+    <div className={`${styles.profileButton} link-button`} onClick={openMenu}>
       <i className={`${styles.profileIcon} fas fa-user-circle`}></i>
       {sessionUser.username}
       {showMenu && (
@@ -38,7 +38,7 @@ const ProfileButton = ({ sessionUser }) => {
           </li>
         </ul>
       )}
-    </button>
+    </div>
   )
 }
 
