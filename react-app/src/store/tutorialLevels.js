@@ -6,7 +6,7 @@ const setLevels = (levels) => ({
 });
 
 export const getTutorialLevels = () => async (dispatch) => {
-  const res = await fetch('/api/tutorial-levels');
+  const res = await fetch('/api/tutorial-levels/');
 
   if (res.ok) {
     const data = await res.json();

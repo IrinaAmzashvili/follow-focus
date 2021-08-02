@@ -6,7 +6,7 @@ const setTiers = (tiers) => ({
 });
 
 export const getTiers = () => async (dispatch) => {
-  const res = await fetch('/api/tiers');
+  const res = await fetch('/api/tiers/');
 
   if (res.ok) {
     const data = await res.json();

@@ -22,6 +22,8 @@ class Tutorial(db.Model):
     level = db.relationship('Level', backref='tutorials')
     tier = db.relationship('Tier', backref='tutorials')
 
+    comments = db.relationship('Comment', back_populates='tutorial', cascade='all, delete-orphan')
+
     # many to many relationships
     users = db.relationship('User', secondary=likes,
                             back_populates='tutorials')
