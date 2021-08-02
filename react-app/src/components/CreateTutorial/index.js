@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AiOutlineAppstoreAdd } from 'react-icons/ai';
 import CreateTutorialModal from './CreateTutorialModal';
 import { Modal } from '../../context/Modal';
 import styles from './CreateTutorial.module.css';
@@ -9,8 +10,8 @@ const CreateTutorial = () => {
 
   return (
     <>
-      <button className={`${styles.createNewTutorialButton} cta-button`} onClick={() => setShowModal(true)}>
-        Create New Tutorial
+      <button className={`${styles.createNewTutorialButton} link-button`} onClick={() => setShowModal(true)}>
+        <AiOutlineAppstoreAdd />
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

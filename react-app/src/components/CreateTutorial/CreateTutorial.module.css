@@ -2,5 +2,6 @@
 
 
 .createNewTutorialButton {
-    width: 120px;
+    font-size: 25px;
+    color: var(--greyTheme);
 }

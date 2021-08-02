@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/User/UsersList";
 import User from "./components/User";
 import TutorialsPage from "./components/TutorialsPage";
 import Footer from "./components/Footer";
@@ -35,10 +34,7 @@ function App() {
     {/* ) : null} */}
       <main>
         <Switch>
-          <ProtectedRoute path="/users" exact>
-            <UsersList />
-          </ProtectedRoute>
-          <ProtectedRoute path="/users/:userId" exact>
+          <ProtectedRoute path={`/users/${sessionUser.id}`} exact>
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/tutorials" exact>
@@ -49,6 +45,9 @@ function App() {
           </ProtectedRoute>
           <Route path="/" exact>
             <SplashPage sessionUser={sessionUser} />
+          </Route>
+          <Route>
+            404 - Page not found
           </Route>
         </Switch>
       </main>

@@ -3,13 +3,19 @@
 
 .tutorialModal {
     padding: 50px;
-    width: 500px;
+    /* width: 500px; */
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    /* align-items: stretch; */
+}
+
+.inputsDiv {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .header {
@@ -21,17 +27,11 @@
 .input {
     width: 100%;
     height: 32px;
-    border-radius: 5px;
-    border: 1px solid var(--greyTheme);
-    padding: 8px;
 }
 
 .textAreaInput {
     height: 100px;
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid var(--greyTheme);
-    padding: 8px;
 }
 
 .errorDiv {

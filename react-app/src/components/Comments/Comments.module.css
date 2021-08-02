@@ -1,0 +1,18 @@
+@import '../../index.css';
+
+
+.commentsSectionDiv {
+    width: 100%;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentTextareaDiv {
+    width: 100%;
+}
+
+.commentTextarea {
+    width: 100%;
+    height: 60px;
+}
