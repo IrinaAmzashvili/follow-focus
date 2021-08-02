@@ -29,7 +29,6 @@ const TutorialsPage = () => {
       <div className={styles.filterContainer}>Filter Div</div>
       <div className={styles.tutorialsDiv}>
         <div className={styles.tutorialsTopDiv}>
-          <CreateTutorial />
           <div className={styles.tutorialsSearch}>
             <label htmlFor="searchVideos">
               <input
@@ -42,6 +41,7 @@ const TutorialsPage = () => {
               />
             </label>
           </div>
+          <CreateTutorial />
         </div>
 
         <div className={styles.tutorialsContainer}>

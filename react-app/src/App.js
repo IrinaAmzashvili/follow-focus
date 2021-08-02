@@ -35,10 +35,7 @@ function App() {
     {/* ) : null} */}
       <main>
         <Switch>
-          <ProtectedRoute path="/users" exact>
-            <UsersList />
-          </ProtectedRoute>
-          <ProtectedRoute path="/users/:userId" exact>
+          <ProtectedRoute path={`/users/${sessionUser.id}`} exact>
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/tutorials" exact>
@@ -49,6 +46,9 @@ function App() {
           </ProtectedRoute>
           <Route path="/" exact>
             <SplashPage sessionUser={sessionUser} />
+          </Route>
+          <Route>
+            404 - Page not found
           </Route>
         </Switch>
       </main>

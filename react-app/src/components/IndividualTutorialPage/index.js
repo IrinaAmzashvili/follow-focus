@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getOneTutorial, unloadCurrentTutorial } from "../../store/tutorials";
 import EditTutorial from '../EditTutorial';
 import DeleteTutorial from '../DeleteTutorial';
+import Comments from '../Comments';
 import styles from "./IndividualTutorialPage.module.css";
 
 const IndividualTutorialPage = () => {
@@ -45,6 +46,7 @@ const IndividualTutorialPage = () => {
           <p className={styles.description}>{tutorial?.description}</p>
         </div>
       </div>
+      <Comments tutorial={tutorial} />
     </div>) :
       <h1>This tutorial doesn't exist.</h1>)
       : (
