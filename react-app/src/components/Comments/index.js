@@ -4,10 +4,10 @@ import { RiSendPlane2Fill } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
 import {
   setComments,
-  postComment,
   deleteComment,
   editComment,
 } from "../../store/comments";
+import PostComment from '../PostComment';
 import styles from "./Comments.module.css";
 
 const Comments = ({ tutorial }) => {
@@ -15,7 +15,6 @@ const Comments = ({ tutorial }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const tutComments = useSelector((state) => Object.values(state.comments));
 
-  const [commentBody, setCommentBody] = useState("");
   const [editClicked, setEditClicked] = useState(0);
   const [editBody, setEditBody] = useState("");
   const [commentToEdit, setCommentToEdit] = useState({});
@@ -30,18 +29,6 @@ const Comments = ({ tutorial }) => {
     dispatch(setComments(tutorial.comments));
   }, [dispatch, tutorial.comments]);
 
-  const handlePost = (e) => {
-    e.preventDefault();
-    const newComment = {
-      body: commentBody,
-      user_id: sessionUser.id,
-      tutorial_id: tutorial.id,
-      created_at: new Date(),
-    };
-    dispatch(postComment(newComment));
-    setCommentBody("");
-  };
-
   const handleEdit = (e) => {
     e.preventDefault();
     const comment = allComments.find(
@@ -55,12 +42,10 @@ const Comments = ({ tutorial }) => {
   const handleCancel = (e) => {
     e.preventDefault();
     setEditClicked(0);
-    console.log("---> cancel", commentToEdit);
     setCommentToEdit({});
   };
 
   const handleSaveComment = async (e) => {
-    console.log("--> edit body", editBody);
     e.preventDefault();
     const editedComment = {
       id: e.currentTarget.id,
@@ -79,29 +64,8 @@ const Comments = ({ tutorial }) => {
   };
 
   return (
-    // Create a comment
     <div className={styles.commentsSectionDiv}>
-      <div className={styles.commentTextareaDiv}>
-        <form className={styles.form} onSubmit={handlePost}>
-          <label htmlFor="commentInput">
-            <textarea
-              id="commentInput"
-              name="commentInput"
-              placeholder="Do you have any questions or comments?..."
-              className={styles.commentTextarea}
-              value={commentBody}
-              onChange={(e) => setCommentBody(e.target.value)}
-            />
-          </label>
-          {commentBody ? (
-            <button
-              className={`${styles.submitButton} icon-button link-button`}
-            >
-              <RiSendPlane2Fill />
-            </button>
-          ) : null}
-        </form>
-      </div>
+      <PostComment sessionUser={sessionUser} tutorial={tutorial} />
 
       {/* Display all comments */}
       <div className={styles.commentsSection}>
