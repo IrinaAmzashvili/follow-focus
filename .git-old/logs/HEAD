@@ -1,0 +1,115 @@
+0000000000000000000000000000000000000000 44bc538ddef6b8996d6e2df3b82d32b5884f8350 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627330380 -0600	commit (initial): first commit
+44bc538ddef6b8996d6e2df3b82d32b5884f8350 0000000000000000000000000000000000000000 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627330380 -0600	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 44bc538ddef6b8996d6e2df3b82d32b5884f8350 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627330380 -0600	Branch: renamed refs/heads/master to refs/heads/main
+44bc538ddef6b8996d6e2df3b82d32b5884f8350 79c23a05b825a40464760006047ab1c81bb24930 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627410852 -0600	commit: Create models and most seeder files
+79c23a05b825a40464760006047ab1c81bb24930 7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627447854 -0600	commit: Database set up with majority of seeders
+7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627447890 -0600	checkout: moving from main to deploy-to-heroku
+7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 d8912c5db0a347441a6c066eeed05d9369f4093c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627450924 -0600	commit: Update user login and signup - in progress
+d8912c5db0a347441a6c066eeed05d9369f4093c d12e77871d35d1b1c849869c5c336f1cee636112 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627491833 -0600	commit: Work on signup validation
+d12e77871d35d1b1c849869c5c336f1cee636112 96da90f7e68643d092d5766de1f21bae5cb3676f IrinaAmzashvili <irina.amzashvili@gmail.com> 1627500085 -0600	commit: Update user model, signup and login
+96da90f7e68643d092d5766de1f21bae5cb3676f 7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627500137 -0600	checkout: moving from deploy-to-heroku to main
+7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 498406b9f8d0d5c46a7e45d24cfbb7b7eb2b0193 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627500140 -0600	pull: Fast-forward
+498406b9f8d0d5c46a7e45d24cfbb7b7eb2b0193 96da90f7e68643d092d5766de1f21bae5cb3676f IrinaAmzashvili <irina.amzashvili@gmail.com> 1627500149 -0600	checkout: moving from main to deploy-to-heroku
+96da90f7e68643d092d5766de1f21bae5cb3676f 5eb94822206afdd6e2ba68482592127c1d58a5f9 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627500151 -0600	merge main: Merge made by the 'recursive' strategy.
+5eb94822206afdd6e2ba68482592127c1d58a5f9 34bf7919c44870ff43bdd3c93f016136d588d1c1 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627504387 -0600	commit: Update dockerfile
+34bf7919c44870ff43bdd3c93f016136d588d1c1 498406b9f8d0d5c46a7e45d24cfbb7b7eb2b0193 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627504390 -0600	checkout: moving from deploy-to-heroku to main
+498406b9f8d0d5c46a7e45d24cfbb7b7eb2b0193 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627504392 -0600	pull: Fast-forward
+3109356761e081d191631df4b730da2264056dc8 34bf7919c44870ff43bdd3c93f016136d588d1c1 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627504397 -0600	checkout: moving from main to deploy-to-heroku
+34bf7919c44870ff43bdd3c93f016136d588d1c1 359169ef3df5c9bace4eb73ce80bd1e8b3306702 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627504400 -0600	merge main: Merge made by the 'recursive' strategy.
+359169ef3df5c9bace4eb73ce80bd1e8b3306702 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627507014 -0600	checkout: moving from deploy-to-heroku to main
+3109356761e081d191631df4b730da2264056dc8 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627507035 -0600	checkout: moving from main to tutorials
+3109356761e081d191631df4b730da2264056dc8 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627507491 -0600	checkout: moving from tutorials to main
+3109356761e081d191631df4b730da2264056dc8 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627507504 -0600	checkout: moving from main to tutorials
+3109356761e081d191631df4b730da2264056dc8 5eba0a3570d35ecbc2da072e821a9bf22bf6e13a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508250 -0600	commit: Update user model again
+5eba0a3570d35ecbc2da072e821a9bf22bf6e13a 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508253 -0600	checkout: moving from tutorials to main
+3109356761e081d191631df4b730da2264056dc8 1f95ca59ddb4b73fa997a307eeec50250585d86a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508258 -0600	pull: Fast-forward
+1f95ca59ddb4b73fa997a307eeec50250585d86a 5eba0a3570d35ecbc2da072e821a9bf22bf6e13a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508268 -0600	checkout: moving from main to tutorials
+5eba0a3570d35ecbc2da072e821a9bf22bf6e13a 1060e4091b9646448529253a102903dad50d76e0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508507 -0600	commit (merge): Resolve merge conflicts
+1060e4091b9646448529253a102903dad50d76e0 1f95ca59ddb4b73fa997a307eeec50250585d86a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508513 -0600	checkout: moving from tutorials to main
+1f95ca59ddb4b73fa997a307eeec50250585d86a d0d5e6435064a40c36e463577c51ae6898775f7e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508828 -0600	commit: Debug user model and signup
+d0d5e6435064a40c36e463577c51ae6898775f7e 1060e4091b9646448529253a102903dad50d76e0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627510205 -0600	checkout: moving from main to tutorials
+1060e4091b9646448529253a102903dad50d76e0 821c67d6e915d9a156269faca3a37692c8761fe7 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627510207 -0600	merge main: Merge made by the 'recursive' strategy.
+821c67d6e915d9a156269faca3a37692c8761fe7 69be6fcdcf92e723437b95742b9a4138c73a9066 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627512900 -0600	commit: Create tutorials page, work on get route
+69be6fcdcf92e723437b95742b9a4138c73a9066 d0d5e6435064a40c36e463577c51ae6898775f7e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627512903 -0600	checkout: moving from tutorials to main
+d0d5e6435064a40c36e463577c51ae6898775f7e d0d5e6435064a40c36e463577c51ae6898775f7e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627512914 -0600	checkout: moving from main to seeding
+d0d5e6435064a40c36e463577c51ae6898775f7e ab6b36a8a04a7688878c6a0841e67eab47b1db2d IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588049 -0600	commit: Seeded all tutorials
+ab6b36a8a04a7688878c6a0841e67eab47b1db2d d0d5e6435064a40c36e463577c51ae6898775f7e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588099 -0600	checkout: moving from seeding to main
+d0d5e6435064a40c36e463577c51ae6898775f7e 019c3d10b7e6fd4dc56d49590811ebe1e3ada97c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588103 -0600	pull: Fast-forward
+019c3d10b7e6fd4dc56d49590811ebe1e3ada97c 69be6fcdcf92e723437b95742b9a4138c73a9066 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588161 -0600	checkout: moving from main to tutorials
+69be6fcdcf92e723437b95742b9a4138c73a9066 c14e4f9e7903df23487625d06d90e356217c6154 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588344 -0600	commit (merge): Resolve merge conflict
+c14e4f9e7903df23487625d06d90e356217c6154 51b0a04cc0f71aefdae5f5477d33bc655a9492b4 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627589382 -0600	commit: Create tutorials get route
+51b0a04cc0f71aefdae5f5477d33bc655a9492b4 019c3d10b7e6fd4dc56d49590811ebe1e3ada97c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627589396 -0600	checkout: moving from tutorials to main
+019c3d10b7e6fd4dc56d49590811ebe1e3ada97c 019c3d10b7e6fd4dc56d49590811ebe1e3ada97c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627589404 -0600	checkout: moving from main to navbar
+019c3d10b7e6fd4dc56d49590811ebe1e3ada97c 10c2958eb033bc004b2437d932241061451e4b44 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590268 -0600	commit: Work on navbar
+10c2958eb033bc004b2437d932241061451e4b44 51b0a04cc0f71aefdae5f5477d33bc655a9492b4 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590274 -0600	checkout: moving from navbar to tutorials
+51b0a04cc0f71aefdae5f5477d33bc655a9492b4 019c3d10b7e6fd4dc56d49590811ebe1e3ada97c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590339 -0600	checkout: moving from tutorials to main
+019c3d10b7e6fd4dc56d49590811ebe1e3ada97c 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590342 -0600	pull: Fast-forward
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 51b0a04cc0f71aefdae5f5477d33bc655a9492b4 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590348 -0600	checkout: moving from main to tutorials
+51b0a04cc0f71aefdae5f5477d33bc655a9492b4 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590351 -0600	merge main: Fast-forward
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 10c2958eb033bc004b2437d932241061451e4b44 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590358 -0600	checkout: moving from tutorials to navbar
+10c2958eb033bc004b2437d932241061451e4b44 a93f8d412f26dfdc39f24d87f4553f3c0d1bc336 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590360 -0600	merge main: Merge made by the 'recursive' strategy.
+a93f8d412f26dfdc39f24d87f4553f3c0d1bc336 704bbfc98859997f5076c741e760b4708008cb9a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627596664 -0600	commit: Work on navbar2
+704bbfc98859997f5076c741e760b4708008cb9a 1a9006c099b895abd44fdecfb488bdf6afd95844 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627597335 -0600	commit: Create footer, update navbar
+1a9006c099b895abd44fdecfb488bdf6afd95844 9102bb03fcd05972d685958bfdb2b9157747bf8b IrinaAmzashvili <irina.amzashvili@gmail.com> 1627599694 -0600	commit: Work on tutorials page
+9102bb03fcd05972d685958bfdb2b9157747bf8b d3b44805b71c08648e462e4f67fa21dcc00ec1fd IrinaAmzashvili <irina.amzashvili@gmail.com> 1627683261 -0600	commit: Work on Tutorials put route
+d3b44805b71c08648e462e4f67fa21dcc00ec1fd 2c1f03a87a766d26cc678c6685eb371d53ae2c8c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627710321 -0600	commit: Work on tutorials put route, refactor tutorials store
+2c1f03a87a766d26cc678c6685eb371d53ae2c8c 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627710328 -0600	checkout: moving from navbar to main
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627710359 -0600	checkout: moving from main to signup-login-styling
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 8ef357a9eeac3f4e8e9ae951086d78a29a93711e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627716747 -0600	commit: Implement login and signup modals, style login and signup forms
+8ef357a9eeac3f4e8e9ae951086d78a29a93711e 4df2030aeab52822fcc2b818f217432dc8b74caf IrinaAmzashvili <irina.amzashvili@gmail.com> 1627719352 -0600	commit: Update error handling UI and more styling
+4df2030aeab52822fcc2b818f217432dc8b74caf 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627719549 -0600	checkout: moving from signup-login-styling to main
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 253c2ee210d5a5d1c9bbe3e7c0ff4fd8ef31df1a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627719552 -0600	pull: Fast-forward
+253c2ee210d5a5d1c9bbe3e7c0ff4fd8ef31df1a 2c1f03a87a766d26cc678c6685eb371d53ae2c8c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627719570 -0600	checkout: moving from main to navbar
+2c1f03a87a766d26cc678c6685eb371d53ae2c8c 624f53761b70fd96da951adcb574e6f8a6ea7db9 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627720055 -0600	commit (merge): Resolve merge conflicts
+624f53761b70fd96da951adcb574e6f8a6ea7db9 d4d57eee844b41ce8109c3fcd627eb33db17d02e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627721316 -0600	commit: Update protected routes
+d4d57eee844b41ce8109c3fcd627eb33db17d02e 72b3ab832a071f196a64cc8ca7ac21f78b3424f7 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627722619 -0600	commit: Implement demo and super demo login
+72b3ab832a071f196a64cc8ca7ac21f78b3424f7 07b73a7802e370f9f635e99e25f58c6bb23685ec IrinaAmzashvili <irina.amzashvili@gmail.com> 1627723170 -0600	commit: Minor updates
+07b73a7802e370f9f635e99e25f58c6bb23685ec e888c0f55013b93893b69c495c7911c8a2d77d48 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627757322 -0600	commit: Debug PUT tutorial route
+e888c0f55013b93893b69c495c7911c8a2d77d48 dba904f3d2b3a2f7df12ae10e0da7adfb219fbfb IrinaAmzashvili <irina.amzashvili@gmail.com> 1627760074 -0600	commit: Implement delete tutorial
+dba904f3d2b3a2f7df12ae10e0da7adfb219fbfb 4931a09283da6fa6ff9f59877cc86abc7ba446c1 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627761818 -0600	commit: Style confirm delete modal
+4931a09283da6fa6ff9f59877cc86abc7ba446c1 d835f72485a29ca0808ed5c25ad8bd8677205a2d IrinaAmzashvili <irina.amzashvili@gmail.com> 1627774436 -0600	commit: Create edit tutorial modal, add some styling
+d835f72485a29ca0808ed5c25ad8bd8677205a2d b0901b23b59aa16260ab799e7d9085ab01c93273 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781753 -0600	commit: Implement create tutorial functionality
+b0901b23b59aa16260ab799e7d9085ab01c93273 253c2ee210d5a5d1c9bbe3e7c0ff4fd8ef31df1a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781831 -0600	checkout: moving from navbar to main
+253c2ee210d5a5d1c9bbe3e7c0ff4fd8ef31df1a 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781836 -0600	pull: Fast-forward
+61d02908dbb1f285dfa688e0caf6280723a861bc 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781866 -0600	checkout: moving from main to tutorials
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781872 -0600	merge main: Fast-forward
+61d02908dbb1f285dfa688e0caf6280723a861bc 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627788682 -0600	checkout: moving from tutorials to main
+61d02908dbb1f285dfa688e0caf6280723a861bc 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627791040 -0600	reset: moving to HEAD
+61d02908dbb1f285dfa688e0caf6280723a861bc 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627791046 -0600	reset: moving to HEAD
+61d02908dbb1f285dfa688e0caf6280723a861bc 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627791057 -0600	checkout: moving from main to tutorials
+61d02908dbb1f285dfa688e0caf6280723a861bc 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627791137 -0600	checkout: moving from tutorials to main
+61d02908dbb1f285dfa688e0caf6280723a861bc 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627791151 -0600	checkout: moving from main to tutorials
+61d02908dbb1f285dfa688e0caf6280723a861bc 45fb74cfb0c942eb83fd53490c88876b2bd35453 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627801575 -0600	commit: Implement Tutorial Form for create and edit tutorial modals, debug tutorial store
+45fb74cfb0c942eb83fd53490c88876b2bd35453 b5ab4d6b312b0bb28eff4c76402b7d94c15b47d5 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627807074 -0600	commit: Create get routes for styles, levels, and tiers
+b5ab4d6b312b0bb28eff4c76402b7d94c15b47d5 5b671a36a40b44a886cb7184d1637ae820dc8209 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627860516 -0600	commit: Implement search feature
+5b671a36a40b44a886cb7184d1637ae820dc8209 350cccfeb137aa06f42c935d047328e1a0d5ba30 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864539 -0600	commit: Update login/signup error handling
+350cccfeb137aa06f42c935d047328e1a0d5ba30 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864585 -0600	checkout: moving from tutorials to main
+61d02908dbb1f285dfa688e0caf6280723a861bc fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864589 -0600	pull: Fast-forward
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 350cccfeb137aa06f42c935d047328e1a0d5ba30 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864598 -0600	checkout: moving from main to tutorials
+350cccfeb137aa06f42c935d047328e1a0d5ba30 fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864601 -0600	merge main: Fast-forward
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 ae75b127c5c93d7330f1a1886b75c300066fe891 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627868642 -0600	commit: Update styling
+ae75b127c5c93d7330f1a1886b75c300066fe891 6995b6b65f3cd2c3075eb28a8e631577fcdf76db IrinaAmzashvili <irina.amzashvili@gmail.com> 1627880659 -0600	commit: Work on comments section, make user page safe
+6995b6b65f3cd2c3075eb28a8e631577fcdf76db f8d7d16cebc566b659da15d4a4bacafca45c7a98 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627882037 -0600	commit: Debug single tutorial page - if tutorial doesn't exist, appropriate message is displayed
+f8d7d16cebc566b659da15d4a4bacafca45c7a98 fdc8e1ae321e001db0c05d94298e8f50c6d26f22 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627917073 -0600	commit: Work on tutorials
+fdc8e1ae321e001db0c05d94298e8f50c6d26f22 fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627917089 -0600	checkout: moving from tutorials to main
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922034 -0600	reset: moving to HEAD
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 fdc8e1ae321e001db0c05d94298e8f50c6d26f22 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922039 -0600	checkout: moving from main to tutorials
+fdc8e1ae321e001db0c05d94298e8f50c6d26f22 c8859ffb7cefc7272315997cc9bd3c65f1e188ea IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922085 -0600	commit: Update migration version file
+c8859ffb7cefc7272315997cc9bd3c65f1e188ea fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922155 -0600	checkout: moving from tutorials to main
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 42606b530333e910cd0de5fece4b8e7ba92f156b IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922158 -0600	pull: Fast-forward
+42606b530333e910cd0de5fece4b8e7ba92f156b 5f7077a30216ebd20d4e2071082730bfea078d2e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922587 -0600	commit: Update version file
+5f7077a30216ebd20d4e2071082730bfea078d2e 8e57be4c79fe502b1bc612cc6fb3237223b07674 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923218 -0600	commit: Update App.js
+8e57be4c79fe502b1bc612cc6fb3237223b07674 e00378507f0c1982810ba1d9ed24a54ffc2813aa IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923642 -0600	commit: Add trailing forward slash to tutorials api route
+e00378507f0c1982810ba1d9ed24a54ffc2813aa c8859ffb7cefc7272315997cc9bd3c65f1e188ea IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923752 -0600	checkout: moving from main to tutorials
+c8859ffb7cefc7272315997cc9bd3c65f1e188ea e00378507f0c1982810ba1d9ed24a54ffc2813aa IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923755 -0600	merge main: Fast-forward
+e00378507f0c1982810ba1d9ed24a54ffc2813aa 50d0186e67e4c510d65ee628a28323b21ccf2141 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627924636 -0600	commit: Add cascade delete to comments model
+50d0186e67e4c510d65ee628a28323b21ccf2141 50d0186e67e4c510d65ee628a28323b21ccf2141 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627925076 -0600	checkout: moving from tutorials to update-models
+50d0186e67e4c510d65ee628a28323b21ccf2141 ac2fda4c8f40436146361c31346358b44f133787 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926884 -0600	commit: Update model to include cascade delete
+ac2fda4c8f40436146361c31346358b44f133787 e00378507f0c1982810ba1d9ed24a54ffc2813aa IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926956 -0600	checkout: moving from update-models to main
+e00378507f0c1982810ba1d9ed24a54ffc2813aa e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926959 -0600	pull: Fast-forward
+e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 50d0186e67e4c510d65ee628a28323b21ccf2141 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926970 -0600	checkout: moving from main to tutorials
+50d0186e67e4c510d65ee628a28323b21ccf2141 e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926973 -0600	merge main: Fast-forward
+e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627927038 -0600	checkout: moving from tutorials to main
+e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627927043 -0600	checkout: moving from main to comments
+e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 1e08632b315296a5a32fc267aad0348a83bd71be IrinaAmzashvili <irina.amzashvili@gmail.com> 1627934624 -0600	commit: Add comment seeds, update models to include cascade delete, add favicon
+1e08632b315296a5a32fc267aad0348a83bd71be 240d8e25558102daa0904a4230f846c8f8b28435 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627935876 -0600	commit: Work on first comment route

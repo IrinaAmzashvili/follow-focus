@@ -9,6 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.tier_routes import tier_routes
+from .api.comment_routes import comment_routes
 from .api.tutorial_routes import tutorial_routes
 from .api.dance_style_routes import dance_style_routes
 from .api.tutorial_level_routes import tutorial_level_routes
@@ -36,6 +37,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(tier_routes, url_prefix='/api/tiers')
+app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(tutorial_routes, url_prefix='/api/tutorials')
 app.register_blueprint(dance_style_routes, url_prefix='/api/dance-styles')
 app.register_blueprint(tutorial_level_routes, url_prefix='/api/tutorial-levels')

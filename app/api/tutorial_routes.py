@@ -1,14 +1,16 @@
 from flask import Blueprint, request
+from sqlalchemy import desc
 from app.models import db, Tutorial
 from .auth_routes import validation_errors_to_error_messages
 from app.forms import TutorialForm
 
-tutorial_routes = Blueprint('tutorial', __name__)
+tutorial_routes = Blueprint('tutorials', __name__)
 
 
 @tutorial_routes.route('/')
 def get_tutorials():
-    all_tutorials = Tutorial.query.all()
+    # all_tutorials = Tutorial.query.order_by(desc(Tutorial.date)).all()
+    all_tutorials = Tutorial.query.order_by(Tutorial.date.desc()).all()
     return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
 
 

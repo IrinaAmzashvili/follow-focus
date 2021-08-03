@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627927043 -0600	branch: Created from HEAD
+e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 1e08632b315296a5a32fc267aad0348a83bd71be IrinaAmzashvili <irina.amzashvili@gmail.com> 1627934624 -0600	commit: Add comment seeds, update models to include cascade delete, add favicon
+1e08632b315296a5a32fc267aad0348a83bd71be 240d8e25558102daa0904a4230f846c8f8b28435 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627935876 -0600	commit: Work on first comment route
