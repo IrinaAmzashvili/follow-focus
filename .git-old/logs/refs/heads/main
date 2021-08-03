@@ -1,0 +1,18 @@
+0000000000000000000000000000000000000000 44bc538ddef6b8996d6e2df3b82d32b5884f8350 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627330380 -0600	commit (initial): first commit
+44bc538ddef6b8996d6e2df3b82d32b5884f8350 44bc538ddef6b8996d6e2df3b82d32b5884f8350 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627330380 -0600	Branch: renamed refs/heads/master to refs/heads/main
+44bc538ddef6b8996d6e2df3b82d32b5884f8350 79c23a05b825a40464760006047ab1c81bb24930 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627410852 -0600	commit: Create models and most seeder files
+79c23a05b825a40464760006047ab1c81bb24930 7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627447854 -0600	commit: Database set up with majority of seeders
+7ee5c41e033344e7c3913a1b836c4bfad1afb5c0 498406b9f8d0d5c46a7e45d24cfbb7b7eb2b0193 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627500140 -0600	pull: Fast-forward
+498406b9f8d0d5c46a7e45d24cfbb7b7eb2b0193 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627504392 -0600	pull: Fast-forward
+3109356761e081d191631df4b730da2264056dc8 1f95ca59ddb4b73fa997a307eeec50250585d86a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508258 -0600	pull: Fast-forward
+1f95ca59ddb4b73fa997a307eeec50250585d86a d0d5e6435064a40c36e463577c51ae6898775f7e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508828 -0600	commit: Debug user model and signup
+d0d5e6435064a40c36e463577c51ae6898775f7e 019c3d10b7e6fd4dc56d49590811ebe1e3ada97c IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588103 -0600	pull: Fast-forward
+019c3d10b7e6fd4dc56d49590811ebe1e3ada97c 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590342 -0600	pull: Fast-forward
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 253c2ee210d5a5d1c9bbe3e7c0ff4fd8ef31df1a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627719552 -0600	pull: Fast-forward
+253c2ee210d5a5d1c9bbe3e7c0ff4fd8ef31df1a 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781836 -0600	pull: Fast-forward
+61d02908dbb1f285dfa688e0caf6280723a861bc fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864589 -0600	pull: Fast-forward
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 42606b530333e910cd0de5fece4b8e7ba92f156b IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922158 -0600	pull: Fast-forward
+42606b530333e910cd0de5fece4b8e7ba92f156b 5f7077a30216ebd20d4e2071082730bfea078d2e IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922587 -0600	commit: Update version file
+5f7077a30216ebd20d4e2071082730bfea078d2e 8e57be4c79fe502b1bc612cc6fb3237223b07674 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923218 -0600	commit: Update App.js
+8e57be4c79fe502b1bc612cc6fb3237223b07674 e00378507f0c1982810ba1d9ed24a54ffc2813aa IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923642 -0600	commit: Add trailing forward slash to tutorials api route
+e00378507f0c1982810ba1d9ed24a54ffc2813aa e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926959 -0600	pull: Fast-forward

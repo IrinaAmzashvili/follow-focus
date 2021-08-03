@@ -1,0 +1,22 @@
+0000000000000000000000000000000000000000 3109356761e081d191631df4b730da2264056dc8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627507035 -0600	branch: Created from HEAD
+3109356761e081d191631df4b730da2264056dc8 5eba0a3570d35ecbc2da072e821a9bf22bf6e13a IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508250 -0600	commit: Update user model again
+5eba0a3570d35ecbc2da072e821a9bf22bf6e13a 1060e4091b9646448529253a102903dad50d76e0 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627508507 -0600	commit (merge): Resolve merge conflicts
+1060e4091b9646448529253a102903dad50d76e0 821c67d6e915d9a156269faca3a37692c8761fe7 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627510207 -0600	merge main: Merge made by the 'recursive' strategy.
+821c67d6e915d9a156269faca3a37692c8761fe7 69be6fcdcf92e723437b95742b9a4138c73a9066 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627512900 -0600	commit: Create tutorials page, work on get route
+69be6fcdcf92e723437b95742b9a4138c73a9066 c14e4f9e7903df23487625d06d90e356217c6154 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627588344 -0600	commit (merge): Resolve merge conflict
+c14e4f9e7903df23487625d06d90e356217c6154 51b0a04cc0f71aefdae5f5477d33bc655a9492b4 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627589382 -0600	commit: Create tutorials get route
+51b0a04cc0f71aefdae5f5477d33bc655a9492b4 35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627590351 -0600	merge main: Fast-forward
+35ded367ee3e125beb8a02ff7acb2c0d5b5fb814 61d02908dbb1f285dfa688e0caf6280723a861bc IrinaAmzashvili <irina.amzashvili@gmail.com> 1627781872 -0600	merge main: Fast-forward
+61d02908dbb1f285dfa688e0caf6280723a861bc 45fb74cfb0c942eb83fd53490c88876b2bd35453 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627801575 -0600	commit: Implement Tutorial Form for create and edit tutorial modals, debug tutorial store
+45fb74cfb0c942eb83fd53490c88876b2bd35453 b5ab4d6b312b0bb28eff4c76402b7d94c15b47d5 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627807074 -0600	commit: Create get routes for styles, levels, and tiers
+b5ab4d6b312b0bb28eff4c76402b7d94c15b47d5 5b671a36a40b44a886cb7184d1637ae820dc8209 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627860516 -0600	commit: Implement search feature
+5b671a36a40b44a886cb7184d1637ae820dc8209 350cccfeb137aa06f42c935d047328e1a0d5ba30 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864539 -0600	commit: Update login/signup error handling
+350cccfeb137aa06f42c935d047328e1a0d5ba30 fa1ae66baf1d8b89b7c6be963742dbff0da4b610 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627864601 -0600	merge main: Fast-forward
+fa1ae66baf1d8b89b7c6be963742dbff0da4b610 ae75b127c5c93d7330f1a1886b75c300066fe891 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627868642 -0600	commit: Update styling
+ae75b127c5c93d7330f1a1886b75c300066fe891 6995b6b65f3cd2c3075eb28a8e631577fcdf76db IrinaAmzashvili <irina.amzashvili@gmail.com> 1627880659 -0600	commit: Work on comments section, make user page safe
+6995b6b65f3cd2c3075eb28a8e631577fcdf76db f8d7d16cebc566b659da15d4a4bacafca45c7a98 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627882037 -0600	commit: Debug single tutorial page - if tutorial doesn't exist, appropriate message is displayed
+f8d7d16cebc566b659da15d4a4bacafca45c7a98 fdc8e1ae321e001db0c05d94298e8f50c6d26f22 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627917073 -0600	commit: Work on tutorials
+fdc8e1ae321e001db0c05d94298e8f50c6d26f22 c8859ffb7cefc7272315997cc9bd3c65f1e188ea IrinaAmzashvili <irina.amzashvili@gmail.com> 1627922085 -0600	commit: Update migration version file
+c8859ffb7cefc7272315997cc9bd3c65f1e188ea e00378507f0c1982810ba1d9ed24a54ffc2813aa IrinaAmzashvili <irina.amzashvili@gmail.com> 1627923755 -0600	merge main: Fast-forward
+e00378507f0c1982810ba1d9ed24a54ffc2813aa 50d0186e67e4c510d65ee628a28323b21ccf2141 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627924636 -0600	commit: Add cascade delete to comments model
+50d0186e67e4c510d65ee628a28323b21ccf2141 e928f8b1c3cc3c4b29e72d445b62c0cdbeda42e8 IrinaAmzashvili <irina.amzashvili@gmail.com> 1627926973 -0600	merge main: Fast-forward

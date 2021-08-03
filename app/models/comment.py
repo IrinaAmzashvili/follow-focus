@@ -9,6 +9,7 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     tutorial_id = db.Column(db.Integer, db.ForeignKey('tutorials.id'),
                             nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False)
 
     # one to many relationships - many side
     # user = db.relationship('User', backref=backref('comments', cascade='all, delete-orphan'))
@@ -20,6 +21,7 @@ class Comment(db.Model):
         return {
             'id': self.id,
             'body': self.body,
-            'userId': self.user_id,
+            'user': self.user.to_dict(),
             'tutorialId': self.tutorial_id,
+            'createdAt': self.created_at,
         }
