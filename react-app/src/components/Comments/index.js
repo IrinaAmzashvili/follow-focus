@@ -15,7 +15,7 @@ const Comments = ({ tutorial }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const tutComments = useSelector((state) => Object.values(state.comments));
 
-  const [commentBody, setCommentBody] = useState("");
+  const [commentBody, setCommentBody] = useState('');
   const [editClicked, setEditClicked] = useState(0);
   const [editBody, setEditBody] = useState('');
   const [commentToEdit, setCommentToEdit] = useState({});
@@ -44,8 +44,8 @@ const Comments = ({ tutorial }) => {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    setEditClicked(+e.currentTarget.id);
     const comment = allComments.find(comment => comment.id === +e.currentTarget.id);
+    setEditClicked(+e.currentTarget.id);
     setCommentToEdit(comment);
     setEditBody(comment.body)
   };
@@ -109,6 +109,7 @@ const Comments = ({ tutorial }) => {
                 // value={editClicked === comment.id ? editBody : comment.body}
                 onInput={e => setEditBody(e.currentTarget.textContent)}
                 className={`${styles.userComment}`}
+                suppressContentEditableWarning='true'
               >
                 {editClicked === comment.id ? editBody : comment.body}
               </p>
