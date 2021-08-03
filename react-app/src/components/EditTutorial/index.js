@@ -10,7 +10,7 @@ const EditTutorial = () => {
 
   return (
     <>
-      <button className={`${styles.editIconButton} link-button`} onClick={() => setShowModal(true)}>
+      <button className={`${styles.editIconButton} icon-button link-button`} onClick={() => setShowModal(true)}>
         <FiEdit />
       </button>
       {showModal && (

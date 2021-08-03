@@ -10,7 +10,7 @@ const CreateTutorial = () => {
 
   return (
     <>
-      <button className={`${styles.createNewTutorialButton} link-button`} onClick={() => setShowModal(true)}>
+      <button className={`${styles.createNewTutorialButton} icon-button link-button`} onClick={() => setShowModal(true)}>
         <AiOutlineAppstoreAdd />
       </button>
       {showModal && (

@@ -9,7 +9,7 @@ const DeleteTutorial = () => {
 
   return (
     <>
-      <button className={`${styles.deleteIconButton} link-button`} onClick={() => setShowModal(true)}>
+      <button className={`${styles.deleteIconButton} icon-button link-button`} onClick={() => setShowModal(true)}>
         {<i className='fas fa-trash'></i>}
       </button>
       {showModal && (

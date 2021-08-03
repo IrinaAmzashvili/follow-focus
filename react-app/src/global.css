@@ -59,6 +59,11 @@ ul {
     border-bottom: 1px solid var(--greyTheme);
 }
 
+.icon-button {
+    color: var(--iconGrey);
+
+}
+
 .cta-button{
     width: 100%;
     height: 56px;
