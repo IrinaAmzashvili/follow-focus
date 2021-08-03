@@ -26,11 +26,11 @@ const EditComment = ({ comment, user_id }) => {
 
   return (
     <form>
-      <textarea
+      {/* <textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
       >
-      </textarea>
+      </textarea> */}
       <button onClick={handleSaveComment} className={`${styles.saveCommentButton} link-button`}>
         <RiSendPlane2Fill />
       </button>
