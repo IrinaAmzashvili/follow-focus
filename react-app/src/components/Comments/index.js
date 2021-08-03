@@ -8,7 +8,6 @@ import {
   deleteComment,
   editComment,
 } from "../../store/comments";
-// import EditComment from "../EditComment";
 import styles from "./Comments.module.css";
 
 const Comments = ({ tutorial }) => {
@@ -19,6 +18,7 @@ const Comments = ({ tutorial }) => {
   const [commentBody, setCommentBody] = useState("");
   const [editClicked, setEditClicked] = useState(0);
   const [editBody, setEditBody] = useState('');
+  const [commentToEdit, setCommentToEdit] = useState({});
 
   const allComments = tutComments.sort((comment1, comment2) => {
     if (comment1.createdAt < comment2.createdAt) return -1;
@@ -45,25 +45,28 @@ const Comments = ({ tutorial }) => {
   const handleEdit = (e) => {
     e.preventDefault();
     setEditClicked(+e.currentTarget.id);
+    const comment = allComments.find(comment => comment.id === +e.currentTarget.id);
+    setCommentToEdit(comment);
+    setEditBody(comment.body)
   };
 
   const handleCancel = (e) => {
     e.preventDefault();
     setEditClicked(0);
+    setCommentToEdit({})
   };
 
-  const handleSaveComment = (e) => {
+  const handleSaveComment = async (e) => {
     e.preventDefault();
-    // const editedComment = {
-    //   id: e.currentTarget.id,
-    //   body: editBody,
-    //   user_id: sessionUser.id,
-    //   tutorial_id: tutorial.id,
-    //   // created_at: comment.createdAt
-    // };
-
-    console.log("--->", editBody);
-    // dispatch(editComment(editedComment));
+    const editedComment = {
+      id: e.currentTarget.id,
+      body: editBody,
+      user_id: sessionUser.id,
+      tutorial_id: tutorial.id,
+      created_at: commentToEdit.createdAt
+    };
+    await dispatch(editComment(editedComment));
+    setEditClicked(0);
   };
 
   const handleDelete = (e) => {
@@ -103,13 +106,11 @@ const Comments = ({ tutorial }) => {
               <p className={styles.date}>{comment.createdAt}</p>
               <p
                 contentEditable={editClicked === comment.id}
-                // vaue={editClicked === comment.id ? editBody : comment.body}
-                vaue={editBody}
-                onChange={(e) => setEditBody(e.target.value)}
+                // value={editClicked === comment.id ? editBody : comment.body}
+                onInput={e => setEditBody(e.currentTarget.textContent)}
                 className={`${styles.userComment}`}
               >
-                {/* {editClicked === comment.id ? editBody : comment.body} */}
-                {comment.body}
+                {editClicked === comment.id ? editBody : comment.body}
               </p>
 
               <div className={styles.commentButtonsDiv} id={comment.id}>
