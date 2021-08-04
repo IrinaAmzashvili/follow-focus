@@ -55,9 +55,9 @@
     width: 100%;
 }
 
-/* .thumbnailImg[height=132.19px] {
-    margin-top: 0;
-} */
+.tallThumbnailImg {
+    width: 10px;
+}
 
 .cardBottom {
     padding: 5px;
