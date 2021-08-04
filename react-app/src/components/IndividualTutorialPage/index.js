@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Lottie from 'react-lottie';
+import loadingAnimation from '../../lotties/loading-dots-in-yellow.json';
 import { getOneTutorial, unloadCurrentTutorial } from "../../store/tutorials";
 import EditTutorial from "../EditTutorial";
 import DeleteTutorial from "../DeleteTutorial";
@@ -21,6 +23,15 @@ const IndividualTutorialPage = () => {
     fetchTutorial();
     return () => dispatch(unloadCurrentTutorial());
   }, [dispatch, id]);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loadingAnimation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   return isLoaded ? (
     tutorial ? (
@@ -52,10 +63,13 @@ const IndividualTutorialPage = () => {
         <Comments tutorial={tutorial} />
       </div>
     ) : (
-      <h1>Sorry, this tutorial doesn't exist.</h1>
+      <h1 className={styles.pageLoad}>Sorry, this tutorial doesn't exist.</h1>
     )
   ) : (
-    <h4>Loading...</h4>
+    <div className={styles.pageLoad}>
+      {/* Animated by Siyuan Qiu */}
+      <Lottie options={defaultOptions} height={200} width={200} />
+    </div>
   );
 };
 
