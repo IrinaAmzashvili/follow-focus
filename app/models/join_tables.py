@@ -2,9 +2,9 @@ from .db import db
 
 likes = db.Table(
     'likes',
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'),
               primary_key=True),
-    db.Column('tutorial_id', db.Integer, db.ForeignKey('tutorials.id'),
+    db.Column('tutorial_id', db.Integer, db.ForeignKey('tutorials.id', ondelete="CASCADE"),
               primary_key=True)
 )
 

@@ -1,4 +1,4 @@
-from app.models import db, User
+from app.models import db, User, Tutorial
 
 
 # Adds a demo user, you can add other users here if you want
@@ -44,6 +44,27 @@ def seed_users():
                  user_6, user_7]
 
     db.session.add_all(all_users)
+    db.session.commit()
+
+    # query for tutorials
+    tutorials = Tutorial.query.limit(40).all()
+    print('=========> tutorials', tutorials)
+
+    # create list of tutorials
+    likes = []
+    for tutorial in tutorials:
+        likes.append(tutorial)
+
+    # add list to user as liked tutorials
+    print('========> likes', likes)
+    demo.tutorials.extend(likes)
+    super_demo.tutorials.extend(likes)
+    user_1.tutorials.extend(likes)
+    user_2.tutorials.extend(likes)
+
+    # add and commit users to database
+    users = [demo, super_demo, user_1, user_2]
+    db.session.add_all(users)
     db.session.commit()
 
 
