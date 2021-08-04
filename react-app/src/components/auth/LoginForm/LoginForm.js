@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../../store/session";
 import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
-// import SignUpFormModal from '../SignUpForm';
+import SignUpFormModal from "../SignUpForm";
 import styles from "../LoginSignUpForm.module.css";
 
-const LoginForm = () => {
+const LoginForm = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -71,9 +71,15 @@ const LoginForm = () => {
           </button>
         </div>
       </form>
-      {/* <div>
-        Not a member? <span className={styles.switchLinks}><SignUpFormModal linkText={'Sign up here!'}/></span>
-      </div> */}
+      <div>
+        Not a member?{" "}
+        <span
+          onClick={() => setShowModal(false)}
+          className={styles.switchLinks}
+        >
+          <SignUpFormModal linkText={"Sign up here!"} />
+        </span>
+      </div>
       <div>
         Log in as a <DemoLogin /> or a <SuperDemoLogin />
       </div>

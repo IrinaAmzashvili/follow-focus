@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
 import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
-// import LoginFormModal from '../LoginForm';
+import LoginFormModal from '../LoginForm';
 import styles from "../LoginSignUpForm.module.css";
 
 const SignUpForm = () => {
@@ -151,9 +151,9 @@ const SignUpForm = () => {
           </button>
         </div>
       </form>
-      {/* <div>
+      <div>
         Already a member? <span className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
-      </div> */}
+      </div>
       <div>
         Log in as a <DemoLogin /> or a <SuperDemoLogin />
       </div>
