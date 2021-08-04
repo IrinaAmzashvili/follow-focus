@@ -8,6 +8,7 @@ import styles from "./TutorialsPage.module.css";
 const TutorialsPage = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
+  const [start, setStart] = useState(0);
 
   let allTutorials = useSelector((state) => Object.values(state.tutorials.all));
 
@@ -23,6 +24,16 @@ const TutorialsPage = () => {
   };
 
   allTutorials = searchFeature();
+
+  const handleNext = () => {
+    setStart((prev) => prev + 16);
+  };
+
+  const handlePrevious = () => {
+    setStart((prev) => prev - 16);
+  };
+
+  let tutorialsToDisplay = allTutorials.slice(start, start + 16);
 
   return (
     <div className={styles.tutorialsPage}>
@@ -46,7 +57,7 @@ const TutorialsPage = () => {
 
         <div className={styles.tutorialsContainer}>
           {allTutorials &&
-            allTutorials.map((tutorial) => (
+            tutorialsToDisplay.map((tutorial) => (
               <a href={`/tutorials/${tutorial.id}`} key={tutorial.id}>
                 <div className={styles.videoCard}>
                   <div className={styles.cardTop}>
@@ -65,6 +76,14 @@ const TutorialsPage = () => {
                 </div>
               </a>
             ))}
+          </div>
+        <div className={styles.prevNextButtonDiv}>
+          {start ? (
+              <button className={`link-button`} onClick={handlePrevious}>Previous</button>
+            ) : null}
+          {start < allTutorials.length - 16 ? (
+            <button className={`link-button`} onClick={handleNext}>Next</button>
+            ) : null}
         </div>
       </div>
     </div>

@@ -72,3 +72,11 @@
 .likeButton {
     padding: 10px;
 }
+
+.prevNextButtonDiv {
+    text-align: right;
+}
+
+.prevNextButtonDiv > * {
+    margin-left: 20px;
+}
