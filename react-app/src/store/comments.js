@@ -66,11 +66,7 @@ const reducer = (state = initialState, action) => {
   let newObj;
   switch (action.type) {
     case SET_COMMENTS:
-      newObj = {};
-      action.comments.forEach(comment => {
-        newObj[comment.id] = comment
-      });
-      return newObj
+      return { ...state, ...action.comments }
     case SET_NEW_COMMENT:
       return {
         ...state,
@@ -81,9 +77,7 @@ const reducer = (state = initialState, action) => {
       delete newObj[action.id];
       return newObj;
     case UNLOAD_COMMENTS:
-      return {
-        ...initialState
-      }
+      return { ...initialState }
     default:
       return state;
   }
