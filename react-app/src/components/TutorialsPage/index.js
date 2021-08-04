@@ -16,7 +16,11 @@ const TutorialsPage = () => {
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
 
-  let allTutorials = useSelector((state) => Object.values(state.tutorials.all));
+  let allTutorials = useSelector((state) => Object.values(state.tutorials.all).sort((tutorial1, tutorial2) => {
+    if (new Date(tutorial1.date) > new Date(tutorial2.date)) return -1;
+    if (new Date(tutorial1.date) < new Date(tutorial2.date)) return 1;
+    return 0
+  }));
 
   // loading animation
   const defaultOptions = {
