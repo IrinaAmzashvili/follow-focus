@@ -19,6 +19,7 @@ body {
 
 main {
     padding-bottom: 6.5rem;
+    min-height: 100vh;
 }
 
 a {
@@ -61,7 +62,11 @@ ul {
 
 .icon-button {
     color: var(--iconGrey);
+}
 
+.icon-button:hover {
+    transition: all 0.3s ease 0s;
+    color: var(--iconHover);
 }
 
 .cta-button{
@@ -82,6 +87,25 @@ ul {
     background-color: var(--yellowHover);
 }
 
+.cta-button-inverse{
+    width: 100%;
+    height: 56px;
+    border-radius: 5px;
+    border: 2px solid var(--yellowHover);
+    background-color: white;
+    color: var(--yellowTheme);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cta-button-inverse:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: white;
+    background-color: var(--yellowHover);
+}
+
 .button-danger {
     color: #d40f0f;
     border: 2px solid #d40f0f;
@@ -94,11 +118,11 @@ ul {
     background-color: #d40f0f;
 }
 
-.button-green {
+/* .button-green {
     background-color: #27ae60;
 }
 
 .button-green:hover {
     transition: all 0.3s ease 0s;
     background-color: #2cc66d;
-}
+} */

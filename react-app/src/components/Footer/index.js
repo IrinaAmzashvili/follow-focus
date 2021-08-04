@@ -9,10 +9,10 @@ const Footer = () => {
       <div className={styles.developerDiv}>
         <p className={styles.devName}>Irina Amzashvili</p>
         <div className={styles.developerLinks}>
-          <a href='https://github.com/IrinaAmzashvili' target='_blank'>
+          <a href='https://github.com/IrinaAmzashvili' target='_blank' rel="noreferrer">
             <VscGithub />
           </a>
-          <a href='https://www.linkedin.com/in/irina-amzashvili-683136211/' target='_blank'>
+          <a href='https://www.linkedin.com/in/irina-amzashvili-683136211/' target='_blank' rel="noreferrer">
             <SiLinkedin />
           </a>
         </div>
