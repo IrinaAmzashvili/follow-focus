@@ -19,8 +19,8 @@ def seed():
     seed_tags()
     seed_styles()
     seed_levels()
-    seed_users()
     seed_tutorials()
+    seed_users()
     seed_comments()
     # Add other seed functions here
 
@@ -32,7 +32,7 @@ def undo():
     undo_tags()
     undo_styles()
     undo_levels()
-    undo_users()
     undo_tutorials()
+    undo_users()
     undo_comments()
     # Add other undo functions here
