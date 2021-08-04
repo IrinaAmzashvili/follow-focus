@@ -48,7 +48,6 @@ def seed_users():
 
     # query for tutorials
     tutorials = Tutorial.query.limit(40).all()
-    print('=========> tutorials', tutorials)
 
     # create list of tutorials
     likes = []
@@ -56,7 +55,6 @@ def seed_users():
         likes.append(tutorial)
 
     # add list to user as liked tutorials
-    print('========> likes', likes)
     demo.tutorials.extend(likes)
     super_demo.tutorials.extend(likes)
     user_1.tutorials.extend(likes)
