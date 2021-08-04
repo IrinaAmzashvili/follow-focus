@@ -19,11 +19,16 @@ const TutorialsPage = () => {
 
   const searchFeature = () => {
     return allTutorials.filter((tutorial) =>
-      tutorial.title.toLowerCase().includes(search.toLocaleLowerCase())
+    tutorial.title.toLowerCase().includes(search.toLowerCase())
     );
   };
 
+  useEffect(() => {
+    setStart(0)
+  }, [search])
+
   allTutorials = searchFeature();
+  const tutorialsToDisplay = allTutorials.slice(start, start + 16)
 
   const handleNext = () => {
     setStart((prev) => prev + 16);
@@ -33,7 +38,6 @@ const TutorialsPage = () => {
     setStart((prev) => prev - 16);
   };
 
-  let tutorialsToDisplay = allTutorials.slice(start, start + 16);
 
   return (
     <div className={styles.tutorialsPage}>
@@ -56,7 +60,7 @@ const TutorialsPage = () => {
         </div>
 
         <div className={styles.tutorialsContainer}>
-          {allTutorials &&
+          {tutorialsToDisplay &&
             tutorialsToDisplay.map((tutorial) => (
               <a href={`/tutorials/${tutorial.id}`} key={tutorial.id}>
                 <div className={styles.videoCard}>
