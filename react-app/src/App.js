@@ -31,7 +31,7 @@ function App() {
     <BrowserRouter>
     {/* {sessionUser ? ( */}
       <NavBar />
-    {/* ) : null} */}
+      {/* ) : null} */}
       <main>
         <Switch>
           <ProtectedRoute path={`/users/${sessionUser?.id}`} exact>
@@ -47,7 +47,7 @@ function App() {
             <SplashPage sessionUser={sessionUser} />
           </Route>
           <Route>
-            404 - Page not found
+            <h1>404 - Page not found</h1>
           </Route>
         </Switch>
       </main>
