@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RiSendPlane2Fill } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
-import {
-  setComments,
-  deleteComment,
-  editComment,
-} from "../../store/comments";
-import PostComment from '../PostComment';
+import { setComments, deleteComment } from "../../store/comments";
+import SaveCancelButtons from "./SaveCancelButtons";
+import PostComment from "../PostComment";
 import styles from "./Comments.module.css";
 
 const Comments = ({ tutorial }) => {
@@ -39,25 +35,6 @@ const Comments = ({ tutorial }) => {
     setEditClicked(+e.currentTarget.id);
   };
 
-  const handleCancel = (e) => {
-    e.preventDefault();
-    setEditClicked(0);
-    setCommentToEdit({});
-  };
-
-  const handleSaveComment = async (e) => {
-    e.preventDefault();
-    const editedComment = {
-      id: e.currentTarget.id,
-      body: editBody,
-      user_id: sessionUser.id,
-      tutorial_id: tutorial.id,
-      created_at: commentToEdit.createdAt,
-    };
-    await dispatch(editComment(editedComment));
-    setEditClicked(0);
-  };
-
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deleteComment(e.currentTarget.id));
@@ -74,7 +51,7 @@ const Comments = ({ tutorial }) => {
             <div className={styles.userCommentDiv} key={i} id={comment.id}>
               <p className={styles.username}>{comment.user.username}</p>
               <p className={styles.date}>{comment.createdAt}</p>
-              {/* If user clicks edit button, make text editable and record changes */}
+              {/* If user clicks edit button, make render textarea and record changes */}
               {editClicked === comment.id ? (
                 <textarea
                   value={editBody}
@@ -82,9 +59,7 @@ const Comments = ({ tutorial }) => {
                   className={`${styles.editCommentTextarea}`}
                 ></textarea>
               ) : (
-                <p className={styles.userComment}>
-                  {comment.body}
-                </p>
+                <p className={styles.userComment}>{comment.body}</p>
               )}
 
               <div className={styles.commentButtonsDiv} id={comment.id}>
@@ -92,21 +67,13 @@ const Comments = ({ tutorial }) => {
                   {/* If user is commenter & comment is being edited, display save/ cancel buttons*/}
                   {sessionUser.id === comment.user.id &&
                   editClicked === comment.id ? (
-                    <>
-                      <button
-                        className={`${styles.saveButton} icon-button link-button`}
-                        id={comment.id}
-                        onClick={handleSaveComment}
-                      >
-                        <RiSendPlane2Fill />
-                      </button>
-                      <button
-                        className={`${styles.cancelButton} link-button`}
-                        onClick={handleCancel}
-                      >
-                        Cancel
-                      </button>
-                    </>
+                    <SaveCancelButtons
+                      comment={comment}
+                      editBody={editBody}
+                      setEditClicked={setEditClicked}
+                      setCommentToEdit={setCommentToEdit}
+                      commentToEdit={commentToEdit}
+                    />
                   ) : null}
                 </div>
 
