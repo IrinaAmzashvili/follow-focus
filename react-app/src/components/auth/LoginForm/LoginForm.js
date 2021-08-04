@@ -6,7 +6,7 @@ import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
 import SignUpFormModal from "../SignUpForm";
 import styles from "../LoginSignUpForm.module.css";
 
-const LoginForm = ({ setShowModal }) => {
+const LoginForm = (props) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +24,11 @@ const LoginForm = ({ setShowModal }) => {
     if (data) {
       setErrors(data);
     }
+  };
+
+  const handleClick = () => {
+    props.setLoginModal()
+    props.setSignupModal()
   };
 
   if (user) {
@@ -74,7 +79,7 @@ const LoginForm = ({ setShowModal }) => {
       <div>
         Not a member?{" "}
         <span
-          onClick={() => setShowModal(false)}
+          onClick={handleClick}
           className={styles.switchLinks}
         >
           <SignUpFormModal linkText={"Sign up here!"} />
