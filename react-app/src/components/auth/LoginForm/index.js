@@ -5,16 +5,16 @@ import styles from '../LoginSignUpForm.module.css';
 
 
 const LoginFormModal = ({ linkText }) => {
-  const [showModal1, setShowModal1] = useState();
+  const [showModal, setShowModal] = useState();
 
   return (
     <>
-      <button className={`${styles.loginButton} link-button`} onClick={() => setShowModal1(true)}>
+      <button className={`${styles.loginButton} link-button`} onClick={() => setShowModal(true)}>
         {linkText}
       </button>
-      {showModal1 && (
-        <Modal onClose={() => setShowModal1(false)}>
-          <LoginForm setShowModal={setShowModal1} />
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <LoginForm setShowModal={setShowModal} />
         </Modal>
       )}
     </>
