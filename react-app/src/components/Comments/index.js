@@ -10,8 +10,7 @@ const Comments = ({ tutorial }) => {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const tutComments = useSelector((state) => Object.values(state.comments.all));
-  // const commentsLoaded = useSelector((state) => state.comments.loaded);
+  const tutComments = useSelector((state) => Object.values(state.comments));
 
   const [commentsLoaded, setCommentsLoaded] = useState();
   const [editClicked, setEditClicked] = useState(0);
@@ -19,8 +18,8 @@ const Comments = ({ tutorial }) => {
   const [commentToEdit, setCommentToEdit] = useState({});
 
   const allComments = tutComments.sort((comment1, comment2) => {
-    if (comment1.createdAt < comment2.createdAt) return -1;
-    if (comment1.createdAt > comment2.createdAt) return 1;
+    if (new Date(comment1.createdAt) > new Date(comment2.createdAt)) return -1;
+    if (new Date(comment1.createdAt) < new Date(comment2.createdAt)) return 1;
     return 0;
   });
 
