@@ -1,24 +1,29 @@
-import { useState } from 'react';
-import SignUpForm from './SignUpForm';
-import { Modal } from '../../../context/Modal';
-import styles from '../LoginSignUpForm.module.css';
+import SignUpForm from "./SignUpForm";
+import { Modal } from "../../../context/Modal";
+import styles from "../LoginSignUpForm.module.css";
 
-
-const LoginFormModal = ({ linkText }) => {
-  const [showModal, setShowModal] = useState();
+const LoginFormModal = (props) => {
 
   return (
     <>
-      <button className={`${styles.signUpButton} link-button`} onClick={() => setShowModal(true)}>
-        {linkText}
+      <button
+        className={`${styles.signUpButton} link-button`}
+        onClick={props.setSignupModal}
+      >
+        {props.linkText}
       </button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <SignUpForm setShowModal={setShowModal} />
+      {props.showSignupModal && (
+        <Modal onClose={() => props.setSignupModal()}>
+          <SignUpForm
+            showLoginModal={props.showLoginModal}
+            setLoginModal={props.setLoginModal}
+            showSignupModal={props.showSignupModal}
+            setSignupModal={props.setSignupModal}
+          />
         </Modal>
       )}
     </>
-  )
-}
+  );
+};
 
 export default LoginFormModal;

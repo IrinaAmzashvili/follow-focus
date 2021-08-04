@@ -37,4 +37,3 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
     return {'success': True}
-# now = datetime.datetime.today()

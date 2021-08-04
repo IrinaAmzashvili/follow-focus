@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
 import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
-// import LoginFormModal from '../LoginForm';
+import LoginFormModal from '../LoginForm';
 import styles from "../LoginSignUpForm.module.css";
 
-const SignUpForm = () => {
+const SignUpForm = (props) => {
   const [errors, setErrors] = useState([]);
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -41,6 +41,11 @@ const SignUpForm = () => {
     } else {
       setErrors(["Passwords must match."]);
     }
+  };
+
+  const handleClick = () => {
+    props.setLoginModal()
+    props.setSignupModal()
   };
 
   if (user) {
@@ -151,9 +156,9 @@ const SignUpForm = () => {
           </button>
         </div>
       </form>
-      {/* <div>
-        Already a member? <span className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
-      </div> */}
+      <div>
+        Already a member? <span onClick={handleClick} className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
+      </div>
       <div>
         Log in as a <DemoLogin /> or a <SuperDemoLogin />
       </div>
