@@ -19,11 +19,14 @@ const DeleteTutorialModal = ({ setShowModal }) => {
 
   return (
     <div className={styles.confirmDeleteDiv}>
-      <h1 className={styles.header}>Are you sure?</h1>
-      <p className={styles.text}>Are you sure you want to delete this tutorial?</p>
+      <button className={`link-button icon-button ${styles.exitButton}`} onClick={() => setShowModal(false)}>
+      <i className="far fa-times-circle"></i>
+      </button>
+      <h1 className={styles.header}>Delete Tutorial?</h1>
+      <p className={styles.text}>Are you sure you want to delete this tutorial? You cannot undo this action.</p>
       <div className={styles.buttonsDiv}>
-        <button className={`cta-button button-danger ${styles.deleteButton}`} onClick={handleDelete}>Delete</button>
-        <button className={`cta-button button-green ${styles.cancelButton}`} onClick={() => setShowModal(false)}>Cancel</button>
+        <button className={`cta-button cta-button-inverse ${styles.cancelButton}`} onClick={() => setShowModal(false)}>Cancel</button>
+        <button className={`cta-button ${styles.deleteButton}`} onClick={handleDelete}>Delete</button>
       </div>
     </div>
   )
