@@ -14,11 +14,11 @@ const NavBar = () => {
   const [showSignupModal, setShowSignupModal] = useState(false);
 
   const setLoginModal = () => {
-    setShowLoginModal(!showLoginModal)
+    setShowLoginModal(!showLoginModal);
   };
 
   const setSignupModal = () => {
-    setShowSignupModal(!showSignupModal)
+    setShowSignupModal(!showSignupModal);
   };
 
   let sessionLinks;
@@ -46,7 +46,9 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <ProfileButton sessionUser={sessionUser} />
+          <ProfileButton
+            sessionUser={sessionUser}
+          />
         </li>
       </>
     );
@@ -80,7 +82,7 @@ const NavBar = () => {
             setLoginModal={setLoginModal}
             showSignupModal={showSignupModal}
             setSignupModal={setSignupModal}
-            />
+          />
         </li>
         <li>
           <SignUpFormModal

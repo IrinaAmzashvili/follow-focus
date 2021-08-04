@@ -3,11 +3,12 @@ import { login } from '../../../store/session';
 import styles from "../LoginSignUpForm.module.css";
 
 
-export const DemoLogin = () => {
+export const DemoLogin = ({ setModal }) => {
   const dispatch = useDispatch();
 
   const demoLogin = () => {
     dispatch(login('demo@aa.io', 'password'))
+    setModal()
   }
 
   return (
@@ -18,11 +19,12 @@ export const DemoLogin = () => {
 }
 
 
-export const SuperDemoLogin = () => {
+export const SuperDemoLogin = ({ setModal }) => {
   const dispatch = useDispatch();
 
   const superDemoLogin = () => {
     dispatch(login('superdemo@aa.io', 'password'))
+    setModal()
   }
 
   return (
