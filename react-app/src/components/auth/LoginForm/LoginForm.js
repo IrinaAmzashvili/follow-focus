@@ -23,6 +23,8 @@ const LoginForm = (props) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      props.setLoginModal();
     }
   };
 
@@ -86,7 +88,7 @@ const LoginForm = (props) => {
         </span>
       </div>
       <div>
-        Log in as a <DemoLogin /> or a <SuperDemoLogin />
+        Log in as a <DemoLogin setModal={props.setLoginModal} /> or a <SuperDemoLogin setModal={props.setLoginModal}/>
       </div>
     </div>
   );

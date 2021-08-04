@@ -37,6 +37,8 @@ const SignUpForm = (props) => {
       const data = await dispatch(signUp(newUser));
       if (data) {
         setErrors(data);
+      } else {
+        props.setSignupModal()
       }
     } else {
       setErrors(["Passwords must match."]);
@@ -160,7 +162,7 @@ const SignUpForm = (props) => {
         Already a member? <span onClick={handleClick} className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
       </div>
       <div>
-        Log in as a <DemoLogin /> or a <SuperDemoLogin />
+        Log in as a <DemoLogin setModal={props.setSignupModal} /> or a <SuperDemoLogin setModal={props.setSignupModal}/>
       </div>
     </div>
   );
