@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 import LoginFormModal from "../auth/LoginForm";
 import SignUpFormModal from "../auth/SignUpForm";
 import loggedOutStyles from './LoggedOutNavbar.module.css';
@@ -18,21 +19,23 @@ const LoggedOutNavbar = () => {
   };
 
   return (
-    <nav>
+    <nav className={loggedOutStyles.navbar}>
       <ul className={`${styles.navbarLinks} ${loggedOutStyles.navbarLinks}`}>
-        <li>
+        {/* <li>
           <NavLink
-            to="/"
+            smooth
+            to="/#watch-us"
             exact={true}
             className={styles.navLink}
             activeClassName="activeNavLink"
           >
-            Home
+            Watch Us
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
-            to="/about-us"
+            smooth
+            to="/#about-us"
             exact={true}
             className={styles.navLink}
             activeClassName="activeNavLink"
