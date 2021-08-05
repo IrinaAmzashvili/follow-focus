@@ -1,1 +1,31 @@
 @import '../../index.css';
+
+
+.filterContainer {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.allFiltersDiv {
+    border-right: 1px solid var(--greyTheme);
+}
+
+.filterDiv {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    margin-bottom: 80px;
+}
+
+.filterTitles {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.checkboxAndLabel {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px 0;
+}
+

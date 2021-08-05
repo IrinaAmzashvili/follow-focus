@@ -65,12 +65,12 @@ const FilterTutorials = ({ allTutorials, isLoaded }) => {
 
   return (
     <div className={styles.filterContainer}>
-      <div className={styles.filtersDiv}>
-        <div>
-          <p>Dance Styles:</p>
+      <div className={styles.allFiltersDiv}>
+        <div className={styles.filterDiv}>
+          <p className={styles.filterTitles}>Dance Styles:</p>
           {danceStyles &&
             danceStyles.map((style, i) => (
-              <div key={i}>
+              <div className={styles.checkboxAndLabel} key={i}>
                 <label htmlFor={style.danceStyle}>{style.danceStyle}</label>
                 <input
                   id={style.danceStyle}
@@ -82,11 +82,11 @@ const FilterTutorials = ({ allTutorials, isLoaded }) => {
             ))}
         </div>
 
-        <div>
-          <p>Levels:</p>
+        <div className={styles.filterDiv}>
+          <p className={styles.filterTitles}>Levels:</p>
           {tutorialLevels &&
             tutorialLevels.map((level, i) => (
-              <div key={i}>
+              <div className={styles.checkboxAndLabel} key={i}>
                 <label htmlFor={level.levelType}>{level.levelType}</label>
                 <input
                   id={level.levelType}

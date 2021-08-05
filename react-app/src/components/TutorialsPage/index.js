@@ -109,9 +109,9 @@ const TutorialsPage = () => {
                     </div>
                     <div className={styles.cardBottom}>
                       <div className={styles.videoTitle}>{tutorial.title}</div>
-                      <div className={styles.likeButton}>
+                      {/* <div className={styles.likeButton}>
                         <FiHeart />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </a>

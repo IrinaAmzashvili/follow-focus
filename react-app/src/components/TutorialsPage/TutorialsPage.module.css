@@ -6,14 +6,6 @@
     margin: 70px 100px;
 }
 
-.filterContainer {
-    width: 300px;
-}
-
-.filtersDiv {
-    border-right: 1px solid var(--greyTheme);
-}
-
 .tutorialsDiv {
     display: flex;
     flex-direction: column;
