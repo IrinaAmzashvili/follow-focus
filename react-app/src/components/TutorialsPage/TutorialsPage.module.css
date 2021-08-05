@@ -53,10 +53,8 @@
 
 .thumbnailImg {
     width: 100%;
-}
-
-.tallThumbnailImg {
-    width: 10px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cardBottom {

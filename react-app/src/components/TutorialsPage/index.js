@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FiHeart } from "react-icons/fi";
 import Lottie from 'react-lottie';
@@ -9,10 +9,8 @@ import styles from "./TutorialsPage.module.css";
 
 const TutorialsPage = () => {
   const dispatch = useDispatch();
-  const ref = useRef(null)
 
   const [isLoaded, setIsLoaded] = useState("");
-  const [imgHeight, setImgHeight] = useState("")
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
 
@@ -40,11 +38,6 @@ const TutorialsPage = () => {
     fetchTutorials();
     return () => dispatch(unloadTutorials());
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (ref.current) setImgHeight(ref.current.clientHeight);
-  //   console.log('---> img height', imgHeight)
-  // }, [imgHeight]);
 
   const searchFeature = () => {
     return allTutorials.filter((tutorial) =>
@@ -96,8 +89,7 @@ const TutorialsPage = () => {
                 <div className={styles.videoCard}>
                   <div className={styles.cardTop}>
                     <img
-                      ref={ref}
-                      className={imgHeight > 133 ? styles.tallThumbnailImg : styles.thumbnailImg}
+                      className={styles.thumbnailImg}
                       src={tutorial.thumbnailUrl}
                       alt="video thumbnail"
                       />
