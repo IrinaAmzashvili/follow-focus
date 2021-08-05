@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
-import { NavHashLink as NavLink } from 'react-router-hash-link';
+import React, { useState} from "react";
+import { NavHashLink as NavLink } from "react-router-hash-link";
+import { HashLink as Link } from "react-router-hash-link";
+import { AiOutlineArrowUp } from 'react-icons/ai';
 import LoginFormModal from "../auth/LoginForm";
 import SignUpFormModal from "../auth/SignUpForm";
-import loggedOutStyles from './LoggedOutNavbar.module.css';
+import loggedOutStyles from "./LoggedOutNavbar.module.css";
 import styles from "../NavBar/NavBar.module.css";
 
 const LoggedOutNavbar = () => {
+  const [topOfPage, setTopOfPage] = useState(true);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
 
@@ -18,6 +20,10 @@ const LoggedOutNavbar = () => {
     setShowSignupModal(!showSignupModal);
   };
 
+  const backToTop = () => {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <nav className={loggedOutStyles.navbar}>
       <ul className={`${styles.navbarLinks} ${loggedOutStyles.navbarLinks}`}>
@@ -25,7 +31,7 @@ const LoggedOutNavbar = () => {
           <NavLink
             smooth
             to="/#watch-us"
-            exact={true}
+            exact
             className={styles.navLink}
             activeClassName="activeNavLink"
           >
@@ -36,7 +42,7 @@ const LoggedOutNavbar = () => {
           <NavLink
             smooth
             to="/#about-us"
-            exact={true}
+            exact
             className={styles.navLink}
             activeClassName="activeNavLink"
           >
@@ -62,6 +68,13 @@ const LoggedOutNavbar = () => {
           />
         </li>
       </ul>
+      {!topOfPage && (
+        <button onClick={backToTop} className={`link-button icon-button ${loggedOutStyles.backToTopButton}`}>
+          <Link smooth to="/" exact>
+            <AiOutlineArrowUp />
+          </Link>
+        </button>
+      )}
     </nav>
   );
 };

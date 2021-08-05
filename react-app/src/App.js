@@ -59,7 +59,7 @@ function App() {
             <SplashPage sessionUser={sessionUser} />
           </Route>
           <Route>
-            <h1>404 - Page not found</h1>
+            <h1 style={{margin: '100px auto', textAlign: 'center'}}>404 - Page not found</h1>
           </Route>
         </Switch>
       </main>

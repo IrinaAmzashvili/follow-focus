@@ -9,16 +9,6 @@ const SplashPage = ({ sessionUser }) => {
   }
   return (
     <div className={styles.videoDiv}>
-      {/* <ReactPlayer
-        className={styles.backgroundVideo}
-        url={SplashVideo}
-        playing={true}
-        muted={true}
-        loop={true}
-        width='100%'
-        height='100%'
-        controls={false}
-      /> */}
       <ReactPlayer
         className={styles.video}
         url={SplashVideo}
