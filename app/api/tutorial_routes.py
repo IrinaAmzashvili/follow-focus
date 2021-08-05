@@ -10,6 +10,7 @@ tutorial_routes = Blueprint('tutorials', __name__)
 
 @tutorial_routes.route('/')
 def get_tutorials():
+    # query for tutorials that match user tier id
     if current_user.tier_id == 1:
         tier = [1]
     elif current_user.tier_id == 2:

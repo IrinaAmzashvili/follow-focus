@@ -7,8 +7,11 @@
 }
 
 .filterContainer {
-    background-color: grey;
     width: 300px;
+}
+
+.filtersDiv {
+    border-right: 1px solid var(--greyTheme);
 }
 
 .tutorialsDiv {

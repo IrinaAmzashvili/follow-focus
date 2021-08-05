@@ -4,6 +4,7 @@ import { FiHeart } from "react-icons/fi";
 import Lottie from 'react-lottie';
 import loadingAnimation from '../../lotties/loading-dots-in-yellow.json';
 import { getTutorials, unloadTutorials } from "../../store/tutorials";
+import { getDanceStyles } from '../../store/danceStyles';
 import CreateTutorial from "../CreateTutorial";
 import styles from "./TutorialsPage.module.css";
 
@@ -20,6 +21,25 @@ const TutorialsPage = () => {
     if (new Date(tutorial1.date) < new Date(tutorial2.date)) return 1;
     return 0
   }));
+
+  // get all dance styles
+  const [checkedStyles, setCheckedStyles] = useState([]);
+  const danceStyles = useSelector((state) => Object.values(state.danceStyles));
+
+  useEffect(() => {
+    dispatch(getDanceStyles());
+  }, [dispatch]);
+
+  const handleCheckedStyles = (e) => {
+    const arr = [...checkedStyles];
+    if (e.target.checked) {
+      arr.push(e.target.value);
+    } else {
+      const index = arr.indexOf(e.target.value)
+      arr.splice(index, 1)
+    }
+    setCheckedStyles(arr);
+  }
 
   // loading animation
   const defaultOptions = {
@@ -68,7 +88,17 @@ const TutorialsPage = () => {
 
   return (
     <div className={styles.tutorialsPage}>
-      <div className={styles.filterContainer}>Filter Div</div>
+      <div className={styles.filterContainer}>
+        <div className={styles.filtersDiv}>
+          <p>Dance Styles:</p>
+            {danceStyles && danceStyles.map((style, i) => (
+              <div key={i}>
+                <label htmlFor={style.danceStyle}>{style.danceStyle}</label>
+                <input id={style.danceStyle} type='checkbox' value={style.id} onChange={handleCheckedStyles}/>
+              </div>
+            ))}
+        </div>
+      </div>
       <div className={styles.tutorialsDiv}>
         <div className={styles.tutorialsTopDiv}>
           <div className={styles.tutorialsSearch}>
