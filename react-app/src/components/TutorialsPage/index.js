@@ -12,7 +12,7 @@ const TutorialsPage = () => {
   const ref = useRef(null)
 
   const [isLoaded, setIsLoaded] = useState("");
-  const [imgHeight, setImgHeight] = useState('')
+  const [imgHeight, setImgHeight] = useState("")
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
 

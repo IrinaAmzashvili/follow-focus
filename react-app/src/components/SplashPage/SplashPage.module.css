@@ -1,1 +1,23 @@
 @import '../../index.css';
+
+
+.videoDiv {
+    overflow: hidden;
+    position: relative;
+}
+
+.video {
+    /* width: 100%;
+    height: 100%; */
+    display: flex;
+    justify-content: center;
+    min-height: 600px;
+    /* position: absolute; */
+}
+
+/* .backgroundVideo {
+    filter: blur(20px);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+} */
