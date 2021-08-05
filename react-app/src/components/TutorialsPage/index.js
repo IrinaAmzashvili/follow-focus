@@ -14,6 +14,7 @@ const TutorialsPage = () => {
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
 
+  // grab all tutorials, sort by date
   let allTutorials = useSelector((state) => Object.values(state.tutorials.all).sort((tutorial1, tutorial2) => {
     if (new Date(tutorial1.date) > new Date(tutorial2.date)) return -1;
     if (new Date(tutorial1.date) < new Date(tutorial2.date)) return 1;
@@ -30,6 +31,7 @@ const TutorialsPage = () => {
     }
   };
 
+  // fetch tutorials
   useEffect(() => {
     const fetchTutorials = async () => {
       await dispatch(getTutorials());
@@ -39,23 +41,26 @@ const TutorialsPage = () => {
     return () => dispatch(unloadTutorials());
   }, [dispatch]);
 
+
   const searchFeature = () => {
     return allTutorials.filter((tutorial) =>
     tutorial.title.toLowerCase().includes(search.toLowerCase())
     );
   };
+  allTutorials = searchFeature();
 
+  // when searching, reset page to show first videos
   useEffect(() => {
     setStart(0)
   }, [search])
 
-  allTutorials = searchFeature();
+  // display only 16 videos at a time
   const tutorialsToDisplay = allTutorials.slice(start, start + 16)
 
+  // show next 16 and previous 16 videos
   const handleNext = () => {
     setStart((prev) => prev + 16);
   };
-
   const handlePrevious = () => {
     setStart((prev) => prev - 16);
   };
@@ -111,9 +116,11 @@ const TutorialsPage = () => {
         </div>
         )}
         <div className={styles.prevNextButtonDiv}>
+          {/* if start is greater than 0, display previous button */}
           {start ? (
               <button className={`link-button`} onClick={handlePrevious}>Previous</button>
             ) : null}
+          {/* if not at end of tutorials, display next button */}
           {start < allTutorials.length - 16 ? (
             <button className={`link-button`} onClick={handleNext}>Next</button>
             ) : null}

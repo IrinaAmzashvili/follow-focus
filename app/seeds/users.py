@@ -10,7 +10,7 @@ def seed_users():
     super_demo = User(
         first_name='Super', last_name='Demo', username='SuperDemo',
         email='superdemo@aa.io', password='password', email_updates=True,
-        super_user=True, tier_id=4)
+        super_user=True, tier_id=5)
     user_1 = User(
         first_name='Steve', last_name='Rogers', username='Cap',
         email='cap@avengers.io', password='password', email_updates=False,
