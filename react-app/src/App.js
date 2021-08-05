@@ -8,6 +8,7 @@ import TutorialsPage from "./components/TutorialsPage";
 import Footer from "./components/Footer";
 import IndividualTutorialPage from "./components/IndividualTutorialPage";
 import SplashPage from "./components/SplashPage";
+import LoggedOutNavbar from './components/LoggedOutNavbar';
 import { authenticate } from "./store/session";
 
 function App() {
@@ -29,11 +30,19 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* {sessionUser ? ( */}
+    {sessionUser ? (
       <NavBar />
-      {/* ) : null} */}
+      ) : null}
       <main>
         <Switch>
+          {!sessionUser ? (
+            <>
+              <Route>
+                <SplashPage />
+              </Route>
+              <LoggedOutNavbar />
+            </>
+          ) : null}
           <ProtectedRoute path={`/users/${sessionUser?.id}`} exact>
             <User />
           </ProtectedRoute>
