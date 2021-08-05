@@ -7,9 +7,9 @@ def seed_styles():
     carolina_shag = Style(dance_style='Carolina Shag')
     balboa = Style(dance_style='Balboa')
     tap = Style(dance_style='Tap')
-    misc = Style(dance_style='Miscellaneous')
+    # misc = Style(dance_style='Miscellaneous')
 
-    all_styles = [solo_jazz, lindy_hop, carolina_shag, balboa, tap, misc]
+    all_styles = [solo_jazz, lindy_hop, carolina_shag, balboa, tap]
 
     db.session.add_all(all_styles)
     db.session.commit()
