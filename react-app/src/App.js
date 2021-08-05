@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import IndividualTutorialPage from "./components/IndividualTutorialPage";
 import SplashPage from "./components/SplashPage";
 import LoggedOutNavbar from './components/LoggedOutNavbar';
+import AboutUs from './components/AboutUs';
 import { authenticate } from "./store/session";
 
 function App() {
@@ -36,13 +37,15 @@ function App() {
       <main>
         <Switch>
           {!sessionUser ? (
-            <>
-              <Route>
-                <SplashPage />
-              </Route>
+            <Route path='/' exact>
+              <SplashPage />
               <LoggedOutNavbar />
-            </>
+              <AboutUs />
+            </Route>
           ) : null}
+          <ProtectedRoute path='/about-us' exact>
+            <AboutUs />
+          </ProtectedRoute>
           <ProtectedRoute path={`/users/${sessionUser?.id}`} exact>
             <User />
           </ProtectedRoute>

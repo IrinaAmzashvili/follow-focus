@@ -1,0 +1,16 @@
+@import '../../index.css';
+
+
+.aboutUsDiv {
+    width: 45%;
+    margin: 75px auto;
+    padding: 100px 0;
+}
+
+.aboutUsDiv > * {
+    margin-bottom: 50px;
+}
+
+.list {
+    list-style-type: disc;
+}

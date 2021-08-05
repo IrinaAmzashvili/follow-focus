@@ -1,6 +1,16 @@
 @import '../../index.css';
 
 
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    height: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbarLinks {
     justify-content: center;
 }
