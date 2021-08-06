@@ -1,14 +1,11 @@
 import React, { useState} from "react";
 import { NavHashLink as NavLink } from "react-router-hash-link";
-import { HashLink as Link } from "react-router-hash-link";
-import { AiOutlineArrowUp } from 'react-icons/ai';
 import LoginFormModal from "../auth/LoginForm";
 import SignUpFormModal from "../auth/SignUpForm";
 import loggedOutStyles from "./LoggedOutNavbar.module.css";
 import styles from "../NavBar/NavBar.module.css";
 
 const LoggedOutNavbar = () => {
-  const [topOfPage, setTopOfPage] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
 
@@ -20,9 +17,6 @@ const LoggedOutNavbar = () => {
     setShowSignupModal(!showSignupModal);
   };
 
-  const backToTop = () => {
-    window.scrollTo(0, 0);
-  }
 
   return (
     <nav className={loggedOutStyles.navbar}>
@@ -68,13 +62,6 @@ const LoggedOutNavbar = () => {
           />
         </li>
       </ul>
-      {!topOfPage && (
-        <button onClick={backToTop} className={`link-button icon-button ${loggedOutStyles.backToTopButton}`}>
-          <Link smooth to="/" exact='true'>
-            <AiOutlineArrowUp />
-          </Link>
-        </button>
-      )}
     </nav>
   );
 };
