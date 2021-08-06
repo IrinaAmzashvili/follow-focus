@@ -11,3 +11,13 @@
     justify-content: center;
     min-height: 600px;
 }
+
+.backToTopButton {
+    border-radius: 50px;
+    border: 1px solid var(--greyTheme);
+    height: 35px;
+    width: 35px;
+    position: fixed;
+    bottom: 150px;
+    right: 100px;
+}
