@@ -9,17 +9,22 @@
 
 .allFiltersDiv {
     border-right: 1px solid var(--greyTheme);
+    margin-top: 52px;
 }
 
-.filterDiv {
+.filterUl {
     display: flex;
     flex-direction: column;
     width: 180px;
-    margin-bottom: 80px;
+}
+
+.levelsUl {
+    margin-top: 80px;
 }
 
 .filterTitles {
     font-weight: 600;
+    margin-top: 0;
     margin-bottom: 6px;
 }
 
@@ -28,4 +33,3 @@
     justify-content: space-between;
     margin: 4px 0;
 }
-
