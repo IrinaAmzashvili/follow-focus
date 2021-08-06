@@ -12,6 +12,7 @@ import styles from "./TutorialsPage.module.css";
 const TutorialsPage = () => {
   const dispatch = useDispatch();
 
+  /************************* Handling Tutorials *************************/
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
@@ -57,8 +58,6 @@ const TutorialsPage = () => {
     setStart((prev) => prev - 16);
   };
 
-  /***************************************************************************************/
-
   /************************* Filter by dance style *************************/
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const [allStylesChecked, setAllStylesChecked] = useState(true);
@@ -73,6 +72,7 @@ const TutorialsPage = () => {
   }, [dispatch]);
 
   const handleCheckedStyles = (e) => {
+    setStart(0);
     const arr = [...checkedStyles];
     if (e.target.checked) {
       arr.push(e.target.value);
@@ -117,6 +117,7 @@ const TutorialsPage = () => {
   }, [dispatch]);
 
   const handleCheckedLevels = (e) => {
+    setStart(0);
     const arr = [...checkedLevels];
     if (e.target.checked) {
       arr.push(e.target.value);
@@ -135,7 +136,6 @@ const TutorialsPage = () => {
       );
     }
   }
-  console.log("allTutorials--->", allTutorials);
 
   const handleAllLevelsChecked = () => {
     setCheckedLevels([]);
@@ -147,29 +147,27 @@ const TutorialsPage = () => {
   }, [checkedLevels]);
 
   // display only 16 videos at a time
-  // const [tutorialsToDisplay, setTutorialsToDisplay] = useState();
   let tutorialsToDisplay;
   if (isLoaded) {
     tutorialsToDisplay = allTutorials.slice(start, start + 16);
-    // setTutorialsToDisplay(allTutorials.slice(start, start + 16));
   }
 
   return (
     <div className={styles.tutorialsPage}>
       {stylesLoaded && levelsLoaded ? (
-
         <FilterTutorials
-        allStylesChecked={allStylesChecked}
-        handleAllStylesChecked={handleAllStylesChecked}
-        danceStyles={danceStyles}
-        handleCheckedStyles={handleCheckedStyles}
-        allLevelsChecked={allLevelsChecked}
-        handleAllLevelsChecked={handleAllLevelsChecked}
-        tutorialLevels={tutorialLevels}
-        handleCheckedLevels={handleCheckedLevels}
-      />
+          allStylesChecked={allStylesChecked}
+          handleAllStylesChecked={handleAllStylesChecked}
+          danceStyles={danceStyles}
+          handleCheckedStyles={handleCheckedStyles}
+          allLevelsChecked={allLevelsChecked}
+          handleAllLevelsChecked={handleAllLevelsChecked}
+          tutorialLevels={tutorialLevels}
+          handleCheckedLevels={handleCheckedLevels}
+        />
       ) : null}
 
+      {/* search feature */}
       <div className={styles.tutorialsDiv}>
         <div className={styles.tutorialsTopDiv}>
           <div className={styles.tutorialsSearch}>
@@ -195,7 +193,6 @@ const TutorialsPage = () => {
           start={start}
           allTutorials={allTutorials}
         />
-
       </div>
     </div>
   );
