@@ -4,86 +4,96 @@ import { getTutorialLevels } from "../../store/tutorialLevels";
 import { getDanceStyles } from "../../store/danceStyles";
 import styles from "./FilterTutorials.module.css";
 
-const FilterTutorials = ({ allTutorials, isLoaded }) => {
-  const dispatch = useDispatch();
+const FilterTutorials = (
+  allStylesChecked,
+  handleAllStylesChecked,
+  danceStyles,
+  handleCheckedStyles,
+  allLevelsChecked,
+  handleAllLevelsChecked,
+  tutorialLevels,
+  handleCheckedLevels,
+) => {
+  // const dispatch = useDispatch();
 
   /************************* Filter by dance style *************************/
-  const [allStylesChecked, setAllStylesChecked] = useState(true);
-  const [checkedStyles, setCheckedStyles] = useState([]);
-  const danceStyles = useSelector((state) => Object.values(state.danceStyles));
+  // const [allStylesChecked, setAllStylesChecked] = useState(true);
+  // const [checkedStyles, setCheckedStyles] = useState([]);
+  // const danceStyles = useSelector((state) => Object.values(state.danceStyles));
 
-  useEffect(() => {
-    dispatch(getDanceStyles());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getDanceStyles());
+  // }, [dispatch]);
 
-  const handleCheckedStyles = (e) => {
-    const arr = [...checkedStyles];
-    if (e.target.checked) {
-      arr.push(e.target.value);
-    } else {
-      const index = arr.indexOf(e.target.value);
-      arr.splice(index, 1);
-    }
-    setCheckedStyles(arr);
-    setAllStylesChecked(false);
-    console.log('checkedStyles', arr, checkedStyles)
-  };
+  // const handleCheckedStyles = (e) => {
+  //   const arr = [...checkedStyles];
+  //   if (e.target.checked) {
+  //     arr.push(e.target.value);
+  //   } else {
+  //     const index = arr.indexOf(e.target.value);
+  //     arr.splice(index, 1);
+  //   }
+  //   setCheckedStyles(arr);
+  //   setAllStylesChecked(false);
+  //   console.log('checkedStyles', arr, checkedStyles)
+  // };
 
-  if (isLoaded) {
-    if (checkedStyles.length) {
-      allTutorials = allTutorials.filter((tutorial) =>
-      checkedStyles.includes(tutorial.styleId.toString())
-      );
-    }
-  }
+  // if (isLoaded) {
+  //   if (checkedStyles.length) {
+  //     allTutorials = allTutorials.filter((tutorial) =>
+  //     checkedStyles.includes(tutorial.styleId.toString())
+  //     );
+  //   }
+  // }
 
-  const handleAllStylesChecked = () => {
-    setCheckedStyles([]);
-    setAllStylesChecked(true);
-  };
+  // const handleAllStylesChecked = () => {
+  //   setCheckedStyles([]);
+  //   setAllStylesChecked(true);
+  // };
 
-  useEffect(() => {
-    if (!checkedStyles.length) setAllStylesChecked(true);
-  }, [checkedStyles])
+  // useEffect(() => {
+  //   if (!checkedStyles.length) setAllStylesChecked(true);
+  // }, [checkedStyles])
 
-  /************************* Filter by tutorial levels *************************/
-  const [allLevelsChecked, setAllLevelsChecked] = useState(true);
-  const [checkedLevels, setCheckedLevels] = useState([]);
-  const tutorialLevels = useSelector((state) => Object.values(state.tutorialLevels));
+  // /************************* Filter by tutorial levels *************************/
+  // const [allLevelsChecked, setAllLevelsChecked] = useState(true);
+  // const [checkedLevels, setCheckedLevels] = useState([]);
+  // const tutorialLevels = useSelector((state) => Object.values(state.tutorialLevels));
 
-  useEffect(() => {
-    dispatch(getTutorialLevels());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getTutorialLevels());
+  // }, [dispatch]);
 
-  const handleCheckedLevels = (e) => {
-    const arr = [...checkedLevels];
-    if (e.target.checked) {
-      arr.push(e.target.value);
-    } else {
-      const index = arr.indexOf(e.target.value);
-      arr.splice(index, 1);
-    }
-    setCheckedLevels(arr);
-    setAllLevelsChecked(false);
-  };
+  // const handleCheckedLevels = (e) => {
+  //   const arr = [...checkedLevels];
+  //   if (e.target.checked) {
+  //     arr.push(e.target.value);
+  //   } else {
+  //     const index = arr.indexOf(e.target.value);
+  //     arr.splice(index, 1);
+  //   }
+  //   setCheckedLevels(arr);
+  //   setAllLevelsChecked(false);
+  // };
 
-  if (isLoaded) {
-    if (checkedLevels.length) {
-      allTutorials = allTutorials.filter((tutorial) =>
-      checkedLevels.includes(tutorial.levelId.toString())
-      );
-    }
-  }
-  console.log('allTutorials--->', allTutorials)
+  // if (isLoaded) {
+  //   if (checkedLevels.length) {
+  //     allTutorials = allTutorials.filter((tutorial) =>
+  //     checkedLevels.includes(tutorial.levelId.toString())
+  //     );
+  //   }
+  // }
+  // console.log('allTutorials--->', allTutorials)
 
-  const handleAllLevelsChecked = () => {
-    setCheckedLevels([]);
-    setAllLevelsChecked(true);
-  }
+  // const handleAllLevelsChecked = () => {
+  //   setCheckedLevels([]);
+  //   setAllLevelsChecked(true);
+  // }
 
-  useEffect(() => {
-    if (!checkedLevels.length) setAllLevelsChecked(true);
-  }, [checkedLevels]);
+  // useEffect(() => {
+  //   if (!checkedLevels.length) setAllLevelsChecked(true);
+  // }, [checkedLevels]);
+  console.log('styles-->', danceStyles, 'levels-->', tutorialLevels)
 
   return (
     <div className={styles.filterContainer}>
