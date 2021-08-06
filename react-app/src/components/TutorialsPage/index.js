@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FiHeart } from "react-icons/fi";
+// import { FiHeart } from "react-icons/fi";
 import Lottie from "react-lottie";
 import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
 import { getTutorials, unloadTutorials } from "../../store/tutorials";
