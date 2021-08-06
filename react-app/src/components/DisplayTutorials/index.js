@@ -11,7 +11,6 @@ const DisplayTutorials = ({
   allTutorials,
   start,
 }) => {
-  
   // loading animation
   const defaultOptions = {
     loop: true,
@@ -22,14 +21,20 @@ const DisplayTutorials = ({
     },
   };
 
+  // trim title length
+  const trimTitle = (title) => {
+    if (title.length > 50) return `${title.slice(0, 49)}...`;
+    return title;
+  };
+
   return (
     <>
       {isLoaded ? (
         <div className={styles.tutorialsContainer}>
           {tutorialsToDisplay &&
             tutorialsToDisplay.map((tutorial) => (
-              <a href={`/tutorials/${tutorial.id}`} key={tutorial.id}>
-                <div className={styles.videoCard}>
+              <div className={styles.videoCard} key={tutorial.id}>
+                <a href={`/tutorials/${tutorial.id}`}>
                   <div className={styles.cardTop}>
                     <img
                       className={styles.thumbnailImg}
@@ -38,13 +43,13 @@ const DisplayTutorials = ({
                     />
                   </div>
                   <div className={styles.cardBottom}>
-                    <div className={styles.videoTitle}>{tutorial.title}</div>
+                    <p className={styles.videoTitle}>{trimTitle(tutorial.title)}</p>
                     {/* <div className={styles.likeButton}>
                         <FiHeart />
                       </div> */}
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             ))}
         </div>
       ) : (
