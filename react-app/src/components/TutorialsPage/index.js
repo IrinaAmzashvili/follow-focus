@@ -11,6 +11,7 @@ import styles from "./TutorialsPage.module.css";
 
 const TutorialsPage = () => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
 
   /************************* Handling Tutorials *************************/
   const [isLoaded, setIsLoaded] = useState(false);
@@ -55,7 +56,11 @@ const TutorialsPage = () => {
     setStart((prev) => prev + 16);
   };
   const handlePrevious = () => {
-    setStart((prev) => prev - 16);
+    if (start < 16) {
+      setStart(0)
+    } else {
+      setStart((prev) => prev - 16);
+    }
   };
 
   /************************* Filter by dance style *************************/
@@ -182,7 +187,7 @@ const TutorialsPage = () => {
               />
             </label>
           </div>
-          <CreateTutorial />
+          {sessionUser.superUser ? <CreateTutorial /> : null}
         </div>
 
         <DisplayTutorials

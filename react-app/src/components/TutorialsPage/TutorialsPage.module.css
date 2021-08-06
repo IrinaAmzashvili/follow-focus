@@ -56,10 +56,16 @@
     padding: 5px;
     display: flex;
     justify-content: space-between;
+    height: 57.81px;
 }
 
 .videoTitle {
     font-weight: 400;
+    margin: 0;
+    /* white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; */
+    height: 100%;
 }
 
 .likeButton {
