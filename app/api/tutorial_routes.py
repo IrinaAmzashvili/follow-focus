@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from sqlalchemy import desc
+from flask_login import current_user
 from app.models import db, Tutorial
 from .auth_routes import validation_errors_to_error_messages
 from app.forms import TutorialForm
@@ -9,7 +10,19 @@ tutorial_routes = Blueprint('tutorials', __name__)
 
 @tutorial_routes.route('/')
 def get_tutorials():
-    all_tutorials = Tutorial.query.all()
+    # query for tutorials that match user tier id
+    if current_user.tier_id == 1:
+        tier = [1]
+    elif current_user.tier_id == 2:
+        tier = [1, 2]
+    elif current_user.tier_id == 3:
+        tier = [1, 2, 3]
+    elif current_user.tier_id == 4:
+        tier = [1, 2, 3, 4]
+    elif current_user.tier_id == 5:
+        tier = [1, 2, 3, 4, 5]
+
+    all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
     return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
 
 

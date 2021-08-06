@@ -6,11 +6,6 @@
     margin: 70px 100px;
 }
 
-.filterContainer {
-    background-color: grey;
-    width: 300px;
-}
-
 .tutorialsDiv {
     display: flex;
     flex-direction: column;
