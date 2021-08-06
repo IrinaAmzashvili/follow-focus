@@ -12,8 +12,10 @@ import styles from "./IndividualTutorialPage.module.css";
 const IndividualTutorialPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+
   const tutorial = useSelector((state) => state.tutorials.current);
+  const sessionUser = useSelector((state) => state.session.user);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const fetchTutorial = async () => {
@@ -50,10 +52,14 @@ const IndividualTutorialPage = () => {
             ></iframe>
           </div>
           <div className={styles.actionButtonsDiv}>
-            <EditTutorial />
-            <DeleteTutorial
+            {sessionUser.superUser ? (
+              <>
+              <EditTutorial />
+              <DeleteTutorial
               linkText={<i className={`${styles.deleteIcon} fas fa-trash`}></i>}
-            />
+              />
+              </>
+              ) : null}
           </div>
           <div className={styles.tutorialInfo}>
             <h1 className={styles.title}>{tutorial?.title}</h1>

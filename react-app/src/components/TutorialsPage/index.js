@@ -11,6 +11,8 @@ import styles from "./TutorialsPage.module.css";
 
 const TutorialsPage = () => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+  console.log(sessionUser)
 
   /************************* Handling Tutorials *************************/
   const [isLoaded, setIsLoaded] = useState(false);
@@ -182,7 +184,7 @@ const TutorialsPage = () => {
               />
             </label>
           </div>
-          <CreateTutorial />
+          {sessionUser.superUser ? <CreateTutorial /> : null}
         </div>
 
         <DisplayTutorials
