@@ -62,9 +62,6 @@
 .videoTitle {
     font-weight: 400;
     margin: 0;
-    /* white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden; */
     height: 100%;
 }
 
