@@ -22,7 +22,8 @@ def get_tutorials():
     elif current_user.tier_id == 5:
         tier = [1, 2, 3, 4, 5]
 
-    all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
+    # all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
+    all_tutorials = Tutorial.query.all()
     return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
 
 
