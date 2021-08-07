@@ -1,0 +1,8 @@
+@import '../../index.css';
+
+
+.profilePageDiv {
+    margin: 50px auto;
+    width: 500px;
+    text-align: center;
+}
