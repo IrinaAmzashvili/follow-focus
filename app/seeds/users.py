@@ -55,15 +55,15 @@ def seed_users():
         likes.append(tutorial)
 
     # add list to user as liked tutorials
-    demo.tutorials.extend(likes)
-    super_demo.tutorials.extend(likes)
-    user_1.tutorials.extend(likes)
-    user_2.tutorials.extend(likes)
+    # demo.tutorials.extend(likes)
+    # super_demo.tutorials.extend(likes)
+    # user_1.tutorials.extend(likes)
+    # user_2.tutorials.extend(likes)
 
     # add and commit users to database
-    users = [demo, super_demo, user_1, user_2]
-    db.session.add_all(users)
-    db.session.commit()
+    # users = [demo, super_demo, user_1, user_2]
+    # db.session.add_all(users)
+    # db.session.commit()
 
 
 # Uses a raw SQL query to TRUNCATE the users table.

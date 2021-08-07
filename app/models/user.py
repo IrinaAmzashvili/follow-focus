@@ -47,5 +47,5 @@ class User(db.Model, UserMixin):
             'superUser': self.super_user,
             'tierId': self.tier_id,
             'comments': [comment.id for comment in self.comments],
-            'likedVideos': [tutorial.to_dict() for tutorial in self.tutorials],
+            'likedVideos': [tutorial.id for tutorial in self.tutorials],
         }
