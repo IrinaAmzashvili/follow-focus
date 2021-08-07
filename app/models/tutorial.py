@@ -57,7 +57,6 @@ class Tutorial(db.Model):
             'styleId': self.style_id,
             'levelId': self.level_id,
             'tierId': self.tier_id,
-            # 'comments': [comment.to_dict() for comment in self.comments],
             'comments': {comm.id: comm.to_dict() for comm in self.comments},
             'userLikes': [like.id for like in self.users],
             'tags': [tag.id for tag in self.tags],
