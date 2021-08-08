@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FiEdit } from "react-icons/fi";
-import { setComments, deleteComment, unloadComments } from "../../store/comments";
+import {
+  setComments,
+  deleteComment,
+  unloadComments,
+} from "../../store/comments";
 import SaveCancelButtons from "./SaveCancelButtons";
 import PostComment from "../PostComment";
 import styles from "./Comments.module.css";
@@ -25,7 +29,7 @@ const Comments = ({ tutorial }) => {
 
   useEffect(() => {
     dispatch(setComments(tutorial.comments));
-    return () => dispatch(unloadComments())
+    return () => dispatch(unloadComments());
   }, [dispatch, tutorial.comments]);
 
   useEffect(() => {
@@ -34,7 +38,7 @@ const Comments = ({ tutorial }) => {
         setCommentsLoaded(true);
       }
     })();
-  }, [allComments])
+  }, [allComments]);
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -51,8 +55,28 @@ const Comments = ({ tutorial }) => {
     dispatch(deleteComment(e.currentTarget.id));
   };
 
+  // check if comment was created today
+  const isToday = (date) => {
+    const today = new Date();
+    if (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    )
+      return true;
+  };
+
+  const trimDate = (date) => {
+    const commDate = new Date(date);
+    if (isToday(commDate)) return "Today";
+    const yy = commDate.getFullYear();
+    const mm = commDate.getMonth() + 1;
+    const dd = commDate.getDate();
+    return mm + '/' + dd + '/' + yy
+  };
+
   if (!commentsLoaded) {
-    return null
+    return null;
   }
 
   return (
@@ -65,7 +89,7 @@ const Comments = ({ tutorial }) => {
           allComments.map((comment, i) => (
             <div className={styles.userCommentDiv} key={i} id={comment.id}>
               <p className={styles.username}>{comment.user?.username}</p>
-              <p className={styles.date}>{comment.createdAt}</p>
+              <p className={styles.date}>{trimDate(comment.createdAt)}</p>
               {/* If user clicks edit button, make render textarea and record changes */}
               {editClicked === comment.id ? (
                 <textarea

@@ -46,7 +46,24 @@
     margin-bottom: 40px;
 }
 
+.switchLinkDiv {
+    font-size: 18px;
+}
+
 .switchLinks {
     font-weight: 400;
     padding-left: 2px;
+}
+
+.switchLinks:hover {
+    border-bottom: 1px solid var(--greyTheme);
+}
+
+.demoLoginDiv {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.demoLoginDiv > * {
+    margin: 0;
 }

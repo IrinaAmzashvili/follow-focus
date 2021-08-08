@@ -1,7 +1,13 @@
 // import { FiHeart } from "react-icons/fi";
+import {
+  HiOutlineChevronDoubleLeft,
+  HiOutlineChevronLeft,
+  // HiOutlineChevronDoubleRight,
+  HiOutlineChevronRight,
+} from "react-icons/hi";
 import Lottie from "react-lottie";
 import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
-import styles from "../TutorialsPage/TutorialsPage.module.css";
+import styles from "./DisplayTutorials.module.css";
 
 const DisplayTutorials = ({
   tutorialsToDisplay,
@@ -10,6 +16,8 @@ const DisplayTutorials = ({
   handleNext,
   allTutorials,
   start,
+  handleBeginning,
+  page,
 }) => {
   // loading animation
   const defaultOptions = {
@@ -43,7 +51,9 @@ const DisplayTutorials = ({
                     />
                   </div>
                   <div className={styles.cardBottom}>
-                    <p className={styles.videoTitle}>{trimTitle(tutorial.title)}</p>
+                    <p className={styles.videoTitle}>
+                      {trimTitle(tutorial.title)}
+                    </p>
                     {/* <div className={styles.likeButton}>
                         <FiHeart />
                       </div> */}
@@ -59,17 +69,40 @@ const DisplayTutorials = ({
         </div>
       )}
       <div className={styles.prevNextButtonDiv}>
+        {start > 0 ? (
+          <button className={`link-button`} onClick={handleBeginning}>
+            <HiOutlineChevronDoubleLeft />
+          </button>
+        ) : null}
         {/* if start is greater than 0, display previous button */}
         {start ? (
           <button className={`link-button`} onClick={handlePrevious}>
-            Previous
+            {page - 1}
           </button>
         ) : null}
-        {/* if not at end of tutorials, display next button */}
+        {/* if on first page of multiple, display 1... or page number without ellipsis */}
+        {allTutorials?.length > 16 ? (
+          page === 1 ? (
+            <span className={styles.pageNum}>
+              {page}
+              {"..."}
+            </span>
+          ) : (
+            <span className={styles.pageNum}>{page}</span>
+          )
+        ) : null}
+        {/* if not at end of tutorials, display next button as arrow or next number */}
         {start < allTutorials?.length - 16 ? (
-          <button className={`link-button`} onClick={handleNext}>
-            Next
-          </button>
+          page <= 1 ? (
+            <button className={`link-button`} onClick={handleNext}>
+              <HiOutlineChevronRight />
+            </button>
+          ) : (
+            <button className={`link-button`} onClick={handleNext}>
+              {page + 1}
+              {"..."}
+            </button>
+          )
         ) : null}
       </div>
     </>

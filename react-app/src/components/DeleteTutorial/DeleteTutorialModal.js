@@ -26,7 +26,7 @@ const DeleteTutorialModal = ({ setShowModal }) => {
       <p className={styles.text}>Are you sure you want to delete this tutorial? You cannot undo this action.</p>
       <div className={styles.buttonsDiv}>
         <button className={`cta-button cta-button-inverse ${styles.cancelButton}`} onClick={() => setShowModal(false)}>Cancel</button>
-        <button className={`cta-button ${styles.deleteButton}`} onClick={handleDelete}>Delete</button>
+        <button className={`cta-button cta-button-inverse ${styles.deleteButton}`} onClick={handleDelete}>Delete</button>
       </div>
     </div>
   )

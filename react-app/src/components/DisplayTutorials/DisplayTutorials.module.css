@@ -1,0 +1,94 @@
+@import '../../index.css';
+
+
+
+.tutorialsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-between;
+}
+
+.videoCard {
+    margin-bottom: 30px;
+    background-color: white;
+    width: 329px;
+    height: 266px;
+    margin-left: 7px;
+    /* width: 235px;
+    height: 190px; */
+}
+
+.cardTop {
+    /* height: 132.19px; */
+    height: 185px;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.thumbnailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBottom {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.videoTitle {
+    font-weight: 400;
+    margin: 0;
+}
+
+.likeButton {
+    padding: 10px;
+}
+
+.prevNextButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.prevNextButtonDiv > * {
+    margin-left: 20px;
+    color: var(--greyTheme);
+}
+
+.prevNextButtonDiv > *:hover {
+    color: black;
+}
+
+.pageNum {
+    font-size: 20px;
+}
+
+.pageNum:hover {
+    color: var(--greyTheme);
+}
+
+
+/* @media screen and (max-width: 1700px) {
+    .videoCard {
+        width: 282px;
+        height: 228px;
+    }
+
+    .cardTop {
+        height: 158.6px;
+    }
+}
+
+@media screen and (max-width: 1530px) {
+    .videoCard {
+        width: 258.5px;
+        height: 209px;
+    }
+
+    .cardTop {
+        height: 145.4px;
+    }
+} */

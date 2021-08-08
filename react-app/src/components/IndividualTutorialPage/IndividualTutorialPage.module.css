@@ -14,6 +14,18 @@
     align-items: center;
 }
 
+.backButton {
+    color: var(--greyTheme);
+    align-self: start;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.backButton:hover {
+    color: black;
+}
+
 .tutorialDiv {
     width: 100%;
     display: flex;
@@ -46,6 +58,11 @@
     width: 100%;
 }
 
+.title {
+    margin-bottom: 20pt;
+}
+
 .description {
-    margin-bottom: 50px;
+    margin-top: 0;
+    margin-bottom: 25pt;
 }
