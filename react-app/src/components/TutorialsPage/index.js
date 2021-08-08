@@ -50,24 +50,25 @@ const TutorialsPage = () => {
   // when searching, reset page to show first videos
   useEffect(() => {
     setStart(0);
+    setPage(1);
   }, [search]);
 
   // show next 16 and previous 16 videos
   const handleBeginning = () => {
-    setStart(0)
-    setPage(1)
+    setStart(0);
+    setPage(1);
   };
   const handleNext = () => {
     setStart((prev) => prev + 16);
-    setPage(prev => prev + 1)
+    setPage(prev => prev + 1);
   };
   const handlePrevious = () => {
     if (start < 16) {
-      setStart(0)
+      setStart(0);
     } else {
       setStart((prev) => prev - 16);
     }
-    setPage(prev => prev - 1)
+    setPage(prev => prev - 1);
   };
 
   /************************* Filter by dance style *************************/
@@ -85,6 +86,7 @@ const TutorialsPage = () => {
 
   const handleCheckedStyles = (e) => {
     setStart(0);
+    setPage(1);
     const arr = [...checkedStyles];
     if (e.target.checked) {
       arr.push(e.target.value);
@@ -107,6 +109,8 @@ const TutorialsPage = () => {
   const handleAllStylesChecked = () => {
     setCheckedStyles([]);
     setAllStylesChecked(true);
+    setStart(0);
+    setPage(1);
   };
 
   useEffect(() => {
@@ -130,6 +134,7 @@ const TutorialsPage = () => {
 
   const handleCheckedLevels = (e) => {
     setStart(0);
+    setPage(1);
     const arr = [...checkedLevels];
     if (e.target.checked) {
       arr.push(e.target.value);
@@ -152,6 +157,8 @@ const TutorialsPage = () => {
   const handleAllLevelsChecked = () => {
     setCheckedLevels([]);
     setAllLevelsChecked(true);
+    setStart(0);
+    setPage(1);
   };
 
   useEffect(() => {

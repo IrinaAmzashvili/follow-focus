@@ -76,18 +76,33 @@ const DisplayTutorials = ({
         ) : null}
         {/* if start is greater than 0, display previous button */}
         {start ? (
-            <button className={`link-button`} onClick={handlePrevious}>
-              <HiOutlineChevronLeft />
-            </button>
-        ) : null}
-        {allTutorials?.length > 16 ? (
-          <span className={styles.pageNum}>{page}</span>
-        ) : null}
-        {/* if not at end of tutorials, display next button */}
-        {start < allTutorials?.length - 16 ? (
-          <button className={`link-button`} onClick={handleNext}>
-            <HiOutlineChevronRight />
+          <button className={`link-button`} onClick={handlePrevious}>
+            {page - 1}
           </button>
+        ) : null}
+        {/* if on first page of multiple, display 1... or page number without ellipsis */}
+        {allTutorials?.length > 16 ? (
+          page === 1 ? (
+            <span className={styles.pageNum}>
+              {page}
+              {"..."}
+            </span>
+          ) : (
+            <span className={styles.pageNum}>{page}</span>
+          )
+        ) : null}
+        {/* if not at end of tutorials, display next button as arrow or next number */}
+        {start < allTutorials?.length - 16 ? (
+          page <= 1 ? (
+            <button className={`link-button`} onClick={handleNext}>
+              <HiOutlineChevronRight />
+            </button>
+          ) : (
+            <button className={`link-button`} onClick={handleNext}>
+              {page + 1}
+              {"..."}
+            </button>
+          )
         ) : null}
       </div>
     </>

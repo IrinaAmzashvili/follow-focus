@@ -50,7 +50,7 @@
 .prevNextButtonDiv {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: baseline;
 }
 
 .prevNextButtonDiv > * {
@@ -63,7 +63,7 @@
 }
 
 .pageNum {
-    padding-bottom: 5px;
+    font-size: 20px;
 }
 
 .pageNum:hover {
