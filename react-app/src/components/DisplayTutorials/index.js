@@ -29,17 +29,6 @@ const DisplayTutorials = ({
     },
   };
 
-  // const [pages, setPages] = useState(1);
-
-  // if (isLoaded) {
-  //   const numOfPages = Math.ceil((allTutorials.length + 1)/ 16)
-  //   const allPages = [];
-  //   for (let i = 0; i < numOfPages; i++) {
-  //     allPages.push(i + 1)
-  //   }
-  //   setPages(allPages)
-  // }
-
   // trim title length
   const trimTitle = (title) => {
     if (title.length > 50) return `${title.slice(0, 49)}...`;
