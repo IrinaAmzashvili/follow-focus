@@ -1,4 +1,10 @@
 // import { FiHeart } from "react-icons/fi";
+import {
+  HiOutlineChevronDoubleLeft,
+  HiOutlineChevronLeft,
+  // HiOutlineChevronDoubleRight,
+  HiOutlineChevronRight,
+} from "react-icons/hi";
 import Lottie from "react-lottie";
 import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
 import styles from "./DisplayTutorials.module.css";
@@ -10,6 +16,8 @@ const DisplayTutorials = ({
   handleNext,
   allTutorials,
   start,
+  handleBeginning,
+  page,
 }) => {
   // loading animation
   const defaultOptions = {
@@ -20,6 +28,17 @@ const DisplayTutorials = ({
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  // const [pages, setPages] = useState(1);
+
+  // if (isLoaded) {
+  //   const numOfPages = Math.ceil((allTutorials.length + 1)/ 16)
+  //   const allPages = [];
+  //   for (let i = 0; i < numOfPages; i++) {
+  //     allPages.push(i + 1)
+  //   }
+  //   setPages(allPages)
+  // }
 
   // trim title length
   const trimTitle = (title) => {
@@ -43,7 +62,9 @@ const DisplayTutorials = ({
                     />
                   </div>
                   <div className={styles.cardBottom}>
-                    <p className={styles.videoTitle}>{trimTitle(tutorial.title)}</p>
+                    <p className={styles.videoTitle}>
+                      {trimTitle(tutorial.title)}
+                    </p>
                     {/* <div className={styles.likeButton}>
                         <FiHeart />
                       </div> */}
@@ -59,16 +80,24 @@ const DisplayTutorials = ({
         </div>
       )}
       <div className={styles.prevNextButtonDiv}>
+        {start > 0 ? (
+          <button className={`link-button`} onClick={handleBeginning}>
+            <HiOutlineChevronDoubleLeft />
+          </button>
+        ) : null}
         {/* if start is greater than 0, display previous button */}
         {start ? (
-          <button className={`link-button`} onClick={handlePrevious}>
-            Previous
-          </button>
+            <button className={`link-button`} onClick={handlePrevious}>
+              <HiOutlineChevronLeft />
+            </button>
+        ) : null}
+        {allTutorials?.length > 16 ? (
+          <span className={styles.pageNum}>{page}</span>
         ) : null}
         {/* if not at end of tutorials, display next button */}
         {start < allTutorials?.length - 16 ? (
           <button className={`link-button`} onClick={handleNext}>
-            Next
+            <HiOutlineChevronRight />
           </button>
         ) : null}
       </div>

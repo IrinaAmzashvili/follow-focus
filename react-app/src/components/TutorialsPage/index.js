@@ -17,6 +17,7 @@ const TutorialsPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
+  const [page, setPage] = useState(1);
 
   // grab all tutorials, sort by date
   let allTutorials = useSelector((state) =>
@@ -52,8 +53,13 @@ const TutorialsPage = () => {
   }, [search]);
 
   // show next 16 and previous 16 videos
+  const handleBeginning = () => {
+    setStart(0)
+    setPage(1)
+  };
   const handleNext = () => {
     setStart((prev) => prev + 16);
+    setPage(prev => prev + 1)
   };
   const handlePrevious = () => {
     if (start < 16) {
@@ -61,6 +67,7 @@ const TutorialsPage = () => {
     } else {
       setStart((prev) => prev - 16);
     }
+    setPage(prev => prev - 1)
   };
 
   /************************* Filter by dance style *************************/
@@ -157,6 +164,7 @@ const TutorialsPage = () => {
     tutorialsToDisplay = allTutorials.slice(start, start + 16);
   }
 
+
   return (
     <div className={styles.tutorialsPage}>
       {stylesLoaded && levelsLoaded ? (
@@ -197,6 +205,8 @@ const TutorialsPage = () => {
           handleNext={handleNext}
           start={start}
           allTutorials={allTutorials}
+          handleBeginning={handleBeginning}
+          page={page}
         />
       </div>
     </div>

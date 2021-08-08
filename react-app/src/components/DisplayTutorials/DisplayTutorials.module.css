@@ -50,7 +50,9 @@
 }
 
 .prevNextButtonDiv {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .prevNextButtonDiv > * {
@@ -60,6 +62,14 @@
 
 .prevNextButtonDiv > *:hover {
     color: black;
+}
+
+.pageNum {
+    padding-bottom: 5px;
+}
+
+.pageNum:hover {
+    color: var(--greyTheme);
 }
 
 
