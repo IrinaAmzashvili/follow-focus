@@ -3,7 +3,8 @@
 
 .tutorialsPage {
     display: flex;
-    margin: 70px 100px;
+    margin: 70px auto;
+    max-width: 1620px;
 }
 
 .tutorialsDiv {
@@ -24,55 +25,18 @@
     border: 1px solid var(--greyTheme);
     height: 25px;
     padding: 0 5px;
+    margin-left: 7px;
 }
 
-.tutorialsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+
+@media screen and (max-width: 1700px) {
+    .tutorialsPage {
+        width: 90%;
+    }
 }
 
-.videoCard {
-    margin-bottom: 30px;
-    background-color: white;
-    width: 235px;
-    height: 190px;
-}
-
-.cardTop {
-    height: 132.19px;
-    width: 100%;
-    overflow-y: hidden;
-}
-
-.thumbnailImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.cardBottom {
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    height: 57.81px;
-}
-
-.videoTitle {
-    font-weight: 400;
-    margin: 0;
-    height: 100%;
-}
-
-.likeButton {
-    padding: 10px;
-}
-
-.prevNextButtonDiv {
-    text-align: right;
-}
-
-.prevNextButtonDiv > * {
-    margin-left: 20px;
+@media screen and (max-width: 1530px) {
+    .tutorialsPage {
+        width: 90%;
+    }
 }

@@ -158,11 +158,12 @@ const SignUpForm = (props) => {
           </button>
         </div>
       </form>
-      <div>
+      <div className={styles.switchLinkDiv}>
         Already a member? <span onClick={handleClick} className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
       </div>
-      <div>
-        Log in as a <DemoLogin setModal={props.setSignupModal} /> or a <SuperDemoLogin setModal={props.setSignupModal}/>
+      <div className={styles.demoLoginDiv}>
+        <p>To experience site without an account, log in as a</p>
+        <DemoLogin setModal={props.setSignupModal} /> or a <SuperDemoLogin setModal={props.setSignupModal}/>
       </div>
     </div>
   );

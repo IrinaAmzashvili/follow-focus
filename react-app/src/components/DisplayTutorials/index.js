@@ -1,7 +1,7 @@
 // import { FiHeart } from "react-icons/fi";
 import Lottie from "react-lottie";
 import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
-import styles from "../TutorialsPage/TutorialsPage.module.css";
+import styles from "./DisplayTutorials.module.css";
 
 const DisplayTutorials = ({
   tutorialsToDisplay,

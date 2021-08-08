@@ -46,6 +46,11 @@
     width: 100%;
 }
 
+.title {
+    margin-bottom: 20pt;
+}
+
 .description {
-    margin-bottom: 50px;
+    margin-top: 0;
+    margin-bottom: 25pt;
 }
