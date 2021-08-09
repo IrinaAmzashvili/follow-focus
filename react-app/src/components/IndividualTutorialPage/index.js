@@ -18,6 +18,11 @@ const IndividualTutorialPage = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // navigate to top of page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const fetchTutorial = async () => {
       await dispatch(getOneTutorial(id));
