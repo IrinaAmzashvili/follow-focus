@@ -58,3 +58,9 @@
         width: 180px;
     }
 }
+
+@media screen and (max-width: 650px) {
+    .filterUl {
+        width: 152px;
+    }
+}
