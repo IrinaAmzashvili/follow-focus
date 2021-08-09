@@ -19,6 +19,7 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
 
   const displayError = (string) => {
     if (values.errors.find((error) => error.includes(string))) {
+      if (string === "not a valid url") return string;
       return "required";
     }
     return null;
@@ -59,10 +60,11 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="videoLink" className={styles.requiredField}>
-                  Youtube video link
+                  Youtube video url
                 </label>
                 <span className={styles.errorSpan}>
                   {displayError("Video")}
+                  {displayError("not a valid url")}
                 </span>
               </div>
               <div>
@@ -70,7 +72,7 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                   id="videoLink"
                   className={styles.input}
                   name="videoLink"
-                  placeholder="Youtube video link"
+                  placeholder="Youtube video url"
                   value={values.videoLink}
                   onChange={(e) => setters.setVideoLink(e.target.value)}
                 ></input>
@@ -98,11 +100,13 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               </div>
             </div>
             <div className={styles.previewImgDiv}>
-              <img
-                className={styles.previewImg}
-                src={values.thumbnail_url}
-                alt="thumbnail preview"
-              />
+              {values.thumbnail_url ? (
+                <img
+                  className={styles.previewImg}
+                  src={values.thumbnail_url}
+                  alt="thumbnail preview"
+                />
+              ) : null}
             </div>
           </div>
 
