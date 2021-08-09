@@ -1,8 +1,6 @@
 // import { FiHeart } from "react-icons/fi";
 import {
   HiOutlineChevronDoubleLeft,
-  HiOutlineChevronLeft,
-  // HiOutlineChevronDoubleRight,
   HiOutlineChevronRight,
 } from "react-icons/hi";
 import Lottie from "react-lottie";

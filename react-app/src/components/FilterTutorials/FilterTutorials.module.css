@@ -15,7 +15,8 @@
 .filterUl {
     display: flex;
     flex-direction: column;
-    width: 180px;
+    /* width: 180px; */
+    padding-right: 30px;
 }
 
 .levelsUl {
