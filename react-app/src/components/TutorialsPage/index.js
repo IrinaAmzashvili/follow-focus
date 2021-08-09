@@ -13,6 +13,11 @@ const TutorialsPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
+  // navigate to top of page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   /************************* Handling Tutorials *************************/
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
@@ -57,10 +62,12 @@ const TutorialsPage = () => {
   const handleBeginning = () => {
     setStart(0);
     setPage(1);
+    window.scrollTo(0, 0);
   };
   const handleNext = () => {
     setStart((prev) => prev + 16);
     setPage(prev => prev + 1);
+    window.scrollTo(0, 0);
   };
   const handlePrevious = () => {
     if (start < 16) {
@@ -69,6 +76,7 @@ const TutorialsPage = () => {
       setStart((prev) => prev - 16);
     }
     setPage(prev => prev - 1);
+    window.scrollTo(0, 0);
   };
 
   /************************* Filter by dance style *************************/

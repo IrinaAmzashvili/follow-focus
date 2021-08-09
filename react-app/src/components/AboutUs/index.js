@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
 import styles from "./AboutUs.module.css";
 
 const AboutUs = () => {
+  // navigate to top of page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div id="about-us" className={styles.aboutUsDiv}>
       <div>

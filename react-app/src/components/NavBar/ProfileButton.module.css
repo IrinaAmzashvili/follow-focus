@@ -26,14 +26,19 @@
 
 .profileDropdown > li {
     text-align: right;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .profileDropdown > li:last-child {
-    margin-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .dropdownLinks > * {
-    padding: 0 20px;
+    /* padding: 0 20px; */
     text-align: right;
+}
+
+.logoutButton {
+    padding: 20px 20px;
+    width: 100%;
 }
