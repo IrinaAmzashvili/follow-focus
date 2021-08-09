@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createTutorial } from "../../store/tutorials";
 import TutorialForm from "../TutorialForm";
-import styles from './CreateTutorial.module.css';
+import styles from "./CreateTutorial.module.css";
 
 const CreateTutorialModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
@@ -41,7 +41,19 @@ const CreateTutorialModal = ({ setShowModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const video_link = videoLink.replace("watch?v=", "embed/");
+    const protocolDomain = "https://www.youtube.com/";
+    const linkWatch = "watch?v=";
+    const linkEmbed = "embed/";
+    let video_link;
+
+    if (videoLink.startsWith(protocolDomain + linkWatch)) {
+      video_link = videoLink.replace("watch?v=", "embed/");
+    } else if (videoLink.startsWith(protocolDomain + linkEmbed)) {
+      video_link = videoLink;
+    } else {
+      setErrors(["not a valid url"]);
+      return;
+    }
 
     const newTutorial = {
       title,

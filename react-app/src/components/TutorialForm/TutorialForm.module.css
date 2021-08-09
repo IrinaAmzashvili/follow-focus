@@ -3,7 +3,7 @@
 
 .tutorialModal {
     padding: 50px;
-    /* width: 500px; */
+    padding-bottom: 20px;
 }
 
 .form {
@@ -17,11 +17,11 @@
 }
 
 .formSectionLeft {
-    width: 55%;
+    width: 44%;
 }
 
 .formSectionRight {
-    width: 40%;
+    width: 49%;
 }
 
 .header {
@@ -63,6 +63,20 @@
 
 .saveButton {
     margin: 25px 0;
+}
+
+.previewImgDiv {
+    margin-top: 9px;
+    width: 284px;
+    height: 158px;
+    background-image: url("https://thekrauseagency.com/wp-content/themes/consultix/images/no-image-found-360x250.png");
+    background-position: center center;
+}
+
+.previewImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .tierMssg {

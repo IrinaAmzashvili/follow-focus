@@ -19,7 +19,8 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
 
   const displayError = (string) => {
     if (values.errors.find((error) => error.includes(string))) {
-      return 'required';
+      if (string === "not a valid url") return string;
+      return "required";
     }
     return null;
   };
@@ -35,8 +36,12 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
           <div className={styles.formSectionLeft}>
             <div>
               <div className={styles.inputLabel}>
-                <label htmlFor="title" className={styles.requiredField}>Title</label>
-                <span className={styles.errorSpan}>{displayError("Title")}</span>
+                <label htmlFor="title" className={styles.requiredField}>
+                  Title
+                </label>
+                <span className={styles.errorSpan}>
+                  {displayError("Title")}
+                </span>
               </div>
               <div>
                 <input
@@ -52,6 +57,60 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               </div>
             </div>
 
+            <div>
+              <div className={styles.inputLabel}>
+                <label htmlFor="videoLink" className={styles.requiredField}>
+                  Youtube video url
+                </label>
+                <span className={styles.errorSpan}>
+                  {displayError("Video")}
+                  {displayError("not a valid url")}
+                </span>
+              </div>
+              <div>
+                <input
+                  id="videoLink"
+                  className={styles.input}
+                  name="videoLink"
+                  placeholder="Youtube video url"
+                  value={values.videoLink}
+                  onChange={(e) => setters.setVideoLink(e.target.value)}
+                ></input>
+              </div>
+            </div>
+
+            <div>
+              <div className={styles.inputLabel}>
+                <label htmlFor="thumbnailUrl" className={styles.requiredField}>
+                  Thumbnail url
+                </label>
+                <span className={styles.errorSpan}>
+                  {displayError("Thumbnail")}
+                </span>
+              </div>
+              <div>
+                <input
+                  id="thumbnailUrl"
+                  className={styles.input}
+                  name="thumbnailUrl"
+                  placeholder="Thumbnail image"
+                  value={values.thumbnail_url}
+                  onChange={(e) => setters.setThumbnailUrl(e.target.value)}
+                ></input>
+              </div>
+            </div>
+            <div className={styles.previewImgDiv}>
+              {values.thumbnail_url ? (
+                <img
+                  className={styles.previewImg}
+                  src={values.thumbnail_url}
+                  alt="thumbnail preview"
+                />
+              ) : null}
+            </div>
+          </div>
+
+          <div className={styles.formSectionRight}>
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="description">Description</label>
@@ -73,46 +132,10 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
 
             <div>
               <div className={styles.inputLabel}>
-                <label htmlFor="videoLink" className={styles.requiredField}>Youtube video link</label>
-                <span className={styles.errorSpan}>{displayError("Video")}</span>
-              </div>
-              <div>
-                <input
-                  id="videoLink"
-                  className={styles.input}
-                  name="videoLink"
-                  placeholder="Youtube video link"
-                  value={values.videoLink}
-                  onChange={(e) => setters.setVideoLink(e.target.value)}
-                ></input>
-              </div>
-            </div>
-
-            <div>
-              <div className={styles.inputLabel}>
-                <label htmlFor="thumbnailUrl" className={styles.requiredField}>Thumbnail url</label>
-                <span className={styles.errorSpan}>
-                  {displayError("Thumbnail")}
-                </span>
-              </div>
-              <div>
-                <input
-                  id="thumbnailUrl"
-                  className={styles.input}
-                  name="thumbnailUrl"
-                  placeholder="Thumbnail image"
-                  value={values.thumbnail_url}
-                  onChange={(e) => setters.setThumbnailUrl(e.target.value)}
-                ></input>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.formSectionRight}>
-            <div>
-              <div className={styles.inputLabel}>
                 <label htmlFor="styleId">Dance style</label>
-                <span className={styles.errorSpan}>{displayError("Style")}</span>
+                <span className={styles.errorSpan}>
+                  {displayError("Style")}
+                </span>
               </div>
               <div>
                 <select
@@ -134,7 +157,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="levelId">Tutorial level</label>
-                <span className={styles.errorSpan}>{displayError("Level")}</span>
+                <span className={styles.errorSpan}>
+                  {displayError("Level")}
+                </span>
               </div>
               <div>
                 <select
@@ -157,7 +182,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               <div className={styles.inputLabel}>
                 <label htmlFor="tierId">
                   Tier
-                  <span className={styles.tierMssg}>(will be available to all tiers higher than the selected)</span>
+                  <span className={styles.tierMssg}>
+                    (will be available to all tiers higher than the selected)
+                  </span>
                 </label>
                 <span className={styles.errorSpan}>{displayError("Tier")}</span>
               </div>
