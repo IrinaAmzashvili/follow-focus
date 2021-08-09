@@ -8,7 +8,13 @@
 
 ## Summary
 
-Follow Focus is a subscription based site where users can learn how to dance a variety of swing dances. Once signed up, users gain access to a wide range of video tutorials they can watch and learn from.
+Follow Focus is a subscription based site where users can learn how to dance a variety of swing dances. Once signed up, users gain access to a wide range of video tutorials they can watch and learn from. Users may:
+- Create an account, Log in, and Log out
+- Experience the site without signing up by logging in as a demo member or a demo content creator
+- Discover video dance tutorials to learn from
+- Navigate to the `/tutorials` page to view all available tutorials with the ability to filter by dance style or level
+- Navigate to a single tutorial page to watch the video, read comments, and create, edit, and delete their own comments
+- Navigate to the "About Us" page to learn about the Follow Focus organization and its mission statement
 
 ## Structure Overview
 The backend of this app was built using Python and Flask integrated with SQLAlchemy to interact with a postrgreSQL database. The ReSTful convention was followed in all backend API routes. The frontend of this app was built using React and Redux. React allows for quick rerendering without requiring pages to refresh and Redux manages the application's state.
