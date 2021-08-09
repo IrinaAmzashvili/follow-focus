@@ -5,13 +5,14 @@
     display: flex;
     margin: 70px auto;
     max-width: 1620px;
+    justify-content: space-between;
 }
 
 .tutorialsDiv {
     display: flex;
     flex-direction: column;
-    width: 100%;
     margin-left: 60px;
+    width: 100%;
 }
 
 .tutorialsTopDiv {
@@ -29,14 +30,26 @@
 }
 
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1700px) and (min-width: 1534px) {
     .tutorialsPage {
-        width: 90%;
+        width: 1365px;
     }
 }
 
-@media screen and (max-width: 1530px) {
+@media screen and (max-width: 1534px) and (min-width: 1387px) {
     .tutorialsPage {
-        width: 90%;
+        width: 1233px;
+    }
+}
+
+@media screen and (max-width: 1387px) and (min-width: 1000px) {
+    .tutorialsPage {
+        width: 922px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .tutorialsPage {
+        width: 554px;
     }
 }
