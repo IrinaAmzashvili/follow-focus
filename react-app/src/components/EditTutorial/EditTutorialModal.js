@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editTutorial } from "../../store/tutorials";
 import TutorialForm from "../TutorialForm";
+import styles from "./EditTutorial.module.css";
 
 const EditTutorial = ({ setShowModal }) => {
   const dispatch = useDispatch();
@@ -74,12 +75,20 @@ const EditTutorial = ({ setShowModal }) => {
   }
 
   return (
-    <TutorialForm
-      handleSubmit={handleSubmit}
-      values={values}
-      setters={setters}
-      title={'Edit Tutorial'}
-    />
+    <>
+      <button
+        className={`link-button icon-button ${styles.exitButton}`}
+        onClick={() => setShowModal(false)}
+      >
+        <i className="far fa-times-circle"></i>
+      </button>
+      <TutorialForm
+        handleSubmit={handleSubmit}
+        values={values}
+        setters={setters}
+        title={"Edit Tutorial"}
+      />
+    </>
   );
 };
 

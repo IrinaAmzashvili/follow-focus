@@ -40,6 +40,7 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               </div>
               <div>
                 <input
+                  autoFocus
                   id="title"
                   className={styles.input}
                   name="title"
