@@ -102,6 +102,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 ></input>
               </div>
             </div>
+            <div className={styles.previewImgDiv}>
+              <img className={styles.previewImg} src={values.thumbnail_url} alt='thumbnail preview' />
+            </div>
           </div>
 
           <div>
