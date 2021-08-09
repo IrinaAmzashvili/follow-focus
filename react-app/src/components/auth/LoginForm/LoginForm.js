@@ -29,8 +29,8 @@ const LoginForm = (props) => {
   };
 
   const handleClick = () => {
-    props.setLoginModal()
-    props.setSignupModal()
+    props.setLoginModal();
+    props.setSignupModal();
   };
 
   if (user) {
@@ -39,6 +39,12 @@ const LoginForm = (props) => {
 
   return (
     <div className={styles.formContainer}>
+      <button
+        className={`link-button icon-button ${styles.exitButton}`}
+        onClick={() => props.setLoginModal()}
+      >
+        <i className="far fa-times-circle"></i>
+      </button>
       <form className={styles.form} onSubmit={onLogin}>
         <h1 className={styles.header}>Log in</h1>
 
@@ -47,6 +53,7 @@ const LoginForm = (props) => {
             <label htmlFor="email">{displayError("Email")}</label>
           </div>
           <input
+            autoFocus
             className={styles.input}
             id="email"
             name="email"
@@ -78,17 +85,16 @@ const LoginForm = (props) => {
           </button>
         </div>
       </form>
-      <div>
+      <div className={styles.switchLinkDiv}>
         Not a member?{" "}
-        <span
-          onClick={handleClick}
-          className={styles.switchLinks}
-        >
+        <span onClick={handleClick} className={styles.switchLinks}>
           <SignUpFormModal linkText={"Sign up here!"} />
         </span>
       </div>
-      <div>
-        Log in as a <DemoLogin setModal={props.setLoginModal} /> or a <SuperDemoLogin setModal={props.setLoginModal}/>
+      <div className={styles.demoLoginDiv}>
+        <p>To experience site without an account, log in as a</p>
+        <DemoLogin setModal={props.setLoginModal} /> or a{" "}
+        <SuperDemoLogin setModal={props.setLoginModal} />
       </div>
     </div>
   );

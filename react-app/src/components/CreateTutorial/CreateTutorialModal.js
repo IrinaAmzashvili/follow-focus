@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createTutorial } from "../../store/tutorials";
 import TutorialForm from "../TutorialForm";
+import styles from './CreateTutorial.module.css';
 
-const CreateTutorialModal = () => {
+const CreateTutorialModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -16,7 +17,6 @@ const CreateTutorialModal = () => {
   const [style_id, setStyleId] = useState(1);
   const [level_id, setLevelId] = useState(1);
   const [tier_id, setTierId] = useState(1);
-
 
   const values = {
     errors,
@@ -65,12 +65,20 @@ const CreateTutorialModal = () => {
   };
 
   return (
-    <TutorialForm
-      handleSubmit={handleSubmit}
-      values={values}
-      setters={setters}
-      title={'Create Tutorial'}
-    />
+    <>
+      <button
+        className={`link-button icon-button ${styles.exitButton}`}
+        onClick={() => setShowModal(false)}
+      >
+        <i className="far fa-times-circle"></i>
+      </button>
+      <TutorialForm
+        handleSubmit={handleSubmit}
+        values={values}
+        setters={setters}
+        title={"Create Tutorial"}
+      />
+    </>
   );
 };
 

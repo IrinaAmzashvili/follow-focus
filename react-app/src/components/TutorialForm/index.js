@@ -18,7 +18,10 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
   }, [dispatch]);
 
   const displayError = (string) => {
-    return values.errors.find((error) => error.includes(string));
+    if (values.errors.find((error) => error.includes(string))) {
+      return 'required';
+    }
+    return null;
   };
 
   return (
@@ -29,14 +32,15 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputsDiv}>
-          <div>
+          <div className={styles.formSectionLeft}>
             <div>
-              <div>
-                <label htmlFor="title">Title</label>
-                <div className={styles.errorDiv}>{displayError("Title")}</div>
+              <div className={styles.inputLabel}>
+                <label htmlFor="title" className={styles.requiredField}>Title</label>
+                <span className={styles.errorSpan}>{displayError("Title")}</span>
               </div>
               <div>
                 <input
+                  autoFocus
                   id="title"
                   className={styles.input}
                   name="title"
@@ -49,11 +53,11 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             </div>
 
             <div>
-              <div>
+              <div className={styles.inputLabel}>
                 <label htmlFor="description">Description</label>
-                <div className={styles.errorDiv}>
+                <span className={styles.errorSpan}>
                   {displayError("Description")}
-                </div>
+                </span>
               </div>
               <div>
                 <textarea
@@ -68,16 +72,16 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             </div>
 
             <div>
-              <div>
-                <label htmlFor="videoLink">Video link</label>
-                <div className={styles.errorDiv}>{displayError("Video")}</div>
+              <div className={styles.inputLabel}>
+                <label htmlFor="videoLink" className={styles.requiredField}>Youtube video link</label>
+                <span className={styles.errorSpan}>{displayError("Video")}</span>
               </div>
               <div>
                 <input
                   id="videoLink"
                   className={styles.input}
                   name="videoLink"
-                  placeholder="Video link"
+                  placeholder="Youtube video link"
                   value={values.videoLink}
                   onChange={(e) => setters.setVideoLink(e.target.value)}
                 ></input>
@@ -85,11 +89,11 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             </div>
 
             <div>
-              <div>
-                <label htmlFor="thumbnailUrl">Thumbnail url</label>
-                <div className={styles.errorDiv}>
+              <div className={styles.inputLabel}>
+                <label htmlFor="thumbnailUrl" className={styles.requiredField}>Thumbnail url</label>
+                <span className={styles.errorSpan}>
                   {displayError("Thumbnail")}
-                </div>
+                </span>
               </div>
               <div>
                 <input
@@ -107,11 +111,11 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             </div>
           </div>
 
-          <div>
+          <div className={styles.formSectionRight}>
             <div>
-              <div>
+              <div className={styles.inputLabel}>
                 <label htmlFor="styleId">Dance style</label>
-                <div className={styles.errorDiv}>{displayError("Style")}</div>
+                <span className={styles.errorSpan}>{displayError("Style")}</span>
               </div>
               <div>
                 <select
@@ -131,9 +135,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             </div>
 
             <div>
-              <div>
+              <div className={styles.inputLabel}>
                 <label htmlFor="levelId">Tutorial level</label>
-                <div className={styles.errorDiv}>{displayError("Level")}</div>
+                <span className={styles.errorSpan}>{displayError("Level")}</span>
               </div>
               <div>
                 <select
@@ -153,12 +157,12 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             </div>
 
             <div>
-              <div>
+              <div className={styles.inputLabel}>
                 <label htmlFor="tierId">
-                  Tier (will be available to all tiers higher than the chose
-                  one)
+                  Tier
+                  <span className={styles.tierMssg}>(will be available to all tiers higher than the selected)</span>
                 </label>
-                <div className={styles.errorDiv}>{displayError("Tier")}</div>
+                <span className={styles.errorSpan}>{displayError("Tier")}</span>
               </div>
               <div>
                 <select

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import Lottie from 'react-lottie';
-import loadingAnimation from '../../lotties/loading-dots-in-yellow.json';
+import { useParams, useHistory } from "react-router-dom";
+import Lottie from "react-lottie";
+import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
 import { getOneTutorial, unloadCurrentTutorial } from "../../store/tutorials";
 import EditTutorial from "../EditTutorial";
 import DeleteTutorial from "../DeleteTutorial";
@@ -11,11 +11,17 @@ import styles from "./IndividualTutorialPage.module.css";
 
 const IndividualTutorialPage = () => {
   const { id } = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const tutorial = useSelector((state) => state.tutorials.current);
   const sessionUser = useSelector((state) => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // navigate to top of page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const fetchTutorial = async () => {
@@ -26,18 +32,25 @@ const IndividualTutorialPage = () => {
     return () => dispatch(unloadCurrentTutorial());
   }, [dispatch, id]);
 
+  // for Lottie animation
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: loadingAnimation,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
 
   return isLoaded ? (
     tutorial ? (
       <div className={styles.tutorialPageDiv}>
+        <button
+          onClick={() => history.goBack()}
+          className={`link-button ${styles.backButton}`}
+        >
+          Back
+        </button>
         <div className={styles.tutorialDiv}>
           <div className={styles.videoDiv}>
             <iframe
@@ -54,12 +67,14 @@ const IndividualTutorialPage = () => {
           <div className={styles.actionButtonsDiv}>
             {sessionUser.superUser ? (
               <>
-              <EditTutorial />
-              <DeleteTutorial
-              linkText={<i className={`${styles.deleteIcon} fas fa-trash`}></i>}
-              />
+                <EditTutorial />
+                <DeleteTutorial
+                  linkText={
+                    <i className={`${styles.deleteIcon} fas fa-trash`}></i>
+                  }
+                />
               </>
-              ) : null}
+            ) : null}
           </div>
           <div className={styles.tutorialInfo}>
             <h1 className={styles.title}>{tutorial?.title}</h1>

@@ -13,10 +13,16 @@ const TutorialsPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
+  // navigate to top of page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   /************************* Handling Tutorials *************************/
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
   const [start, setStart] = useState(0);
+  const [page, setPage] = useState(1);
 
   // grab all tutorials, sort by date
   let allTutorials = useSelector((state) =>
@@ -49,18 +55,28 @@ const TutorialsPage = () => {
   // when searching, reset page to show first videos
   useEffect(() => {
     setStart(0);
+    setPage(1);
   }, [search]);
 
   // show next 16 and previous 16 videos
+  const handleBeginning = () => {
+    setStart(0);
+    setPage(1);
+    window.scrollTo(0, 0);
+  };
   const handleNext = () => {
     setStart((prev) => prev + 16);
+    setPage(prev => prev + 1);
+    window.scrollTo(0, 0);
   };
   const handlePrevious = () => {
     if (start < 16) {
-      setStart(0)
+      setStart(0);
     } else {
       setStart((prev) => prev - 16);
     }
+    setPage(prev => prev - 1);
+    window.scrollTo(0, 0);
   };
 
   /************************* Filter by dance style *************************/
@@ -78,6 +94,7 @@ const TutorialsPage = () => {
 
   const handleCheckedStyles = (e) => {
     setStart(0);
+    setPage(1);
     const arr = [...checkedStyles];
     if (e.target.checked) {
       arr.push(e.target.value);
@@ -100,6 +117,8 @@ const TutorialsPage = () => {
   const handleAllStylesChecked = () => {
     setCheckedStyles([]);
     setAllStylesChecked(true);
+    setStart(0);
+    setPage(1);
   };
 
   useEffect(() => {
@@ -123,6 +142,7 @@ const TutorialsPage = () => {
 
   const handleCheckedLevels = (e) => {
     setStart(0);
+    setPage(1);
     const arr = [...checkedLevels];
     if (e.target.checked) {
       arr.push(e.target.value);
@@ -145,6 +165,8 @@ const TutorialsPage = () => {
   const handleAllLevelsChecked = () => {
     setCheckedLevels([]);
     setAllLevelsChecked(true);
+    setStart(0);
+    setPage(1);
   };
 
   useEffect(() => {
@@ -156,6 +178,7 @@ const TutorialsPage = () => {
   if (isLoaded) {
     tutorialsToDisplay = allTutorials.slice(start, start + 16);
   }
+
 
   return (
     <div className={styles.tutorialsPage}>
@@ -197,6 +220,8 @@ const TutorialsPage = () => {
           handleNext={handleNext}
           start={start}
           allTutorials={allTutorials}
+          handleBeginning={handleBeginning}
+          page={page}
         />
       </div>
     </div>

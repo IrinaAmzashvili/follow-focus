@@ -13,6 +13,7 @@
 .profileDropdown {
     position: absolute;
     background-color: white;
+    min-width: 90px;
     width: 110%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -25,14 +26,19 @@
 
 .profileDropdown > li {
     text-align: right;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .profileDropdown > li:last-child {
-    margin-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .dropdownLinks > * {
-    padding: 0 20px;
+    /* padding: 0 20px; */
     text-align: right;
+}
+
+.logoutButton {
+    padding: 20px 20px;
+    width: 100%;
 }

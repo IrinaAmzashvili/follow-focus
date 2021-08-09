@@ -30,7 +30,7 @@ const SplashPage = ({ sessionUser }) => {
           muted={true}
           loop={true}
           width="100%"
-          height="93vh"
+          height="auto"
           controls={false}
           />
       </div>

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
 import { DemoLogin, SuperDemoLogin } from "../DemoLogin";
-import LoginFormModal from '../LoginForm';
+import LoginFormModal from "../LoginForm";
 import styles from "../LoginSignUpForm.module.css";
 
 const SignUpForm = (props) => {
@@ -38,7 +38,7 @@ const SignUpForm = (props) => {
       if (data) {
         setErrors(data);
       } else {
-        props.setSignupModal()
+        props.setSignupModal();
       }
     } else {
       setErrors(["Passwords must match."]);
@@ -46,8 +46,8 @@ const SignUpForm = (props) => {
   };
 
   const handleClick = () => {
-    props.setLoginModal()
-    props.setSignupModal()
+    props.setLoginModal();
+    props.setSignupModal();
   };
 
   if (user) {
@@ -56,6 +56,12 @@ const SignUpForm = (props) => {
 
   return (
     <div className={styles.formContainer}>
+      <button
+        className={`link-button icon-button ${styles.exitButton}`}
+        onClick={() => props.setSignupModal()}
+      >
+        <i className="far fa-times-circle"></i>
+      </button>
       <form className={styles.form} onSubmit={onSignUp}>
         <h1 className={styles.header}>Sign Up</h1>
 
@@ -65,6 +71,7 @@ const SignUpForm = (props) => {
               <label htmlFor="first_name">{displayError("First")}</label>
             </div>
             <input
+              autoFocus
               id="first_name"
               className={styles.input}
               placeholder="First Name"
@@ -138,9 +145,7 @@ const SignUpForm = (props) => {
 
         <div>
           <div className={styles.labelDivs}>
-            <label htmlFor="repeatPassword">
-              {displayError("Password")}
-            </label>
+            <label htmlFor="repeatPassword">{displayError("Password")}</label>
           </div>
           <input
             id="repeatPassword"
@@ -158,11 +163,16 @@ const SignUpForm = (props) => {
           </button>
         </div>
       </form>
-      <div>
-        Already a member? <span onClick={handleClick} className={styles.switchLinks}><LoginFormModal linkText={'Log in here!'}/></span>
+      <div className={styles.switchLinkDiv}>
+        Already a member?{" "}
+        <span onClick={handleClick} className={styles.switchLinks}>
+          <LoginFormModal linkText={"Log in here!"} />
+        </span>
       </div>
-      <div>
-        Log in as a <DemoLogin setModal={props.setSignupModal} /> or a <SuperDemoLogin setModal={props.setSignupModal}/>
+      <div className={styles.demoLoginDiv}>
+        <p>To experience site without an account, log in as a</p>
+        <DemoLogin setModal={props.setSignupModal} /> or a{" "}
+        <SuperDemoLogin setModal={props.setSignupModal} />
       </div>
     </div>
   );

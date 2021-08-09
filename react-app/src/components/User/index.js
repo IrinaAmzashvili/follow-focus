@@ -1,26 +1,34 @@
-import { useSelector } from 'react-redux';
-import { useHistory } from'react-router-dom';
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import Lottie from "react-lottie";
+import underConstructionAnimation from "../../lotties/under-construction.json";
+import styles from "./User.module.css";
 
 function User() {
   const history = useHistory();
-  const sessionUser = useSelector(state =>  state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
+
+  // loading animation
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: underConstructionAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   if (!sessionUser) {
-    history.push('/');
+    history.push("/");
   }
 
   return (
-    <ul>
-      <li>
-        <strong>User Id</strong> {sessionUser.id}
-      </li>
-      <li>
-        <strong>Username</strong> {sessionUser.username}
-      </li>
-      <li>
-        <strong>Email</strong> {sessionUser.email}
-      </li>
-    </ul>
+    <div className={styles.profilePageDiv}>
+      <h1>Welcome, {sessionUser.firstName}!</h1>
+      <h2>Profile page coming soon, thank you for your patience!</h2>
+      {/* Animated by Andrea Del Latte */}
+      <Lottie options={defaultOptions} height={300} width={300} />
+    </div>
   );
 }
 export default User;

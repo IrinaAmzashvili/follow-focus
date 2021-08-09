@@ -4,3 +4,10 @@
 .createNewTutorialButton {
     font-size: 25px;
 }
+
+.exitButton {
+    font-size: 32px;
+    position: absolute;
+    top: 16px;
+    right: 30px;
+}

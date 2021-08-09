@@ -46,7 +46,38 @@
     margin-bottom: 40px;
 }
 
+.switchLinkDiv {
+    font-size: 18px;
+}
+
 .switchLinks {
     font-weight: 400;
     padding-left: 2px;
+}
+
+.switchLinks:hover {
+    border-bottom: 1px solid var(--greyTheme);
+}
+
+.demoLoginDiv {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.demoLoginDiv > * {
+    margin: 0;
+}
+
+.exitButton {
+    font-size: 32px;
+    position: absolute;
+    top: 16px;
+    right: 30px;
+}
+
+@media screen and (max-width: 900px) {
+    .formContainer {
+        padding: 50px 45px;
+        width: 456px;
+    }
 }
