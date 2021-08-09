@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTiers } from "../../store/tiers";
 import { getDanceStyles } from "../../store/danceStyles";
@@ -7,6 +7,7 @@ import styles from "./TutorialForm.module.css";
 
 const TutorialForm = ({ handleSubmit, values, setters, title }) => {
   const dispatch = useDispatch();
+  const [previewVideo, setPreviewVideo] = useState('');
   const danceStyles = useSelector((state) => Object.values(state.danceStyles));
   const levels = useSelector((state) => Object.values(state.tutorialLevels));
   const tiers = useSelector((state) => Object.values(state.tiers));
@@ -19,10 +20,15 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
 
   const displayError = (string) => {
     if (values.errors.find((error) => error.includes(string))) {
-      return 'required';
+      return "required";
     }
     return null;
   };
+
+  useEffect(() => {
+    const video_link = values.videoLink.replace("watch?v=", "embed/");
+    setPreviewVideo(video_link)
+  }, [values.videoLink]);
 
   return (
     <div className={styles.tutorialModal}>
@@ -35,8 +41,12 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
           <div className={styles.formSectionLeft}>
             <div>
               <div className={styles.inputLabel}>
-                <label htmlFor="title" className={styles.requiredField}>Title</label>
-                <span className={styles.errorSpan}>{displayError("Title")}</span>
+                <label htmlFor="title" className={styles.requiredField}>
+                  Title
+                </label>
+                <span className={styles.errorSpan}>
+                  {displayError("Title")}
+                </span>
               </div>
               <div>
                 <input
@@ -73,8 +83,12 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
 
             <div>
               <div className={styles.inputLabel}>
-                <label htmlFor="videoLink" className={styles.requiredField}>Youtube video link</label>
-                <span className={styles.errorSpan}>{displayError("Video")}</span>
+                <label htmlFor="videoLink" className={styles.requiredField}>
+                  Youtube video link
+                </label>
+                <span className={styles.errorSpan}>
+                  {displayError("Video")}
+                </span>
               </div>
               <div>
                 <input
@@ -87,10 +101,23 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 ></input>
               </div>
             </div>
+            <div className={styles.previewVideoDiv}>
+              <iframe
+                width="100%"
+                height="100%"
+                src={previewVideo}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
 
             <div>
               <div className={styles.inputLabel}>
-                <label htmlFor="thumbnailUrl" className={styles.requiredField}>Thumbnail url</label>
+                <label htmlFor="thumbnailUrl" className={styles.requiredField}>
+                  Thumbnail url
+                </label>
                 <span className={styles.errorSpan}>
                   {displayError("Thumbnail")}
                 </span>
@@ -106,13 +133,18 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 ></input>
               </div>
             </div>
+            <div className={styles.previewImgDiv}>
+              <img className={styles.previewImg} src={values.thumbnail_url} alt='thumbnail preview'/>
+            </div>
           </div>
 
           <div className={styles.formSectionRight}>
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="styleId">Dance style</label>
-                <span className={styles.errorSpan}>{displayError("Style")}</span>
+                <span className={styles.errorSpan}>
+                  {displayError("Style")}
+                </span>
               </div>
               <div>
                 <select
@@ -134,7 +166,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="levelId">Tutorial level</label>
-                <span className={styles.errorSpan}>{displayError("Level")}</span>
+                <span className={styles.errorSpan}>
+                  {displayError("Level")}
+                </span>
               </div>
               <div>
                 <select
@@ -157,7 +191,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               <div className={styles.inputLabel}>
                 <label htmlFor="tierId">
                   Tier
-                  <span className={styles.tierMssg}>(will be available to all tiers higher than the selected)</span>
+                  <span className={styles.tierMssg}>
+                    (will be available to all tiers higher than the selected)
+                  </span>
                 </label>
                 <span className={styles.errorSpan}>{displayError("Tier")}</span>
               </div>

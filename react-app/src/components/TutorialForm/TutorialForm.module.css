@@ -11,6 +11,12 @@
     flex-direction: column;
 }
 
+.header {
+    margin: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--greyTheme);
+}
+
 .inputsDiv {
     display: flex;
     justify-content: space-between;
@@ -22,12 +28,6 @@
 
 .formSectionRight {
     width: 40%;
-}
-
-.header {
-    margin: 0;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--greyTheme);
 }
 
 .inputLabel {
@@ -61,13 +61,32 @@
     font-weight: 300;
 }
 
-.saveButton {
-    margin: 25px 0;
+.previewImgDiv {
+    width: 284px;
+    height: 158px;
+    background-image: url("https://thekrauseagency.com/wp-content/themes/consultix/images/no-image-found-360x250.png");
+    background-position: center center;
+}
+
+.previewImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewVideoDiv {
+    background-image: url('https://moviemaker.minitool.com/images/uploads/articles/2020/08/youtube-video-not-available/youtube-video-not-available-1.png');
+    background-position: center center;
+    background-size: cover;
 }
 
 .tierMssg {
     font-weight: 500;
     display: block;
+}
+
+.saveButton {
+    margin: 25px 0;
 }
 
 @media screen and (max-width: 1100px) {
