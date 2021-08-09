@@ -34,3 +34,27 @@
     justify-content: space-between;
     margin: 4px 0;
 }
+
+@media screen and (max-width: 1000px) {
+    .filterContainer {
+        width: 100%;
+    }
+
+    .allFiltersDiv {
+        border-right: none;
+        border-bottom: 1px solid var(--greyTheme);
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 30px;
+    }
+
+    .allFiltersDiv > * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .filterUl {
+        width: 180px;
+    }
+}
