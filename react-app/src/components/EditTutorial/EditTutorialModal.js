@@ -17,7 +17,6 @@ const EditTutorial = ({ setShowModal }) => {
   const [style_id, setStyleId] = useState(tutorial.styleId);
   const [level_id, setLevelId] = useState(tutorial.levelId);
   const [tier_id, setTierId] = useState(tutorial.tierId);
-  // const [tags, setTags] = useState(tutorial.tags);
 
   const values = {
     errors,
