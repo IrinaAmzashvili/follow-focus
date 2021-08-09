@@ -1,134 +1,52 @@
-# Flask React Project
+# Follow Focus
 
-This is the starter for the Flask React project.
+[Visit Follow Focus](https://follow-focus.herokuapp.com/)
 
-## Getting started
+[Wiki Pages](https://github.com/IrinaAmzashvili/follow-focus/wiki)
 
-1. Clone this repository (only this branch)
+![Banner](https://user-images.githubusercontent.com/79552414/128668760-93467036-2104-4b79-89c0-0935f4f4fe32.png)
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+## Summary
 
-2. Install dependencies
+Follow Focus is a subscription based site where users can learn how to dance a variety of swing dances. Once signed up, users gain access to a wide range of video tutorials they can watch and learn from.
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Structure Overview
+The backend of this app was built using Python and Flask integrated with SQLAlchemy to interact with a postrgreSQL database. The ReSTful convention was followed in all backend API routes. The frontend of this app was built using React and Redux. React allows for quick rerendering without requiring pages to refresh and Redux manages the application's state.
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+### Technologies Used
+- Python
+- Flask
+- SQLAlchemy
+- Alembic?
+- PostgreSQL
+- Javascript
+- React
+- Redux
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+# Primary Features
+### User Login and Sign Up
+![signup](https://user-images.githubusercontent.com/79552414/128668183-a94670cf-7e8c-4b4a-9fe9-1c58ed6c07a2.png)
 
-   ```bash
-   pipenv shell
-   ```
+### Splash Page
+The splash page is display for logged out users and unregistered members.
+![Splash Page](https://user-images.githubusercontent.com/79552414/128668141-d620837c-5064-4cd5-9806-d55e40ff0c71.png)
 
-   ```bash
-   flask db upgrade
-   ```
+### Tutorials Page
+All tutorials available to the logged in user are displayed on the tutorials page. Only 16 videos are displayed at a time and the user can navigate to the next and previous pages of tutorials if applicable. Users may use the search bar to search for videos by title.
+![Tutorials Page](https://user-images.githubusercontent.com/79552414/128669049-edc75243-891f-4295-845a-2410b685da72.png)
+![image](https://user-images.githubusercontent.com/79552414/128669154-706c4660-9ac2-4cbe-85b4-a04c43c7e558.png)
 
-   ```bash
-   flask seed all
-   ```
+### Filter Tutorials
+Tutorials can be filtered by dance styles and levels. If no options are selected, the "All" option is automatically checked.
+![filter](https://user-images.githubusercontent.com/79552414/128669256-8004cac2-8cbd-4f06-9021-3f9eb9afba6f.png)
 
-   ```bash
-   flask run
-   ```
+### Individual Tutorial Page
+Users can navigate to a specific tutorial page to watch the tutorial as well as create, read, update, and delete comments.
+![tutorial page](https://user-images.githubusercontent.com/79552414/128669510-4a2aec0d-529a-44a9-b4f7-da0285c8bfa0.png)
+![comments](https://user-images.githubusercontent.com/79552414/128669672-a5001629-a925-42b5-a3ca-8532724c8a44.png)
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Content Creator
+Content creators have the ability to create, edit, and delete tutorials.
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+![create](https://user-images.githubusercontent.com/79552414/128669857-409a9e83-2b21-45ff-b52c-fc2c364fb00d.png)
+![delete](https://user-images.githubusercontent.com/79552414/128669891-470b7943-b347-4678-8a26-c502361c5710.png)
