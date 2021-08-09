@@ -69,3 +69,16 @@
     font-weight: 500;
     display: block;
 }
+
+@media screen and (max-width: 1100px) {
+    .tutorialModal {
+        width: 530px;
+    }
+}
+
+@media screen and (max-width: 677px) {
+    .tutorialModal {
+        padding: 50px 21px;
+        width: 450px;
+    }
+}

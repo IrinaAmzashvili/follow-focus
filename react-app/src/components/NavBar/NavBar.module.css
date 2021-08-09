@@ -23,3 +23,16 @@
 .navLink {
     padding-bottom: 5px;
 }
+
+@media screen and (max-width: 1025px) {
+    .navbarLinks {
+        justify-content: center;
+        margin: 14px 0;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .navbarLinks > li {
+        padding: 0 35px;
+    }
+}
