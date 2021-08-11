@@ -14,14 +14,15 @@ const Comments = ({ tutorial }) => {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const tutComments = useSelector((state) => Object.values(state.comments));
+  const tutorialComments = useSelector((state) => Object.values(state.comments));
 
   const [commentsLoaded, setCommentsLoaded] = useState();
   const [editClicked, setEditClicked] = useState(0);
   const [editBody, setEditBody] = useState("");
   const [commentToEdit, setCommentToEdit] = useState({});
+  const [error, setError] = useState('');
 
-  const allComments = tutComments.sort((comment1, comment2) => {
+  const allComments = tutorialComments.sort((comment1, comment2) => {
     if (new Date(comment1.createdAt) > new Date(comment2.createdAt)) return -1;
     if (new Date(comment1.createdAt) < new Date(comment2.createdAt)) return 1;
     return 0;
@@ -90,13 +91,18 @@ const Comments = ({ tutorial }) => {
             <div className={styles.userCommentDiv} key={i} id={comment.id}>
               <p className={styles.username}>{comment.user?.username}</p>
               <p className={styles.date}>{trimDate(comment.createdAt)}</p>
-              {/* If user clicks edit button, make render textarea and record changes */}
+              {/* If user clicks edit button, render textarea and record changes */}
               {editClicked === comment.id ? (
-                <textarea
-                  value={editBody}
-                  onChange={(e) => setEditBody(e.target.value)}
-                  className={`${styles.editCommentTextarea}`}
-                ></textarea>
+                <>
+                  <textarea
+                    value={editBody}
+                    onChange={(e) => setEditBody(e.target.value)}
+                    className={`${styles.editCommentTextarea}`}
+                  ></textarea>
+                  <div className={styles.errorDiv}>
+                    <span className={styles.error}>{error}</span>
+                  </div>
+                </>
               ) : (
                 <p className={styles.userComment}>{comment.body}</p>
               )}
@@ -112,6 +118,8 @@ const Comments = ({ tutorial }) => {
                       setEditClicked={setEditClicked}
                       setCommentToEdit={setCommentToEdit}
                       commentToEdit={commentToEdit}
+                      error={error}
+                      setError={setError}
                     />
                   ) : null}
                 </div>

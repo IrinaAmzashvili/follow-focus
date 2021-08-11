@@ -9,17 +9,25 @@ const SaveCancelButtons = ({
   setEditClicked,
   commentToEdit,
   setCommentToEdit,
+  setError
 }) => {
   const dispatch = useDispatch();
 
   const handleCancel = (e) => {
     e.preventDefault();
+    setError('');
     setEditClicked(0);
     setCommentToEdit({});
   };
 
   const handleSaveComment = async (e) => {
     e.preventDefault();
+
+    if (editBody.length > 4000) {
+      setError('Comment must be a maximum of 4000 characters');
+      return;
+    };
+    setError('');
     const editedComment = {
       id: e.currentTarget.id,
       body: editBody,

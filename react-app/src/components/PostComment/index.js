@@ -9,9 +9,16 @@ const PostComment = ({ sessionUser, tutorial }) => {
   const dispatch = useDispatch();
 
   const [commentBody, setCommentBody] = useState("");
+  const [error, setError] = useState('');
 
   const handlePost = (e) => {
     e.preventDefault();
+
+    if (commentBody.length > 4000) {
+      setError('Comment must be a maximum of 4000 characters');
+      return;
+    };
+    setError('');
     const newComment = {
       body: commentBody,
       user_id: sessionUser.id,
@@ -38,12 +45,15 @@ const PostComment = ({ sessionUser, tutorial }) => {
       </label>
       {commentBody ? (
         <button
-          className={`${styles.submitButton} icon-button link-button`}
+        className={`${styles.submitButton} icon-button link-button`}
         >
           <RiSendPlane2Fill />
         </button>
       ) : null}
     </form>
+    <div className={styles.errorDiv}>
+      <span className={styles.error}>{error}</span>
+    </div>
   </div>
   )
 }
