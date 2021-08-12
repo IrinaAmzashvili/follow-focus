@@ -38,22 +38,51 @@ const CreateTutorialModal = ({ setShowModal }) => {
     setTierId,
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const errorHandling = () => {
+    const newErrors = [];
 
     const protocolDomain = "https://www.youtube.com/";
     const linkWatch = "watch?v=";
     const linkEmbed = "embed/";
-    let video_link;
 
-    if (videoLink.startsWith(protocolDomain + linkWatch)) {
-      video_link = videoLink.replace("watch?v=", "embed/");
-    } else if (videoLink.startsWith(protocolDomain + linkEmbed)) {
-      video_link = videoLink;
-    } else {
-      setErrors(["not a valid url"]);
-      return;
+    if (
+      !videoLink.startsWith(protocolDomain + linkWatch) ||
+      !videoLink.startsWith(protocolDomain + linkEmbed)
+    ) {
+      newErrors.push("not a valid url");
     }
+    if (!title.length) newErrors.push('Title required');
+    if (!videoLink.length) newErrors.push('Video required');
+    if (!thumbnail_url.length) newErrors.push('Thumbnail required');
+
+    if (title.length < 3) newErrors.push("Title too short");
+    if (title.length > 200) newErrors.push("Title too long");
+    if (description.length > 6000) newErrors.push("Description too long");
+
+    setErrors(newErrors);
+    console.log(newErrors);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    errorHandling();
+
+    // const protocolDomain = "https://www.youtube.com/";
+    // const linkWatch = "watch?v=";
+    // const linkEmbed = "embed/";
+    // let video_link;
+
+    // MAKE SURE THIS WORKS! - add proper displaying
+    if (errors.length) return;
+    // if (videoLink.startsWith(protocolDomain + linkWatch)) {
+      const video_link = videoLink.replace("watch?v=", "embed/");
+    // } else if (videoLink.startsWith(protocolDomain + linkEmbed)) {
+      // video_link = videoLink;
+    // } else {
+      // setErrors(["not a valid url"]);
+      // return;
+    // }
 
     const newTutorial = {
       title,

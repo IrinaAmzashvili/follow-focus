@@ -6,7 +6,7 @@ from app.models import Tutorial
 
 class TutorialForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(
-        min=5, max=200, message='Title must be between 5 and 200 characters.')])
+        min=3, max=200, message='Title must be between 3 and 200 characters.')])
     description = StringField('description', validators=[Length(
         max=6000, message='Title must be no more than 6000 characters.')])
     video_link = StringField('video_link', validators=[DataRequired()])
