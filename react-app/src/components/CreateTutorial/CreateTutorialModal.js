@@ -52,6 +52,8 @@ const CreateTutorialModal = ({ setShowModal }) => {
       !videoLink.startsWith(protocolDomain + linkWatch) ||
       !videoLink.startsWith(protocolDomain + linkEmbed)
     ) {
+      // NOT QUITE WORKING <<<-------------
+      console.log('we shouldn\'t be here')
       newErrors.push("Video: not a valid url");
     }
 
