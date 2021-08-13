@@ -18,11 +18,13 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
   }, [dispatch]);
 
   const displayError = (string) => {
-    if (values.errors.find((error) => error.includes(string))) {
-      if (string === "not a valid url") return string;
-      return "required";
-    }
-    return null;
+    const elErr = values.errors.find((error) => error.includes(string))
+
+    if (!elErr) return null;
+    if (elErr.includes('required')) return "required";
+
+    const separator = elErr.indexOf(':');
+    return elErr.slice(separator + 2)
   };
 
   return (
@@ -64,7 +66,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 </label>
                 <span className={styles.errorSpan}>
                   {displayError("Video")}
-                  {displayError("not a valid url")}
                 </span>
               </div>
               <div>
@@ -133,9 +134,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="styleId">Dance style</label>
-                <span className={styles.errorSpan}>
-                  {displayError("Style")}
-                </span>
               </div>
               <div>
                 <select
@@ -157,9 +155,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="levelId">Tutorial level</label>
-                <span className={styles.errorSpan}>
-                  {displayError("Level")}
-                </span>
               </div>
               <div>
                 <select
@@ -186,7 +181,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                     (will be available to all tiers higher than the selected)
                   </span>
                 </label>
-                <span className={styles.errorSpan}>{displayError("Tier")}</span>
               </div>
               <div>
                 <select

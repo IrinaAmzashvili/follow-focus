@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import useStateRef from 'react-usestateref';
 import { createTutorial } from "../../store/tutorials";
 import TutorialForm from "../TutorialForm";
 import styles from "./CreateTutorial.module.css";
@@ -9,7 +10,7 @@ const CreateTutorialModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors, errorsRef] = useStateRef([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [videoLink, setVideoLink] = useState("");
@@ -19,7 +20,7 @@ const CreateTutorialModal = ({ setShowModal }) => {
   const [tier_id, setTierId] = useState(1);
 
   const values = {
-    errors,
+    errors: errorsRef.current,
     title,
     description,
     videoLink,
@@ -38,43 +39,51 @@ const CreateTutorialModal = ({ setShowModal }) => {
     setTierId,
   };
 
-  const errorHandling = () => {
+  const errorHandling = async () => {
     const newErrors = [];
 
     const protocolDomain = "https://www.youtube.com/";
     const linkWatch = "watch?v=";
     const linkEmbed = "embed/";
 
-    if (
+    if (!videoLink.length) {
+      newErrors.push('Video: required');
+    } else if (
       !videoLink.startsWith(protocolDomain + linkWatch) ||
       !videoLink.startsWith(protocolDomain + linkEmbed)
     ) {
-      newErrors.push("not a valid url");
+      newErrors.push("Video: not a valid url");
     }
-    if (!title.length) newErrors.push('Title required');
-    if (!videoLink.length) newErrors.push('Video required');
-    if (!thumbnail_url.length) newErrors.push('Thumbnail required');
 
-    if (title.length < 3) newErrors.push("Title too short");
-    if (title.length > 200) newErrors.push("Title too long");
-    if (description.length > 6000) newErrors.push("Description too long");
+    if (!title.length) {
+      newErrors.push('Title: required');
+    } else if (title.length < 3) {
+      newErrors.push("Title: too short (minimum 3 characters)");
+    } else if (title.length > 200) {
+      newErrors.push("Title: too long (maximum 200 characters)");
+    }
+
+    if (!thumbnail_url.length) newErrors.push('Thumbnail: required');
+    if (description.length > 6000) newErrors.push("Description: too long");
 
     setErrors(newErrors);
-    console.log(newErrors);
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     errorHandling();
 
+
+
     // const protocolDomain = "https://www.youtube.com/";
     // const linkWatch = "watch?v=";
     // const linkEmbed = "embed/";
     // let video_link;
 
-    // MAKE SURE THIS WORKS! - add proper displaying
-    if (errors.length) return;
+    // MAKE SURE THIS WORKS! - add properly displaying
+    if (errorsRef.current.length) return;
     // if (videoLink.startsWith(protocolDomain + linkWatch)) {
       const video_link = videoLink.replace("watch?v=", "embed/");
     // } else if (videoLink.startsWith(protocolDomain + linkEmbed)) {
