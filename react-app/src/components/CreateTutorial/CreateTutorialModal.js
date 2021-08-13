@@ -58,13 +58,13 @@ const CreateTutorialModal = ({ setShowModal }) => {
     if (!title.length) {
       newErrors.push('Title: required');
     } else if (title.length < 3) {
-      newErrors.push("Title: too short (minimum 3 characters)");
+      newErrors.push("Title: too short (min 3 characters)");
     } else if (title.length > 200) {
-      newErrors.push("Title: too long (maximum 200 characters)");
+      newErrors.push("Title: too long (max 200 characters)");
     }
 
     if (!thumbnail_url.length) newErrors.push('Thumbnail: required');
-    if (description.length > 6000) newErrors.push("Description: too long");
+    if (description.length > 6000) newErrors.push("Description: too long (max 6000 characters)");
 
     setErrors(newErrors);
   };

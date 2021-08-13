@@ -178,7 +178,7 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 <label htmlFor="tierId">
                   Tier
                   <span className={styles.tierMssg}>
-                    (will be available to all tiers higher than the selected)
+                    (available to all tiers higher)
                   </span>
                 </label>
               </div>
