@@ -14,10 +14,12 @@ const EditTutorial = ({ setShowModal }) => {
   const [title, setTitle] = useState(tutorial?.title);
   const [description, setDescription] = useState(tutorial?.description);
   const [videoLink, setVideoLink] = useState(tutorial?.videoLink);
-  const [thumbnail_url, setThumbnailUrl] = useState(tutorial?.thumbnailUrl);
   const [style_id, setStyleId] = useState(tutorial.styleId);
   const [level_id, setLevelId] = useState(tutorial.levelId);
   const [tier_id, setTierId] = useState(tutorial.tierId);
+  const [videoId, setVideoId] = useState('');
+
+  const thumbnail_url = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   const values = {
     errors: errorsRef.current,
@@ -30,11 +32,9 @@ const EditTutorial = ({ setShowModal }) => {
     tier_id,
   };
   const setters = {
-    setErrors,
     setTitle,
     setDescription,
     setVideoLink,
-    setThumbnailUrl,
     setStyleId,
     setLevelId,
     setTierId,
@@ -43,6 +43,16 @@ const EditTutorial = ({ setShowModal }) => {
   useEffect(() => {
     if (tutorial) setIsLoaded(true);
   }, [tutorial]);
+
+  // create thumbnail url
+  useEffect(() => {
+    let extractedId;
+    if (videoLink) {
+      if (videoLink.includes("watch?v=")) extractedId = videoLink.slice(32)
+      if (videoLink.includes("embed/")) extractedId = videoLink.slice(30)
+      setVideoId(extractedId)
+    }
+  }, [videoLink])
 
   const errorHandling = async () => {
     const newErrors = [];
@@ -68,7 +78,6 @@ const EditTutorial = ({ setShowModal }) => {
       newErrors.push("Title: too long (max 200 characters)");
     }
 
-    if (!thumbnail_url.length) newErrors.push('Thumbnail: required');
     if (description.length > 6000) newErrors.push("Description: too long (max 6000 characters)");
 
     setErrors(newErrors);

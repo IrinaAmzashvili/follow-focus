@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import useStateRef from 'react-usestateref';
@@ -14,30 +14,41 @@ const CreateTutorialModal = ({ setShowModal }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [videoLink, setVideoLink] = useState("");
-  const [thumbnail_url, setThumbnailUrl] = useState("");
   const [style_id, setStyleId] = useState(1);
   const [level_id, setLevelId] = useState(1);
   const [tier_id, setTierId] = useState(1);
+  const [videoId, setVideoId] = useState('');
+
+  const thumbnail_url = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   const values = {
     errors: errorsRef.current,
     title,
     description,
     videoLink,
-    thumbnail_url,
     style_id,
     level_id,
     tier_id,
+    thumbnail_url,
   };
   const setters = {
     setTitle,
     setDescription,
     setVideoLink,
-    setThumbnailUrl,
     setStyleId,
     setLevelId,
     setTierId,
   };
+
+  // create thumbnail url
+  useEffect(() => {
+    let extractedId;
+    if (videoLink) {
+      if (videoLink.includes("watch?v=")) extractedId = videoLink.slice(32)
+      if (videoLink.includes("embed/")) extractedId = videoLink.slice(30)
+      setVideoId(extractedId)
+    }
+  }, [videoLink])
 
   const errorHandling = async () => {
     const newErrors = [];
@@ -63,7 +74,6 @@ const CreateTutorialModal = ({ setShowModal }) => {
       newErrors.push("Title: too long (max 200 characters)");
     }
 
-    if (!thumbnail_url.length) newErrors.push('Thumbnail: required');
     if (description.length > 6000) newErrors.push("Description: too long (max 6000 characters)");
 
     setErrors(newErrors);

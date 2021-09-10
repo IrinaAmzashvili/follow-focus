@@ -80,26 +80,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               </div>
             </div>
 
-            <div>
-              <div className={styles.inputLabel}>
-                <label htmlFor="thumbnailUrl" className={styles.requiredField}>
-                  Thumbnail url
-                </label>
-                <span className={styles.errorSpan}>
-                  {displayError("Thumbnail")}
-                </span>
-              </div>
-              <div>
-                <input
-                  id="thumbnailUrl"
-                  className={styles.input}
-                  name="thumbnailUrl"
-                  placeholder="Thumbnail image"
-                  value={values.thumbnail_url}
-                  onChange={(e) => setters.setThumbnailUrl(e.target.value)}
-                ></input>
-              </div>
-            </div>
             <div className={styles.previewImgDiv}>
               {values.thumbnail_url ? (
                 <img
