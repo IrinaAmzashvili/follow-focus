@@ -36,36 +36,41 @@ const DisplayTutorials = ({
   return (
     <>
       {isLoaded ? (
-        <div className={styles.tutorialsContainer}>
-          {tutorialsToDisplay &&
-            tutorialsToDisplay.map((tutorial) => (
-              <div className={styles.videoCard} key={tutorial.id}>
-                <a href={`/tutorials/${tutorial.id}`}>
-                  <div className={styles.cardTop}>
-                    <img
-                      className={styles.thumbnailImg}
-                      src={tutorial.thumbnailUrl}
-                      alt="video thumbnail"
-                    />
-                  </div>
-                  <div className={styles.cardBottom}>
-                    <p className={styles.videoTitle}>
-                      {trimTitle(tutorial.title)}
-                    </p>
-                    {/* <div className={styles.likeButton}>
+        tutorialsToDisplay.length === 0 ? (
+          <p>none available</p>
+        ) : (
+          <div className={styles.tutorialsContainer}>
+            {tutorialsToDisplay &&
+              tutorialsToDisplay.map((tutorial) => (
+                <div className={styles.videoCard} key={tutorial.id}>
+                  <a href={`/tutorials/${tutorial.id}`}>
+                    <div className={styles.cardTop}>
+                      <img
+                        className={styles.thumbnailImg}
+                        src={tutorial.thumbnailUrl}
+                        alt="video thumbnail"
+                      />
+                    </div>
+                    <div className={styles.cardBottom}>
+                      <p className={styles.videoTitle}>
+                        {trimTitle(tutorial.title)}
+                      </p>
+                      {/* <div className={styles.likeButton}>
                         <FiHeart />
                       </div> */}
-                  </div>
-                </a>
-              </div>
-            ))}
-        </div>
+                    </div>
+                  </a>
+                </div>
+              ))}
+          </div>
+        )
       ) : (
         <div>
           {/* Animated by Siyuan Qiu */}
           <Lottie options={defaultOptions} height={200} width={200} />
         </div>
       )}
+
       <div className={styles.prevNextButtonDiv}>
         {start > 0 ? (
           <button className={`link-button`} onClick={handleBeginning}>

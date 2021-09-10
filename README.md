@@ -23,6 +23,7 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 - Python
 - Flask
 - SQLAlchemy
+- Alembic
 - PostgreSQL
 - Javascript
 - React

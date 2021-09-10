@@ -50,6 +50,22 @@
 
 @media screen and (max-width: 1000px) {
     .tutorialsPage {
-        width: 554px;
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .tutorialsDiv {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .videoSearch {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .tutorialsPage {
+        width: 90%;
     }
 }

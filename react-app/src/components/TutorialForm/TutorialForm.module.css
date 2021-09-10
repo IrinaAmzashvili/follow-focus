@@ -88,11 +88,21 @@
     .tutorialModal {
         width: 530px;
     }
+
+    .previewImgDiv {
+        width: 190px;
+        height: 106px;
+    }
 }
 
 @media screen and (max-width: 677px) {
     .tutorialModal {
         padding: 50px 21px;
         width: 450px;
+    }
+
+    .previewImgDiv {
+        width: 180px;
+        height: 102px;
     }
 }

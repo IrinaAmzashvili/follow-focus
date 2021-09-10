@@ -86,3 +86,45 @@
     height: 131px;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .videoCard {
+    margin: 20px 0;
+    width: 100%;
+    height: 500px;
+  }
+
+  .cardTop {
+    height: 450px;
+  }
+
+  .videoTitle {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cardTop {
+    height: 421px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cardTop {
+    height: 421px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .videoCard {
+    height: 356px;
+  }
+  
+  .cardTop {
+    height: 310px;
+  }
+
+  .videoTitle {
+    font-size: 18px;
+  }
+}
