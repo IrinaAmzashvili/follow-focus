@@ -62,12 +62,12 @@ const TutorialsPage = () => {
   const handleBeginning = () => {
     setStart(0);
     setPage(1);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 400);
   };
   const handleNext = () => {
     setStart((prev) => prev + 16);
     setPage(prev => prev + 1);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 400);
   };
   const handlePrevious = () => {
     if (start < 16) {
@@ -76,7 +76,7 @@ const TutorialsPage = () => {
       setStart((prev) => prev - 16);
     }
     setPage(prev => prev - 1);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 400);
   };
 
   /************************* Filter by dance style *************************/
