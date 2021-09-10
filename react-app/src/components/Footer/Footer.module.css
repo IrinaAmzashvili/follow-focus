@@ -21,6 +21,10 @@
     margin-right: 5px;
 }
 
+.developerLinks {
+    margin-top: 4px;
+}
+
 .developerLinks > * {
     margin: 0 5px;
 }
