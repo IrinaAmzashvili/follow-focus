@@ -46,14 +46,12 @@ const CreateTutorialModal = ({ setShowModal }) => {
     const linkWatch = "watch?v=";
     const linkEmbed = "embed/";
 
-    if (!videoLink.length) {
+    if (!videoLink) {
       newErrors.push('Video: required');
     } else if (
-      !videoLink.startsWith(protocolDomain + linkWatch) ||
+      !videoLink.startsWith(protocolDomain + linkWatch) &&
       !videoLink.startsWith(protocolDomain + linkEmbed)
     ) {
-      // NOT QUITE WORKING <<<-------------
-      console.log('we shouldn\'t be here')
       newErrors.push("Video: not a valid url");
     }
 
@@ -77,23 +75,9 @@ const CreateTutorialModal = ({ setShowModal }) => {
 
     errorHandling();
 
-
-
-    // const protocolDomain = "https://www.youtube.com/";
-    // const linkWatch = "watch?v=";
-    // const linkEmbed = "embed/";
-    // let video_link;
-
-    // MAKE SURE THIS WORKS! - add properly displaying
+    // if there are any errors, do not proceed
     if (errorsRef.current.length) return;
-    // if (videoLink.startsWith(protocolDomain + linkWatch)) {
-      const video_link = videoLink.replace("watch?v=", "embed/");
-    // } else if (videoLink.startsWith(protocolDomain + linkEmbed)) {
-      // video_link = videoLink;
-    // } else {
-      // setErrors(["not a valid url"]);
-      // return;
-    // }
+    const video_link = videoLink.replace("watch?v=", "embed/");
 
     const newTutorial = {
       title,

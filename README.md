@@ -19,7 +19,7 @@ Follow Focus is a subscription based site where users can learn how to dance a v
 ## Structure Overview
 The backend of this app was built using Python and Flask integrated with SQLAlchemy to interact with a postrgreSQL database. The ReSTful convention was followed in all backend API routes. The frontend of this app was built using React and Redux. React allows for quick rerendering without requiring pages to refresh and Redux manages the application's state.
 
-### Technologies Used
+### Libraries and Technologies Used
 - Python
 - Flask
 - SQLAlchemy
@@ -28,6 +28,16 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 - Javascript
 - React
 - Redux
+- react-router-dom
+- react-usestateref
+- react-scripts
+- react-player
+- react-waypoint
+- react-router-hash-link
+- react-icons
+- react-lottie
+- redux-logger
+- redux-thunk
 
 # Primary Features
 ### User Login and Sign Up
