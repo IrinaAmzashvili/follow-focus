@@ -29,7 +29,7 @@
 .commentButtonsDiv {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 .saveCancelButtonsDiv {
@@ -47,6 +47,15 @@
 
 .editCommentTextarea {
     width: 100%;
+}
+
+.errorDiv {
+    height: 22px;
+}
+
+.error {
+    color: #FA6666;
+    font-weight: 400;
 }
 
 .editDeleteButtonsDiv {
