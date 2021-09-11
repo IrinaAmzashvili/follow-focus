@@ -54,7 +54,7 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 
 ## Primary Features
 ### User Login and Sign Up
-![signup](https://user-images.githubusercontent.com/79552414/128668183-a94670cf-7e8c-4b4a-9fe9-1c58ed6c07a2.png)
+<img src="https://user-images.githubusercontent.com/79552414/128668183-a94670cf-7e8c-4b4a-9fe9-1c58ed6c07a2.png" alt="signup modal" width="400"/>
 
 ### Splash Page
 The splash page is display for logged out users and unregistered members.
