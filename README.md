@@ -68,6 +68,7 @@ All tutorials available to the logged in user are displayed on the tutorials pag
 ### Filter Tutorials
 Tutorials can be filtered by dance styles and levels. If no options are selected, the "All" option is automatically checked.
 ![filter code](https://user-images.githubusercontent.com/79552414/132932402-f55f1b11-1800-424b-b799-2c293eb12952.png)
+![code](https://user-images.githubusercontent.com/79552414/132932456-987e4abe-343b-4227-bba2-4661057ddc92.png)
 
 ![filter](https://user-images.githubusercontent.com/79552414/128669256-8004cac2-8cbd-4f06-9021-3f9eb9afba6f.png)
 
