@@ -19,7 +19,7 @@ const CreateTutorialModal = ({ setShowModal }) => {
   const [tier_id, setTierId] = useState(1);
   const [videoId, setVideoId] = useState('');
 
-  const thumbnail_url = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const thumbnail_url = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   const values = {
     errors: errorsRef.current,
