@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import styles from "./AboutUs.module.css";
 
 const AboutUs = () => {
@@ -19,8 +19,8 @@ const AboutUs = () => {
         </p>
       </div>
       <div>
+        <p className={styles.listTitle}>What to expect:</p>
         <ul className={styles.list}>
-          What to expect:
           <li> Lindy Hop Drills/Technique/Styling</li>
           <li> Historical Clip Breakdowns</li>
           <li> Choreography</li>
