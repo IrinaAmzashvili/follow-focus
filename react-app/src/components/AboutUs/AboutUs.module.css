@@ -15,3 +15,8 @@
     list-style-type: disc;
     padding-left: 17px;
 }
+
+.listTitle {
+    font-weight: 600;
+}
+
