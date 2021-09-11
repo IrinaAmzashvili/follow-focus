@@ -57,31 +57,41 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 <img src="https://user-images.githubusercontent.com/79552414/128668183-a94670cf-7e8c-4b4a-9fe9-1c58ed6c07a2.png" alt="signup modal" width="400"/>
 
 ### Splash Page
-The splash page is display for logged out users and unregistered members.
-![Splash Page](https://user-images.githubusercontent.com/79552414/128668141-d620837c-5064-4cd5-9806-d55e40ff0c71.png)
+The splash page is display for logged out users and unregistered members. It displays an embedded video using the React Player library providing the user with a delightful welcome experience.
+
+<img src="https://user-images.githubusercontent.com/79552414/128668141-d620837c-5064-4cd5-9806-d55e40ff0c71.png" alt="splash page" width="800"/>
 
 ### Tutorials Page
-All tutorials available to the logged in user are displayed on the tutorials page. Only 16 videos are displayed at a time and the user can navigate to the next and previous pages of tutorials if applicable. Users may use the search bar to search for videos by title.
-![Tutorials Page](https://user-images.githubusercontent.com/79552414/128669049-edc75243-891f-4295-845a-2410b685da72.png)
-![image](https://user-images.githubusercontent.com/79552414/128669154-706c4660-9ac2-4cbe-85b4-a04c43c7e558.png)
+All tutorials available to the logged in user are displayed on the tutorials page with pagination and a search feature included. Only 16 videos are displayed at a time and the user can navigate to the next and previous pages of tutorials if applicable. Users may use the search bar to search for videos by title.
+<img src="https://user-images.githubusercontent.com/79552414/128669049-edc75243-891f-4295-845a-2410b685da72.png" alt="tutorials page" width="800"/>
+
+<img src="https://user-images.githubusercontent.com/79552414/132932908-68916e51-627b-4d65-8f72-19369104a911.png" alt="pagination code" width="400"/>
+
+<img src="https://user-images.githubusercontent.com/79552414/132932954-5a96842d-00a7-4085-baf4-2a5ff3148a69.png" alt="pagination code" width="500"/>
+
 
 ### Filter Tutorials
 Tutorials can be filtered by dance styles and levels. If no options are selected, the "All" option is automatically checked.
-![filter code](https://user-images.githubusercontent.com/79552414/132932402-f55f1b11-1800-424b-b799-2c293eb12952.png)
-![code](https://user-images.githubusercontent.com/79552414/132932456-987e4abe-343b-4227-bba2-4661057ddc92.png)
 
-![filter](https://user-images.githubusercontent.com/79552414/128669256-8004cac2-8cbd-4f06-9021-3f9eb9afba6f.png)
+<img src="https://user-images.githubusercontent.com/79552414/128669256-8004cac2-8cbd-4f06-9021-3f9eb9afba6f.png" alt="filter" width="300"/>
+
+<img src="https://user-images.githubusercontent.com/79552414/132932402-f55f1b11-1800-424b-b799-2c293eb12952.png" alt="filter code" width="700"/>
+
+<img src="https://user-images.githubusercontent.com/79552414/132932456-987e4abe-343b-4227-bba2-4661057ddc92.png" alt="filter code" width="500"/>
 
 ### Individual Tutorial Page
 Users can navigate to a specific tutorial page to watch the tutorial as well as create, read, update, and delete comments.
-![tutorial page](https://user-images.githubusercontent.com/79552414/128669510-4a2aec0d-529a-44a9-b4f7-da0285c8bfa0.png)
-![comments](https://user-images.githubusercontent.com/79552414/128669672-a5001629-a925-42b5-a3ca-8532724c8a44.png)
+
+<img src="https://user-images.githubusercontent.com/79552414/128669510-4a2aec0d-529a-44a9-b4f7-da0285c8bfa0.png" alt="tutorail page" width="800"/>
+
+<img src="https://user-images.githubusercontent.com/79552414/128669672-a5001629-a925-42b5-a3ca-8532724c8a44.png" alt="commments" width="800"/>
+
 
 ### Content Creator
 Content creators have the ability to create, edit, and delete tutorials.
 
-![create](https://user-images.githubusercontent.com/79552414/128669857-409a9e83-2b21-45ff-b52c-fc2c364fb00d.png)
-![delete](https://user-images.githubusercontent.com/79552414/128669891-470b7943-b347-4678-8a26-c502361c5710.png)
+<img src="https://user-images.githubusercontent.com/79552414/128669857-409a9e83-2b21-45ff-b52c-fc2c364fb00d.png" alt="edit modal" width="600"/>
+<img src="https://user-images.githubusercontent.com/79552414/128669891-470b7943-b347-4678-8a26-c502361c5710.png" alt="delete confirmation modal" width="400"/>
 
 ## Conclusion and Future Features
 It was a special treat getting to work with my sister on this site. We have been collaborating as dancers for about a decade now but it has always been a dream of ours to collaborate in a way that utilizes our technical skills.
