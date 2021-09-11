@@ -18,11 +18,13 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
   }, [dispatch]);
 
   const displayError = (string) => {
-    if (values.errors.find((error) => error.includes(string))) {
-      if (string === "not a valid url") return string;
-      return "required";
-    }
-    return null;
+    const elErr = values.errors.find((error) => error.includes(string))
+
+    if (!elErr) return null;
+    if (elErr.includes('required')) return "required";
+
+    const separator = elErr.indexOf(':');
+    return elErr.slice(separator + 2)
   };
 
   return (
@@ -64,7 +66,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 </label>
                 <span className={styles.errorSpan}>
                   {displayError("Video")}
-                  {displayError("not a valid url")}
                 </span>
               </div>
               <div>
@@ -79,26 +80,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
               </div>
             </div>
 
-            <div>
-              <div className={styles.inputLabel}>
-                <label htmlFor="thumbnailUrl" className={styles.requiredField}>
-                  Thumbnail url
-                </label>
-                <span className={styles.errorSpan}>
-                  {displayError("Thumbnail")}
-                </span>
-              </div>
-              <div>
-                <input
-                  id="thumbnailUrl"
-                  className={styles.input}
-                  name="thumbnailUrl"
-                  placeholder="Thumbnail image"
-                  value={values.thumbnail_url}
-                  onChange={(e) => setters.setThumbnailUrl(e.target.value)}
-                ></input>
-              </div>
-            </div>
             <div className={styles.previewImgDiv}>
               {values.thumbnail_url ? (
                 <img
@@ -133,9 +114,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="styleId">Dance style</label>
-                <span className={styles.errorSpan}>
-                  {displayError("Style")}
-                </span>
               </div>
               <div>
                 <select
@@ -157,9 +135,6 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
             <div>
               <div className={styles.inputLabel}>
                 <label htmlFor="levelId">Tutorial level</label>
-                <span className={styles.errorSpan}>
-                  {displayError("Level")}
-                </span>
               </div>
               <div>
                 <select
@@ -183,10 +158,9 @@ const TutorialForm = ({ handleSubmit, values, setters, title }) => {
                 <label htmlFor="tierId">
                   Tier
                   <span className={styles.tierMssg}>
-                    (will be available to all tiers higher than the selected)
+                    (available to all tiers higher)
                   </span>
                 </label>
-                <span className={styles.errorSpan}>{displayError("Tier")}</span>
               </div>
               <div>
                 <select

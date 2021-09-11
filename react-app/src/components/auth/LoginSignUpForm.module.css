@@ -4,6 +4,7 @@
 .formContainer {
     width: 600px;
     padding: 50px 70px;
+    padding-top: 20px;
 }
 
 .form {
@@ -25,6 +26,12 @@
     color: #FA6666;
     height: 15px;
     margin: 7px 0;
+}
+
+.nameDivs {
+    height: 36px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .input {

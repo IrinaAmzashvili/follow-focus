@@ -67,7 +67,7 @@ const SignUpForm = (props) => {
 
         <div className={styles.signupNameDivContainer}>
           <div className={styles.signupNameDiv}>
-            <div className={styles.labelDivs}>
+            <div className={`${styles.labelDivs} ${styles.nameDivs}`}>
               <label htmlFor="first_name">{displayError("First")}</label>
             </div>
             <input
@@ -83,7 +83,7 @@ const SignUpForm = (props) => {
           </div>
 
           <div className={styles.signupNameDiv}>
-            <div className={styles.labelDivs}>
+            <div className={`${styles.labelDivs} ${styles.nameDivs}`}>
               <label htmlFor="last_name">{displayError("Last")}</label>
             </div>
             <input

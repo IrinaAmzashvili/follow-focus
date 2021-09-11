@@ -9,6 +9,15 @@
     position: relative;
 }
 
+.errorDiv {
+    height: 22px;
+}
+
+.error {
+    color: #FA6666;
+    font-weight: 400;
+}
+
 .commentTextarea {
     width: 100%;
     height: 60px;

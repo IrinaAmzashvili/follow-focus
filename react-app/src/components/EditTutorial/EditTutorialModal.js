@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useStateRef from 'react-usestateref';
 import { editTutorial } from "../../store/tutorials";
 import TutorialForm from "../TutorialForm";
 import styles from "./EditTutorial.module.css";
@@ -8,18 +9,20 @@ const EditTutorial = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const tutorial = useSelector((state) => state.tutorials.current);
 
+  const [errors, setErrors, errorsRef] = useStateRef([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState(tutorial?.title);
   const [description, setDescription] = useState(tutorial?.description);
   const [videoLink, setVideoLink] = useState(tutorial?.videoLink);
-  const [thumbnail_url, setThumbnailUrl] = useState(tutorial?.thumbnailUrl);
   const [style_id, setStyleId] = useState(tutorial.styleId);
   const [level_id, setLevelId] = useState(tutorial.levelId);
   const [tier_id, setTierId] = useState(tutorial.tierId);
+  const [videoId, setVideoId] = useState('');
+
+  const thumbnail_url = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   const values = {
-    errors,
+    errors: errorsRef.current,
     title,
     description,
     videoLink,
@@ -29,11 +32,9 @@ const EditTutorial = ({ setShowModal }) => {
     tier_id,
   };
   const setters = {
-    setErrors,
     setTitle,
     setDescription,
     setVideoLink,
-    setThumbnailUrl,
     setStyleId,
     setLevelId,
     setTierId,
@@ -43,22 +44,52 @@ const EditTutorial = ({ setShowModal }) => {
     if (tutorial) setIsLoaded(true);
   }, [tutorial]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // create thumbnail url
+  useEffect(() => {
+    let extractedId;
+    if (videoLink) {
+      if (videoLink.includes("watch?v=")) extractedId = videoLink.slice(32)
+      if (videoLink.includes("embed/")) extractedId = videoLink.slice(30)
+      setVideoId(extractedId)
+    }
+  }, [videoLink])
+
+  const errorHandling = async () => {
+    const newErrors = [];
 
     const protocolDomain = "https://www.youtube.com/";
     const linkWatch = "watch?v=";
     const linkEmbed = "embed/";
-    let video_link;
 
-    if (videoLink.startsWith(protocolDomain + linkWatch)) {
-      video_link = videoLink.replace("watch?v=", "embed/");
-    } else if (videoLink.startsWith(protocolDomain + linkEmbed)) {
-      video_link = videoLink;
-    } else {
-      setErrors(["not a valid url"]);
-      return;
+    if (!videoLink) {
+      newErrors.push('Video: required');
+    } else if (
+      !videoLink.startsWith(protocolDomain + linkWatch) &&
+      !videoLink.startsWith(protocolDomain + linkEmbed)
+    ) {
+      newErrors.push("Video: not a valid url");
     }
+
+    if (!title.length) {
+      newErrors.push('Title: required');
+    } else if (title.length < 3) {
+      newErrors.push("Title: too short (min 3 characters)");
+    } else if (title.length > 200) {
+      newErrors.push("Title: too long (max 200 characters)");
+    }
+
+    if (description.length > 6000) newErrors.push("Description: too long (max 6000 characters)");
+
+    setErrors(newErrors);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    errorHandling();
+
+    if (errorsRef.current.length) return;
+    const video_link = videoLink.replace("watch?v=", "embed/");
 
     const editedTutorial = {
       id: tutorial.id,

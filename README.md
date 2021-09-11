@@ -34,6 +34,16 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 - Javascript
 - React
 - Redux
+- react-router-dom
+- react-usestateref
+- react-scripts
+- react-player
+- react-waypoint
+- react-router-hash-link
+- react-icons
+- react-lottie
+- redux-logger
+- redux-thunk
 
 ## Primary Features
 ### User Login and Sign Up
