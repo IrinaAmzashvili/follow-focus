@@ -1,8 +1,14 @@
 # Follow Focus
 
-[Visit Follow Focus](https://follow-focus.herokuapp.com/)
+*By Irina Amzashvili - [visit Follow Focus](https://follow-focus.herokuapp.com/)*
 
-[Wiki Pages](https://github.com/IrinaAmzashvili/follow-focus/wiki)
+*[Wiki Pages](https://github.com/IrinaAmzashvili/follow-focus/wiki)*
+
+**Table of Contents**
+- [Summary](#Summary)
+- [Structure Overview](#Structure-Overview)
+- [Primary Features](#Primary-Features)
+- [Conclusion and Future Features](#Conclusion-and-Future-Features)
 
 ![Banner](https://user-images.githubusercontent.com/79552414/128668760-93467036-2104-4b79-89c0-0935f4f4fe32.png)
 
@@ -19,7 +25,7 @@ Follow Focus is a subscription based site where users can learn how to dance a v
 ## Structure Overview
 The backend of this app was built using Python and Flask integrated with SQLAlchemy to interact with a postrgreSQL database. The ReSTful convention was followed in all backend API routes. The frontend of this app was built using React and Redux. React allows for quick rerendering without requiring pages to refresh and Redux manages the application's state.
 
-### Technologies Used
+### Libraries and Technologies Used
 - Python
 - Flask
 - SQLAlchemy
@@ -29,7 +35,7 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 - React
 - Redux
 
-# Primary Features
+## Primary Features
 ### User Login and Sign Up
 ![signup](https://user-images.githubusercontent.com/79552414/128668183-a94670cf-7e8c-4b4a-9fe9-1c58ed6c07a2.png)
 
@@ -56,3 +62,10 @@ Content creators have the ability to create, edit, and delete tutorials.
 
 ![create](https://user-images.githubusercontent.com/79552414/128669857-409a9e83-2b21-45ff-b52c-fc2c364fb00d.png)
 ![delete](https://user-images.githubusercontent.com/79552414/128669891-470b7943-b347-4678-8a26-c502361c5710.png)
+
+## Conclusion and Future Features
+<!-- Follow Focus is a collaboration between myself and my sister, Natalia Eristavi. -->
+**Next Steps:**
+- subscription tiers
+- monthly user subscription
+- payment system using square or paypal libraries
