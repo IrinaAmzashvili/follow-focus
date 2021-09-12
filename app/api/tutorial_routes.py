@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from sqlalchemy import desc
 from flask_login import current_user
-from app.models import db, Tutorial
+from app.models import db, Tutorial, Style, Level
 from .auth_routes import validation_errors_to_error_messages
 from app.forms import TutorialForm
 
@@ -33,6 +33,14 @@ def get_tutorials():
     level_ids_list = json_data['level_ids_list']
     start_num = json_data['start_num']
 
+    print('======>', not style_ids_list)
+    if not style_ids_list:
+        styles = Style.query.all()
+        style_ids_list = [style.id for style in styles]
+
+    if not level_ids_list:
+        levels = Level.query.all()
+        level_ids_list = [level.id for level in levels]
     # query for tutorials that match user tier id
     if current_user.tier_id == 1:
         tier = [1]

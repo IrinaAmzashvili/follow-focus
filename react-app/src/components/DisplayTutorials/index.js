@@ -8,7 +8,6 @@ import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
 import styles from "./DisplayTutorials.module.css";
 
 const DisplayTutorials = ({
-  tutorialsToDisplay,
   isLoaded,
   handlePrevious,
   handleNext,
@@ -37,12 +36,12 @@ const DisplayTutorials = ({
   return (
     <>
       {isLoaded ? (
-        tutorialsToDisplay.length === 0 ? (
+        allTutorials.length === 0 ? (
           <p>none available</p>
         ) : (
           <div className={styles.tutorialsContainer}>
-            {tutorialsToDisplay &&
-              tutorialsToDisplay.map((tutorial) => (
+            {allTutorials &&
+              allTutorials.map((tutorial) => (
                 <div className={styles.videoCard} key={tutorial.id}>
                   <a href={`/tutorials/${tutorial.id}`}>
                     <div className={styles.cardTop}>

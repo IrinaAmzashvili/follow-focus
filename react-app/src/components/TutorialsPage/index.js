@@ -149,20 +149,14 @@ const TutorialsPage = () => {
     if (!checkedLevels.length) setAllLevelsChecked(true);
   }, [checkedLevels]);
 
-  // display only 16 videos at a time
-  let tutorialsToDisplay = allTutorials;
-  // if (isLoaded) {
-  //   tutorialsToDisplay = allTutorials;
-  // }
-
   let data;
-  if (levelsLoaded && stylesLoaded) {
+  // if (levelsLoaded && stylesLoaded) {
     data = {
       start_num: start,
-      style_ids_list: checkedStyles.length ? checkedStyles : danceStyles.map(style => style.id),
-      level_ids_list: checkedLevels.length ? checkedLevels : tutorialLevels.map(level => level.id),
+      style_ids_list: checkedStyles,
+      level_ids_list: checkedLevels,
     }
-  }
+  // }
   console.log('====>1', data)
 
   // fetch tutorials
@@ -182,7 +176,7 @@ const TutorialsPage = () => {
       })();
     // }
     return () => dispatch(unloadTutorials());
-  }, [dispatch, start]);
+  }, [dispatch, start, checkedStyles, checkedLevels]);
   // , danceStyles, tutorialLevels, checkedStyles, checkedLevels
 
 
@@ -220,7 +214,6 @@ const TutorialsPage = () => {
         </div>
 
         <DisplayTutorials
-          tutorialsToDisplay={tutorialsToDisplay}
           isLoaded={isLoaded}
           handlePrevious={handlePrevious}
           handleNext={handleNext}
