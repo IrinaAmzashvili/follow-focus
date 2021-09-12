@@ -18,59 +18,6 @@ const TutorialsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  /************************* Handling Tutorials *************************/
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [search, setSearch] = useState("");
-  const [numOfTutorials, setNumOfTutorials] = useState(0);
-  const [start, setStart] = useState(0);
-  const [page, setPage] = useState(1);
-
-  // grab all tutorials, sort by date
-  let allTutorials = useSelector((state) =>
-    Object.values(state.tutorials.all).sort((tutorial1, tutorial2) => {
-      if (new Date(tutorial1.date) > new Date(tutorial2.date)) return -1;
-      if (new Date(tutorial1.date) < new Date(tutorial2.date)) return 1;
-      return 0;
-    })
-  );
-
-  // search feature
-  const searchFeature = () => {
-    if (isLoaded) {
-      return allTutorials.filter((tutorial) =>
-        tutorial.title.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-  };
-  allTutorials = searchFeature();
-
-  // when searching, reset page to show first videos
-  useEffect(() => {
-    setStart(0);
-    setPage(1);
-  }, [search]);
-
-  // show next 16 and previous 16 videos
-  const handleBeginning = () => {
-    setStart(0);
-    setPage(1);
-    window.scrollTo(0, 400);
-  };
-  const handleNext = () => {
-    setStart((prev) => prev + 16);
-    setPage(prev => prev + 1);
-    window.scrollTo(0, 400);
-  };
-  const handlePrevious = () => {
-    if (start < 16) {
-      setStart(0);
-    } else {
-      setStart((prev) => prev - 16);
-    }
-    setPage(prev => prev - 1);
-    window.scrollTo(0, 400);
-  };
-
   /************************* Filter by dance style *************************/
   const [stylesLoaded, setStylesLoaded] = useState(false);
   const [allStylesChecked, setAllStylesChecked] = useState(true);
@@ -149,36 +96,79 @@ const TutorialsPage = () => {
     if (!checkedLevels.length) setAllLevelsChecked(true);
   }, [checkedLevels]);
 
-  let data;
-  // if (levelsLoaded && stylesLoaded) {
-    data = {
-      start_num: start,
-      style_ids_list: checkedStyles,
-      level_ids_list: checkedLevels,
-    }
-  // }
-  console.log('====>1', data)
+  /************************* Handling Tutorials *************************/
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [search, setSearch] = useState("");
+  const [numOfTutorials, setNumOfTutorials] = useState(0);
+  const [start, setStart] = useState(0);
+  const [page, setPage] = useState(1);
+
+  // grab all tutorials, sort by date
+  let allTutorials = useSelector((state) =>
+    Object.values(state.tutorials.all).sort((tutorial1, tutorial2) => {
+      if (new Date(tutorial1.date) > new Date(tutorial2.date)) return -1;
+      if (new Date(tutorial1.date) < new Date(tutorial2.date)) return 1;
+      return 0;
+    })
+  );
+
+  const data = {
+    start_num: start,
+    style_ids_list: checkedStyles,
+    level_ids_list: checkedLevels,
+  };
 
   // fetch tutorials
   useEffect(() => {
-    // if (levelsLoaded && stylesLoaded) {
-
-      (async () => {
-        // const data = {
-        //   start_num: start,
-        //   style_ids_list: checkedStyles.length ? checkedStyles : danceStyles.map(style => style.id),
-        //   level_ids_list: checkedLevels.length ? checkedLevels : tutorialLevels.map(level => level.id),
-        // }
-        console.log('====>2', data)
-        const res = await dispatch(getTutorials(data));
-        setNumOfTutorials(res);
-        setIsLoaded(true);
-      })();
-    // }
+    (async () => {
+      const res = await dispatch(getTutorials(data));
+      setNumOfTutorials(res);
+      setIsLoaded(true);
+    })();
     return () => dispatch(unloadTutorials());
   }, [dispatch, start, checkedStyles, checkedLevels]);
   // , danceStyles, tutorialLevels, checkedStyles, checkedLevels
 
+  // search feature
+  const searchFeature = () => {
+    if (isLoaded) {
+      return allTutorials.filter((tutorial) =>
+        tutorial.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+  };
+  allTutorials = searchFeature();
+
+  // when searching, reset page to show first videos
+  useEffect(() => {
+    setIsLoaded(false);
+    setStart(0);
+    setPage(1);
+  }, [search]);
+
+  // show next 16 and previous 16 videos
+  const handleBeginning = () => {
+    setIsLoaded(false);
+    setStart(0);
+    setPage(1);
+    window.scrollTo(0, 400);
+  };
+  const handleNext = () => {
+    setIsLoaded(false);
+    setStart((prev) => prev + 16);
+    setPage((prev) => prev + 1);
+    window.scrollTo(0, 400);
+  };
+  const handlePrevious = () => {
+    setIsLoaded(false);
+    if (start < 16) {
+      setStart(0);
+    } else {
+      setStart((prev) => prev - 16);
+    }
+    setPage((prev) => prev - 1);
+    window.scrollTo(0, 400);
+  };
 
   return (
     <div className={styles.tutorialsPage}>
