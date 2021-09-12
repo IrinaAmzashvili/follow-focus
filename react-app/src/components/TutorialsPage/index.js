@@ -116,6 +116,7 @@ const TutorialsPage = () => {
     start_num: start,
     style_ids_list: checkedStyles,
     level_ids_list: checkedLevels,
+    search: search
   };
 
   // fetch tutorials
@@ -126,18 +127,8 @@ const TutorialsPage = () => {
       setIsLoaded(true);
     })();
     return () => dispatch(unloadTutorials());
-  }, [dispatch, start, checkedStyles, checkedLevels]);
+  }, [dispatch, start, checkedStyles, checkedLevels, search]);
   // , danceStyles, tutorialLevels, checkedStyles, checkedLevels
-
-  // search feature
-  const searchFeature = () => {
-    if (isLoaded) {
-      return allTutorials.filter((tutorial) =>
-        tutorial.title.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-  };
-  allTutorials = searchFeature();
 
   // when searching, reset page to show first videos
   useEffect(() => {
