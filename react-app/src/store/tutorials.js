@@ -21,15 +21,28 @@ export const unloadCurrentTutorial = () => ({
   type: UNLOAD_CURRENT_TUTORIAL
 });
 
-export const getTutorials = () => async (dispatch) => {
-  const res = await fetch('/api/tutorials/');
+export const getTutorials = (fetchBody) => async (dispatch) => {
+  const res = await fetch(`/api/tutorials/get`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(fetchBody)
+  });
 
   if (res.ok) {
     const data = await res.json();
-    dispatch(setTutorials(data))
-    return data;
+    dispatch(setTutorials(data.tutorials))
+    return data.length;
   }
 }
+// export const getTutorials = () => async (dispatch) => {
+//   const res = await fetch('/api/tutorials/');
+
+//   if (res.ok) {
+//     const data = await res.json();
+//     dispatch(setTutorials(data))
+//     return data;
+//   }
+// }
 
 export const getOneTutorial = (id) => async (dispatch) => {
   const res = await fetch(`/api/tutorials/${id}`);

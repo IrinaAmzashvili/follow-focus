@@ -8,8 +8,31 @@ from app.forms import TutorialForm
 tutorial_routes = Blueprint('tutorials', __name__)
 
 
-@tutorial_routes.route('/')
+# @tutorial_routes.route('/')
+# def get_tutorials():
+#     # query for tutorials that match user tier id
+#     if current_user.tier_id == 1:
+#         tier = [1]
+#     elif current_user.tier_id == 2:
+#         tier = [1, 2]
+#     elif current_user.tier_id == 3:
+#         tier = [1, 2, 3]
+#     elif current_user.tier_id == 4:
+#         tier = [1, 2, 3, 4]
+#     elif current_user.tier_id == 5:
+#         tier = [1, 2, 3, 4, 5]
+
+#     # all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
+#     all_tutorials = Tutorial.query.all()
+#     return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
+
+@tutorial_routes.route('/get', methods=['POST'])
 def get_tutorials():
+    json_data = request.json
+    style_ids_list = json_data['style_ids_list']
+    level_ids_list = json_data['level_ids_list']
+    start_num = json_data['start_num']
+
     # query for tutorials that match user tier id
     if current_user.tier_id == 1:
         tier = [1]
@@ -21,10 +44,27 @@ def get_tutorials():
         tier = [1, 2, 3, 4]
     elif current_user.tier_id == 5:
         tier = [1, 2, 3, 4, 5]
-
+    # for teirs include:
     # all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
-    all_tutorials = Tutorial.query.all()
-    return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
+
+    all_tutorials = Tutorial.query.filter(Tutorial.style_id.in_(
+        style_ids_list), Tutorial.level_id.in_(level_ids_list)).order_by(
+            desc(Tutorial.date)).all()
+
+    length = len(all_tutorials)
+    tutorials_to_display = all_tutorials[start_num:start_num+16]
+
+    return {'length': length, 'tutorials':
+            {tutorial.id: tutorial.to_dict() for tutorial in
+                tutorials_to_display}}
+
+# On fetch call
+    # query for tutorials ordered by date in descending order
+    # from start_num to start_num+16
+# on filter(POST route?)
+    # query for tutorials that match filter numbers
+    # Tutorial.query.filter(Tutorial.style_id.in_(style_ids_list) && Tutorial.level_id.in_(level_ids_list))
+    # order by date, from start_num to start_num+16
 
 
 @tutorial_routes.route('/<int:id>')

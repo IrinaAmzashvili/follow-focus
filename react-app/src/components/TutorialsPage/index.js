@@ -21,6 +21,7 @@ const TutorialsPage = () => {
   /************************* Handling Tutorials *************************/
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
+  const [numOfTutorials, setNumOfTutorials] = useState(0);
   const [start, setStart] = useState(0);
   const [page, setPage] = useState(1);
 
@@ -32,15 +33,6 @@ const TutorialsPage = () => {
       return 0;
     })
   );
-
-  // fetch tutorials
-  useEffect(() => {
-    (async () => {
-      await dispatch(getTutorials());
-      setIsLoaded(true);
-    })();
-    return () => dispatch(unloadTutorials());
-  }, [dispatch]);
 
   // search feature
   const searchFeature = () => {
@@ -106,14 +98,6 @@ const TutorialsPage = () => {
     setAllStylesChecked(false);
   };
 
-  if (isLoaded) {
-    if (checkedStyles.length) {
-      allTutorials = allTutorials.filter((tutorial) =>
-        checkedStyles.includes(tutorial.styleId.toString())
-      );
-    }
-  }
-
   const handleAllStylesChecked = () => {
     setCheckedStyles([]);
     setAllStylesChecked(true);
@@ -154,14 +138,6 @@ const TutorialsPage = () => {
     setAllLevelsChecked(false);
   };
 
-  if (isLoaded) {
-    if (checkedLevels.length) {
-      allTutorials = allTutorials.filter((tutorial) =>
-        checkedLevels.includes(tutorial.levelId.toString())
-      );
-    }
-  }
-
   const handleAllLevelsChecked = () => {
     setCheckedLevels([]);
     setAllLevelsChecked(true);
@@ -174,10 +150,40 @@ const TutorialsPage = () => {
   }, [checkedLevels]);
 
   // display only 16 videos at a time
-  let tutorialsToDisplay;
-  if (isLoaded) {
-    tutorialsToDisplay = allTutorials.slice(start, start + 16);
+  let tutorialsToDisplay = allTutorials;
+  // if (isLoaded) {
+  //   tutorialsToDisplay = allTutorials;
+  // }
+
+  let data;
+  if (levelsLoaded && stylesLoaded) {
+    data = {
+      start_num: start,
+      style_ids_list: checkedStyles.length ? checkedStyles : danceStyles.map(style => style.id),
+      level_ids_list: checkedLevels.length ? checkedLevels : tutorialLevels.map(level => level.id),
+    }
   }
+  console.log('====>1', data)
+
+  // fetch tutorials
+  useEffect(() => {
+    // if (levelsLoaded && stylesLoaded) {
+
+      (async () => {
+        // const data = {
+        //   start_num: start,
+        //   style_ids_list: checkedStyles.length ? checkedStyles : danceStyles.map(style => style.id),
+        //   level_ids_list: checkedLevels.length ? checkedLevels : tutorialLevels.map(level => level.id),
+        // }
+        console.log('====>2', data)
+        const res = await dispatch(getTutorials(data));
+        setNumOfTutorials(res);
+        setIsLoaded(true);
+      })();
+    // }
+    return () => dispatch(unloadTutorials());
+  }, [dispatch, start]);
+  // , danceStyles, tutorialLevels, checkedStyles, checkedLevels
 
 
   return (
@@ -222,6 +228,7 @@ const TutorialsPage = () => {
           allTutorials={allTutorials}
           handleBeginning={handleBeginning}
           page={page}
+          numOfTutorials={numOfTutorials}
         />
       </div>
     </div>

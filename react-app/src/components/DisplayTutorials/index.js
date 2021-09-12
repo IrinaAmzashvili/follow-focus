@@ -16,6 +16,7 @@ const DisplayTutorials = ({
   start,
   handleBeginning,
   page,
+  numOfTutorials
 }) => {
   // loading animation
   const defaultOptions = {
@@ -84,7 +85,7 @@ const DisplayTutorials = ({
           </button>
         ) : null}
         {/* if on first page of multiple, display 1... or page number without ellipsis */}
-        {allTutorials?.length > 16 ? (
+        {numOfTutorials > 16 ? (
           page === 1 ? (
             <span className={styles.pageNum}>
               {page}
@@ -95,7 +96,7 @@ const DisplayTutorials = ({
           )
         ) : null}
         {/* if not at end of tutorials, display next button as arrow or next number */}
-        {start < allTutorials?.length - 16 ? (
+        { start < numOfTutorials - 16 ? (
           page <= 1 ? (
             <button className={`link-button`} onClick={handleNext}>
               <HiOutlineChevronRight />
