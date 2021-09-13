@@ -1,15 +1,29 @@
 from flask import Blueprint, request
 from sqlalchemy import desc
 from flask_login import current_user
-from app.models import db, Tutorial
+from app.models import db, Tutorial, Style, Level
 from .auth_routes import validation_errors_to_error_messages
 from app.forms import TutorialForm
 
 tutorial_routes = Blueprint('tutorials', __name__)
 
 
-@tutorial_routes.route('/')
+@tutorial_routes.route('/get', methods=['POST'])
 def get_tutorials():
+    json_data = request.json
+    style_ids_list = json_data['style_ids_list']
+    level_ids_list = json_data['level_ids_list']
+    start_num = json_data['start_num']
+    search = json_data['search']
+
+    if not style_ids_list:
+        styles = Style.query.all()
+        style_ids_list = [style.id for style in styles]
+
+    if not level_ids_list:
+        levels = Level.query.all()
+        level_ids_list = [level.id for level in levels]
+        
     # query for tutorials that match user tier id
     if current_user.tier_id == 1:
         tier = [1]
@@ -21,10 +35,20 @@ def get_tutorials():
         tier = [1, 2, 3, 4]
     elif current_user.tier_id == 5:
         tier = [1, 2, 3, 4, 5]
-
+    # for tiers include:
     # all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
-    all_tutorials = Tutorial.query.all()
-    return {tutorial.id: tutorial.to_dict() for tutorial in all_tutorials}
+
+    all_tutorials = Tutorial.query.filter(Tutorial.style_id.in_(
+        style_ids_list), Tutorial.level_id.in_(level_ids_list),
+        Tutorial.title.ilike(f'%{search}%')).order_by(
+            desc(Tutorial.date)).all()
+
+    length = len(all_tutorials)
+    tutorials_to_display = all_tutorials[start_num:start_num+16]
+
+    return {'length': length, 'tutorials':
+            {tutorial.id: tutorial.to_dict() for tutorial in
+                tutorials_to_display}}
 
 
 @tutorial_routes.route('/<int:id>')

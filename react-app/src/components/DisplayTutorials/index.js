@@ -8,7 +8,6 @@ import loadingAnimation from "../../lotties/loading-dots-in-yellow.json";
 import styles from "./DisplayTutorials.module.css";
 
 const DisplayTutorials = ({
-  tutorialsToDisplay,
   isLoaded,
   handlePrevious,
   handleNext,
@@ -16,6 +15,7 @@ const DisplayTutorials = ({
   start,
   handleBeginning,
   page,
+  numOfTutorials
 }) => {
   // loading animation
   const defaultOptions = {
@@ -36,12 +36,12 @@ const DisplayTutorials = ({
   return (
     <>
       {isLoaded ? (
-        tutorialsToDisplay.length === 0 ? (
+        allTutorials.length === 0 ? (
           <p>none available</p>
         ) : (
           <div className={styles.tutorialsContainer}>
-            {tutorialsToDisplay &&
-              tutorialsToDisplay.map((tutorial) => (
+            {allTutorials &&
+              allTutorials.map((tutorial) => (
                 <div className={styles.videoCard} key={tutorial.id}>
                   <a href={`/tutorials/${tutorial.id}`}>
                     <div className={styles.cardTop}>
@@ -84,7 +84,7 @@ const DisplayTutorials = ({
           </button>
         ) : null}
         {/* if on first page of multiple, display 1... or page number without ellipsis */}
-        {allTutorials?.length > 16 ? (
+        {numOfTutorials > 16 ? (
           page === 1 ? (
             <span className={styles.pageNum}>
               {page}
@@ -95,7 +95,7 @@ const DisplayTutorials = ({
           )
         ) : null}
         {/* if not at end of tutorials, display next button as arrow or next number */}
-        {start < allTutorials?.length - 16 ? (
+        { start < numOfTutorials - 16 ? (
           page <= 1 ? (
             <button className={`link-button`} onClick={handleNext}>
               <HiOutlineChevronRight />
