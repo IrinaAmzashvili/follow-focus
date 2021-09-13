@@ -34,15 +34,6 @@ export const getTutorials = (fetchBody) => async (dispatch) => {
     return data.length;
   }
 }
-// export const getTutorials = () => async (dispatch) => {
-//   const res = await fetch('/api/tutorials/');
-
-//   if (res.ok) {
-//     const data = await res.json();
-//     dispatch(setTutorials(data))
-//     return data;
-//   }
-// }
 
 export const getOneTutorial = (id) => async (dispatch) => {
   const res = await fetch(`/api/tutorials/${id}`);

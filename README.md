@@ -59,15 +59,15 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 ### Splash Page
 The splash page is display for logged out users and unregistered members. It displays an embedded video using the React Player library providing the user with a delightful welcome experience.
 
-<img src="https://user-images.githubusercontent.com/79552414/128668141-d620837c-5064-4cd5-9806-d55e40ff0c71.png" alt="splash page" width="800"/>
+<img src="./FF-splash-page-gif.gif" alt="splash page" width="800"/>
 
 ### Tutorials Page
 All tutorials available to the logged in user are displayed on the tutorials page with pagination and a search feature included. Only 16 videos are displayed at a time and the user can navigate to the next and previous pages of tutorials if applicable. Users may use the search bar to search for videos by title.
 <img src="https://user-images.githubusercontent.com/79552414/128669049-edc75243-891f-4295-845a-2410b685da72.png" alt="tutorials page" width="800"/>
 
-<img src="https://user-images.githubusercontent.com/79552414/132932908-68916e51-627b-4d65-8f72-19369104a911.png" alt="pagination code" width="400"/>
+The backend query to get tutorials from the database takes into account any filter selections and search text, orders the resources by date, and only returns 16 tutorials at a time for faster frontend loading.
 
-<img src="https://user-images.githubusercontent.com/79552414/132932954-5a96842d-00a7-4085-baf4-2a5ff3148a69.png" alt="pagination code" width="500"/>
+<img src="https://user-images.githubusercontent.com/79552414/133024870-6dd9a4a6-833a-4e0c-8e8e-00be665f0897.png" alt="backend query code" width="500"/>
 
 
 ### Filter Tutorials
@@ -75,9 +75,8 @@ Tutorials can be filtered by dance styles and levels. If no options are selected
 
 <img src="https://user-images.githubusercontent.com/79552414/128669256-8004cac2-8cbd-4f06-9021-3f9eb9afba6f.png" alt="filter" width="300"/>
 
-<img src="https://user-images.githubusercontent.com/79552414/132932402-f55f1b11-1800-424b-b799-2c293eb12952.png" alt="filter code" width="700"/>
+<img src="https://user-images.githubusercontent.com/79552414/133024659-566a976e-cd9b-461f-876b-b41514dba384.png" alt="filter code" width="700"/>
 
-<img src="https://user-images.githubusercontent.com/79552414/132932456-987e4abe-343b-4227-bba2-4661057ddc92.png" alt="filter code" width="500"/>
 
 ### Individual Tutorial Page
 Users can navigate to a specific tutorial page to watch the tutorial as well as create, read, update, and delete comments.
@@ -90,7 +89,8 @@ Users can navigate to a specific tutorial page to watch the tutorial as well as 
 ### Content Creator
 Content creators have the ability to create, edit, and delete tutorials.
 
-<img src="https://user-images.githubusercontent.com/79552414/128669857-409a9e83-2b21-45ff-b52c-fc2c364fb00d.png" alt="edit modal" width="600"/>
+<img src="https://user-images.githubusercontent.com/79552414/133026101-e7c2a2d5-56df-40fc-8d7b-c85da69d3601.png" alt="edit modal" width="600"/>
+
 <img src="https://user-images.githubusercontent.com/79552414/128669891-470b7943-b347-4678-8a26-c502361c5710.png" alt="delete confirmation modal" width="400"/>
 
 ## Conclusion and Future Features
