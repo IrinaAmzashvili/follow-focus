@@ -59,8 +59,6 @@ The backend of this app was built using Python and Flask integrated with SQLAlch
 ### Splash Page
 The splash page is display for logged out users and unregistered members. It displays an embedded video using the React Player library providing the user with a delightful welcome experience.
 
-
-
 <img src="./FF-splash-page-gif.gif" alt="splash page" width="800"/>
 
 ### Tutorials Page
