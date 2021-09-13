@@ -132,7 +132,6 @@ const TutorialsPage = () => {
     })();
     return () => dispatch(unloadTutorials());
   }, [dispatch, start, checkedStyles, checkedLevels, search]);
-  // , danceStyles, tutorialLevels, checkedStyles, checkedLevels
 
   // when searching, reset page to show first videos
   useEffect(() => {

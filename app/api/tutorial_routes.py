@@ -23,7 +23,7 @@ def get_tutorials():
     if not level_ids_list:
         levels = Level.query.all()
         level_ids_list = [level.id for level in levels]
-        
+
     # query for tutorials that match user tier id
     if current_user.tier_id == 1:
         tier = [1]
