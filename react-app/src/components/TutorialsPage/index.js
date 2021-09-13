@@ -32,6 +32,7 @@ const TutorialsPage = () => {
   }, [dispatch]);
 
   const handleCheckedStyles = (e) => {
+    setIsLoaded(false);
     setStart(0);
     setPage(1);
     const arr = [...checkedStyles];
@@ -46,6 +47,7 @@ const TutorialsPage = () => {
   };
 
   const handleAllStylesChecked = () => {
+    setIsLoaded(false);
     setCheckedStyles([]);
     setAllStylesChecked(true);
     setStart(0);
@@ -72,6 +74,7 @@ const TutorialsPage = () => {
   }, [dispatch]);
 
   const handleCheckedLevels = (e) => {
+    setIsLoaded(false);
     setStart(0);
     setPage(1);
     const arr = [...checkedLevels];
@@ -86,6 +89,7 @@ const TutorialsPage = () => {
   };
 
   const handleAllLevelsChecked = () => {
+    setIsLoaded(false);
     setCheckedLevels([]);
     setAllLevelsChecked(true);
     setStart(0);
