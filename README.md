@@ -1,6 +1,6 @@
 # Follow Focus
 
-*By Irina Amzashvili - [visit Follow Focus](https://follow-focus.herokuapp.com/)*
+<!-- *By Irina Amzashvili - [visit Follow Focus](https://follow-focus.herokuapp.com/)* -->
 
 *[Wiki Pages](https://github.com/IrinaAmzashvili/follow-focus/wiki)*
 
