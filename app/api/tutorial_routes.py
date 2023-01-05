@@ -24,20 +24,6 @@ def get_tutorials():
         levels = Level.query.all()
         level_ids_list = [level.id for level in levels]
 
-    # query for tutorials that match user tier id
-    if current_user.tier_id == 1:
-        tier = [1]
-    elif current_user.tier_id == 2:
-        tier = [1, 2]
-    elif current_user.tier_id == 3:
-        tier = [1, 2, 3]
-    elif current_user.tier_id == 4:
-        tier = [1, 2, 3, 4]
-    elif current_user.tier_id == 5:
-        tier = [1, 2, 3, 4, 5]
-    # for tiers include:
-    # all_tutorials = Tutorial.query.filter(Tutorial.tier_id.in_(tier)).all()
-
     all_tutorials = Tutorial.query.filter(Tutorial.style_id.in_(
         style_ids_list), Tutorial.level_id.in_(level_ids_list),
         Tutorial.title.ilike(f'%{search}%')).order_by(
